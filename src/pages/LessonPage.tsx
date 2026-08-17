@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronRight, ChevronLeft, CheckCircle2, Bookmark, StickyNote,
-  Lightbulb, Code2, PlayCircle, Brain, MessageSquare, Eye, EyeOff, Sparkles, Check, X
+  Lightbulb, Code2, PlayCircle, Brain, MessageSquare, Eye, EyeOff, Sparkles, Check, X,
+  ArrowRight, Award, Zap
 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { ALL_MODULES_META } from '@/data/modules/meta';
@@ -638,37 +639,82 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
         />
       </div>
 
-      {/* Sticky Bottom Progression Bar */}
-      <div className="sticky bottom-0 bg-black/95 backdrop-blur-md py-5 border-t border-[#142a20] mt-10 flex items-center justify-between gap-4 z-20">
-        <div className="flex items-center gap-3">
-          {prevLesson && (
-            <button
-              onClick={() => navigate(`/${moduleKey}/${prevLesson.slug}`)}
-              className="button-secondary text-xs !py-3 !px-5"
-            >
-              <ChevronLeft size={16} />
-              <span>Previous</span>
-            </button>
-          )}
-          {nextLesson && (
-            <button
-              onClick={() => navigate(`/${moduleKey}/${nextLesson.slug}`)}
-              className="button-secondary text-xs !py-3 !px-5"
-            >
-              <span>Next</span>
-              <ChevronRight size={16} />
-            </button>
-          )}
-        </div>
+      {/* Fully Responsive & Smooth Lesson Conclusion & Navigation Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="panel p-7 lg:p-9 rounded-3xl mt-10 border-[#142a20] bg-ambient-radial"
+      >
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Status feedback & XP */}
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center shrink-0 transition-all ${
+              isCompleted
+                ? 'bg-emerald-950/70 border-emerald-500/60 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)]'
+                : 'bg-black/60 border-[#142a20] text-zinc-500'
+            }`}>
+              {isCompleted ? <CheckCircle2 size={28} /> : <Award size={28} className="text-emerald-400" />}
+            </div>
+            <div>
+              <h3 className="font-bold text-white text-base lg:text-lg">
+                {isCompleted ? 'Lesson Mastered!' : 'Ready to Complete This Lesson?'}
+              </h3>
+              <p className="text-xs text-zinc-400 mt-0.5">
+                {isCompleted
+                  ? `Earned +${lesson.xpReward} XP · Milestone added to your local profile.`
+                  : `Mark as complete to claim +${lesson.xpReward} XP and advance your progress.`}
+              </p>
+            </div>
+          </div>
 
-        <button
-          onClick={handleMarkComplete}
-          disabled={isCompleted}
-          className={isCompleted ? "button-secondary text-xs !py-3 !px-6 text-emerald-400 font-bold cursor-default" : "button-primary text-xs !py-3 !px-6"}
-        >
-          {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 size={16} /> Completed</span> : `Mark Complete (+${lesson.xpReward} XP)`}
-        </button>
-      </div>
+          {/* Action buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
+            {prevLesson && (
+              <button
+                onClick={() => navigate(`/${moduleKey}/${prevLesson.slug}`)}
+                className="button-secondary text-xs !py-3 !px-5 flex-1 sm:flex-none"
+              >
+                <ChevronLeft size={16} />
+                <span>Previous</span>
+              </button>
+            )}
+
+            {!isCompleted ? (
+              <button
+                onClick={handleMarkComplete}
+                className="button-primary text-xs !py-3.5 !px-7 flex-1 sm:flex-none"
+              >
+                <Zap size={16} />
+                <span>Mark Complete (+{lesson.xpReward} XP)</span>
+              </button>
+            ) : (
+              <div className="px-5 py-3 rounded-2xl bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 font-bold text-xs flex items-center gap-2 font-mono">
+                <CheckCircle2 size={16} className="text-emerald-400" />
+                <span>Completed</span>
+              </div>
+            )}
+
+            {nextLesson ? (
+              <button
+                onClick={() => navigate(`/${moduleKey}/${nextLesson.slug}`)}
+                className="button-primary text-xs !py-3.5 !px-7 flex-1 sm:flex-none bg-gradient-to-r from-emerald-400 to-teal-300 text-black font-bold"
+              >
+                <span>Next Lesson</span>
+                <ChevronRight size={16} />
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate(`/${moduleKey}`)}
+                className="button-secondary text-xs !py-3 !px-5 flex-1 sm:flex-none"
+              >
+                <span>Back to Module</span>
+                <ArrowRight size={16} />
+              </button>
+            )}
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
