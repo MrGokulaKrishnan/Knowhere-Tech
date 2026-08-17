@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { MessageSquare, Search, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
 import { INTERVIEW_QUESTIONS } from '@/data/interviewData';
 import Badge from '@/components/ui/Badge';
 
@@ -31,38 +31,38 @@ export default function InterviewPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 lg:px-6 py-6 selection:bg-emerald-500/30">
+    <div className="max-w-5xl mx-auto px-6 lg:px-10 py-10 selection:bg-emerald-500/30">
       {/* Header */}
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-1">
-          <MessageSquare className="text-emerald-400" size={22} />
-          <h1 className="text-2xl lg:text-3xl font-display font-bold text-white">
-            Interview Question Bank (500+ Q&A)
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <MessageSquare className="text-emerald-400" size={26} />
+          <h1 className="text-3xl lg:text-4xl font-display font-extrabold text-white">
+            Technical Interview Bank (500+ Q&A)
           </h1>
         </div>
-        <p className="text-zinc-400 text-sm">
-          Technical interview questions across Java 25 LTS, Spring Boot 3, SQL, React 19, Docker, AWS, and System Design.
+        <p className="text-zinc-300 text-base leading-relaxed max-w-3xl">
+          Technical interview questions with deep architectural answers across Java 25 LTS, Spring Boot 3, SQL, React 19, Docker, AWS, and Distributed System Design.
         </p>
       </div>
 
       {/* Filter Controls */}
-      <div className="panel p-4 mb-6">
-        <div className="flex flex-col sm:flex-row gap-3">
+      <div className="panel p-6 mb-8 rounded-3xl">
+        <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
-            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" />
+            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500" />
             <input
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search interview questions by keyword or topic..."
-              className="w-full pl-9 pr-3 py-2 bg-black border border-[#142a20] rounded-xl text-white text-xs outline-none focus:border-emerald-500/60 font-mono placeholder:text-zinc-600"
+              className="w-full pl-11 pr-4 py-3 bg-black border border-[#142a20] rounded-2xl text-white text-sm outline-none focus:border-emerald-500/60 font-mono placeholder:text-zinc-500"
             />
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <select
               value={category}
               onChange={e => setCategory(e.target.value)}
-              className="px-3 py-2 bg-black border border-[#142a20] rounded-xl text-emerald-300 text-xs outline-none focus:border-emerald-500/60 font-mono"
+              className="px-4 py-3 bg-black border border-[#142a20] rounded-2xl text-emerald-300 text-xs outline-none focus:border-emerald-500/60 font-mono cursor-pointer"
             >
               {CATEGORIES.map(c => <option key={c} value={c} className="bg-black text-white">{c}</option>)}
             </select>
@@ -70,7 +70,7 @@ export default function InterviewPage() {
             <select
               value={level}
               onChange={e => setLevel(e.target.value)}
-              className="px-3 py-2 bg-black border border-[#142a20] rounded-xl text-emerald-300 text-xs outline-none focus:border-emerald-500/60 font-mono"
+              className="px-4 py-3 bg-black border border-[#142a20] rounded-2xl text-emerald-300 text-xs outline-none focus:border-emerald-500/60 font-mono cursor-pointer"
             >
               {LEVELS.map(l => <option key={l} value={l} className="bg-black text-white">{l.charAt(0).toUpperCase() + l.slice(1)}</option>)}
             </select>
@@ -78,32 +78,32 @@ export default function InterviewPage() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between text-xs text-zinc-500 mb-3 font-mono">
-        <span>{filtered.length} questions matching filter criteria</span>
+      <div className="flex items-center justify-between text-xs text-zinc-400 mb-4 font-mono">
+        <span>{filtered.length} technical questions matching criteria</span>
       </div>
 
       {/* Questions Stack */}
-      <div className="space-y-3">
+      <div className="space-y-4">
         {filtered.map((q) => (
           <div
             key={q.id}
-            className="panel rounded-2xl overflow-hidden transition-all hover:border-emerald-500/40"
+            className="panel rounded-3xl overflow-hidden transition-all hover:border-emerald-500/50"
           >
             <button
               onClick={() => toggle(q.id)}
-              className="w-full flex items-start justify-between gap-4 p-4 text-left hover:bg-emerald-950/20 transition-colors"
+              className="w-full flex items-start justify-between gap-6 p-6 text-left hover:bg-emerald-950/20 transition-colors"
             >
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2.5 mb-3">
                   <Badge variant="primary" size="xs">{q.category}</Badge>
                   <Badge variant={q.level} size="xs">{q.level}</Badge>
                 </div>
-                <h3 className="font-semibold text-white text-sm leading-snug">
+                <h3 className="font-bold text-white text-base lg:text-lg leading-snug">
                   {q.question}
                 </h3>
               </div>
-              <div className="text-zinc-500 mt-1 shrink-0">
-                {revealed.has(q.id) ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              <div className="text-zinc-500 mt-1 shrink-0 p-2 rounded-xl bg-black border border-[#142a20]">
+                {revealed.has(q.id) ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
               </div>
             </button>
 
@@ -113,14 +113,14 @@ export default function InterviewPage() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="border-t border-[#142a20] bg-black p-4"
+                  className="border-t border-[#142a20] bg-black/90 p-6 lg:p-8"
                 >
-                  <p className="text-zinc-300 text-xs leading-relaxed whitespace-pre-line mb-3">
+                  <p className="text-zinc-200 text-sm leading-relaxed whitespace-pre-line mb-4">
                     {q.answer}
                   </p>
                   {q.example && (
-                    <div className="rounded-xl bg-[#050806] border border-[#142a20] p-3 font-mono text-xs text-emerald-300">
-                      <div className="text-[10px] text-zinc-500 mb-1 font-mono uppercase">Engineering Example</div>
+                    <div className="rounded-2xl bg-[#050806] border border-[#142a20] p-4 font-mono text-xs text-emerald-300">
+                      <div className="text-[11px] text-zinc-500 mb-2 font-mono uppercase font-bold">Engineering Implementation Example</div>
                       {q.example}
                     </div>
                   )}

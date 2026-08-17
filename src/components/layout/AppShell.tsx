@@ -12,7 +12,7 @@ export default function AppShell({ children }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
 
-  // Ctrl+K to open command palette
+  // Ctrl+K command palette shortcut
   React.useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -25,43 +25,43 @@ export default function AppShell({ children }: AppShellProps) {
   }, []);
 
   return (
-    <div className="flex h-screen bg-bg-primary text-text overflow-hidden">
-      {/* Desktop Sidebar */}
+    <div className="flex h-screen bg-black text-[#f9fafb] overflow-hidden">
+      {/* Desktop Sidebar (Wide & Spacious) */}
       <Sidebar />
 
-      {/* Mobile Sidebar Overlay */}
+      {/* Mobile Drawer Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm lg:hidden transition-opacity"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Sidebar Drawer */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-60 bg-bg-secondary border-r border-border transform transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#000000] border-r border-[#142a20] transform transition-transform duration-300 ease-out lg:hidden ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <Sidebar mobile onClose={() => setSidebarOpen(false)} />
       </div>
 
-      {/* Main area */}
+      {/* Main Content Viewport */}
       <div className="flex flex-col flex-1 overflow-hidden">
         <Navbar
           onMenuClick={() => setSidebarOpen(true)}
           onSearchClick={() => setCommandOpen(true)}
         />
 
-        <main className="flex-1 overflow-y-auto pb-20 lg:pb-6">
+        <main className="flex-1 overflow-y-auto pb-24 lg:pb-10">
           {children}
         </main>
 
-        {/* Mobile Bottom Navigation */}
+        {/* Mobile Navigation Bar */}
         <MobileNavigation />
       </div>
 
-      {/* Command Palette */}
+      {/* Command Search Palette Modal */}
       <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />
     </div>
   );

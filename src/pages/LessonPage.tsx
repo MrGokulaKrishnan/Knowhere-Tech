@@ -38,11 +38,27 @@ const MODULE_LESSONS: Record<string, Lesson[]> = {
   linux: DEVOPS_LESSONS,
 };
 
+function getFallbackVisualizer(moduleKey: ModuleKey, slug: string): string | undefined {
+  if (moduleKey === 'java') {
+    return slug.includes('jvm') || slug.includes('compile') || slug.includes('intro') ? 'jvm-compilation' : undefined;
+  }
+  if (moduleKey === 'oop') return 'oop-inheritance';
+  if (moduleKey === 'dsa') return 'dsa-sorting';
+  if (moduleKey === 'sql') return 'sql-joins';
+  if (moduleKey === 'git') return 'git-workflow';
+  if (moduleKey === 'spring' || moduleKey === 'spring-boot' || moduleKey === 'rest-api') return 'rest-lifecycle';
+  if (moduleKey === 'react') return 'react-reconciliation';
+  if (moduleKey === 'docker') return 'docker-architecture';
+  if (moduleKey === 'linux') return 'linux-terminal';
+  return undefined;
+}
+
 function getLessons(moduleKey: ModuleKey): Lesson[] {
   const custom = MODULE_LESSONS[moduleKey];
   if (custom && custom.length > 0) return custom;
   const meta = ALL_MODULES_META.find(m => m.key === moduleKey);
   if (!meta) return [];
+
   return meta.lessons.map((l, i) => ({
     id: l.id,
     moduleKey,
@@ -57,9 +73,9 @@ function getLessons(moduleKey: ModuleKey): Lesson[] {
     beginnerExplanation: `In this section of ${meta.title}, you will understand ${l.title} in straightforward terms with clear architecture patterns.`,
     technicalExplanation: `${l.explanation} In production systems, this concept is critical to building reliable, high-throughput architectures.`,
     keyPoints: [
-      `Key foundation for ${l.title} in the modern stack`,
-      'Designed for scalability and maintainability',
-      'Follows current best practices in enterprise development'
+      `Key foundation for ${l.title} in modern enterprise software`,
+      'Architected for high throughput, maintainability, and clean code',
+      'Follows industry best practices and cloud-native standards'
     ],
     codeExample: `// Implementation: ${l.title}\npublic class ${l.title.replace(/[^a-zA-Z]/g, '')}Service {\n    public static void main(String[] args) {\n        System.out.println("Executing ${l.title} on Knowhere Tech");\n    }\n}`,
     codeLanguage: 'java',
@@ -67,7 +83,7 @@ function getLessons(moduleKey: ModuleKey): Lesson[] {
       { code: `public class ${l.title.replace(/[^a-zA-Z]/g, '')}Service {`, token: 'public class', explanation: `Standard entry point declaration for ${l.title}.` },
       { code: '    public static void main(String[] args) {', token: 'main', explanation: 'Execution entry point for this concept.' }
     ],
-    visualizer: moduleKey === 'sql' ? 'sql-joins' : moduleKey === 'git' ? 'git-workflow' : 'jvm-compilation',
+    visualizer: getFallbackVisualizer(moduleKey, l.slug),
     quiz: [
       {
         id: `q-${l.id}-1`,
@@ -107,7 +123,7 @@ function getLessons(moduleKey: ModuleKey): Lesson[] {
   }));
 }
 
-// --- Line-By-Line Code Explainer ---
+// --- Spacious Line-By-Line Code Explainer ---
 function CodeExplainer({ lesson }: { lesson: Lesson }) {
   const [selectedLine, setSelectedLine] = useState<number | null>(0);
   const [showExplainer, setShowExplainer] = useState(true);
@@ -115,24 +131,24 @@ function CodeExplainer({ lesson }: { lesson: Lesson }) {
   if (!lesson.codeExample) return null;
 
   return (
-    <div className="panel p-5 mb-6">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="flex items-center gap-2 font-semibold text-white dark:text-white light:text-slate-900 text-sm">
-          <Code2 size={16} className="text-emerald-400" /> Syntax & Code Explainer
+    <div className="panel p-6 lg:p-8 mb-8 rounded-3xl">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="flex items-center gap-2.5 font-bold text-white text-base lg:text-lg">
+          <Code2 size={20} className="text-emerald-400" /> Syntax & Code Explainer
         </h3>
         <button
           onClick={() => setShowExplainer(!showExplainer)}
-          className="button-secondary text-xs !py-1 !px-2.5"
+          className="button-secondary text-xs !py-2 !px-3.5"
         >
-          {showExplainer ? <EyeOff size={13} /> : <Eye size={13} />}
+          {showExplainer ? <EyeOff size={14} /> : <Eye size={14} />}
           <span>{showExplainer ? 'Code Only' : 'Inspect Syntax'}</span>
         </button>
       </div>
 
-      <div className={clsx('grid gap-4', showExplainer ? 'lg:grid-cols-12' : 'grid-cols-1')}>
+      <div className={clsx('grid gap-6', showExplainer ? 'lg:grid-cols-12' : 'grid-cols-1')}>
         {/* Code View Panel */}
         <div className={showExplainer ? 'lg:col-span-7' : 'w-full'}>
-          <div className="code-block relative text-xs">
+          <div className="code-block relative text-sm p-5">
             {lesson.codeExample.split('\n').map((line, idx) => {
               const matchingMeta = lesson.codeLines?.find(cl => cl.code.trim() === line.trim());
               const isSelected = selectedLine === idx;
@@ -143,19 +159,19 @@ function CodeExplainer({ lesson }: { lesson: Lesson }) {
                   key={idx}
                   onClick={() => hasExplanation && setSelectedLine(idx)}
                   className={clsx(
-                    'font-mono py-0.5 px-2 rounded -mx-1 transition-colors flex items-center justify-between',
+                    'font-mono py-1 px-3 rounded-lg -mx-1 transition-colors flex items-center justify-between',
                     hasExplanation && 'cursor-pointer hover:bg-emerald-950/40',
-                    isSelected && 'bg-emerald-950/60 border-l-2 border-emerald-400 text-emerald-300 font-bold'
+                    isSelected && 'bg-emerald-950/70 border-l-2 border-emerald-400 text-emerald-300 font-bold'
                   )}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="text-zinc-500 select-none text-[10px] w-5 text-right shrink-0">
+                  <div className="flex items-center gap-4 min-w-0">
+                    <span className="text-zinc-600 select-none text-xs w-6 text-right shrink-0">
                       {idx + 1}
                     </span>
                     <span className="truncate text-emerald-100">{line || ' '}</span>
                   </div>
                   {hasExplanation && (
-                    <span className="text-[9px] text-emerald-400 font-mono shrink-0 ml-2">inspect</span>
+                    <span className="text-[10px] text-emerald-400 font-mono shrink-0 ml-3 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/40">inspect</span>
                   )}
                 </div>
               );
@@ -165,11 +181,11 @@ function CodeExplainer({ lesson }: { lesson: Lesson }) {
 
         {/* Dynamic Explanation Drawer */}
         {showExplainer && (
-          <div className="lg:col-span-5 rounded-xl border border-[#142a20] dark:border-[#142a20] bg-black/60 p-4 flex flex-col justify-between">
+          <div className="lg:col-span-5 rounded-2xl border border-[#142a20] bg-black/60 p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-1.5 text-xs text-zinc-400 mb-2">
-                <Sparkles size={13} className="text-emerald-400" />
-                <span className="font-semibold uppercase tracking-wider text-[10px]">
+              <div className="flex items-center gap-2 text-xs text-zinc-400 mb-3">
+                <Sparkles size={16} className="text-emerald-400" />
+                <span className="font-bold uppercase tracking-wider text-xs font-mono">
                   Syntax Inspector
                 </span>
               </div>
@@ -179,24 +195,24 @@ function CodeExplainer({ lesson }: { lesson: Lesson }) {
                 const matchingMeta = lesson.codeLines?.find(cl => cl.code.trim() === lineText?.trim());
                 if (!matchingMeta) {
                   return (
-                    <p className="text-xs text-zinc-400 mt-4">
-                      Click any highlighted line in the code block to inspect its token role and runtime mechanics.
+                    <p className="text-sm text-zinc-400 mt-4 leading-relaxed">
+                      Click any highlighted line in the code block to inspect its runtime token mechanics and compile behavior.
                     </p>
                   );
                 }
                 return (
                   <div>
-                    <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-800/40 font-mono text-xs text-emerald-300 mb-2 font-bold">
+                    <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-800/40 font-mono text-sm text-emerald-300 mb-3 font-bold">
                       {matchingMeta.token || lineText.trim()}
                     </div>
-                    <p className="text-xs text-zinc-300 leading-relaxed">
+                    <p className="text-sm text-zinc-300 leading-relaxed">
                       {matchingMeta.explanation}
                     </p>
                   </div>
                 );
               })()}
             </div>
-            <p className="text-[10px] text-zinc-500 mt-4 pt-2 border-t border-[#142a20] font-mono">
+            <p className="text-xs text-zinc-500 mt-6 pt-3 border-t border-[#142a20] font-mono">
               Knowhere Tech Engine
             </p>
           </div>
@@ -250,68 +266,68 @@ function QuizEngine({ lesson, onComplete }: { lesson: Lesson; onComplete: (score
   if (isFinished) {
     const finalPct = Math.round((score / maxPoints) * 100);
     return (
-      <div className="panel p-6 mb-6 text-center">
-        <div className="w-12 h-12 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-          <CheckCircle2 size={24} />
+      <div className="panel p-8 lg:p-10 mb-8 text-center rounded-3xl">
+        <div className="w-16 h-16 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto mb-4 shadow-[0_0_20px_rgba(16,185,129,0.25)]">
+          <CheckCircle2 size={32} />
         </div>
-        <h3 className="font-bold text-base mb-1">Quiz Completed</h3>
-        <p className="text-zinc-400 text-xs mb-3">
+        <h3 className="font-bold text-xl mb-2 text-white">Quiz Completed</h3>
+        <p className="text-zinc-400 text-sm mb-4">
           Score: {score} of {maxPoints} points ({finalPct}%)
         </p>
-        <div className="w-40 mx-auto">
-          <ProgressBar value={finalPct} size="sm" color={finalPct >= 80 ? 'primary' : 'warning'} />
+        <div className="w-56 mx-auto">
+          <ProgressBar value={finalPct} size="md" color={finalPct >= 80 ? 'primary' : 'warning'} />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="panel p-5 mb-6">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="flex items-center gap-2 font-semibold text-sm">
-          <Brain size={16} className="text-emerald-400" /> Concept Check Quiz
+    <div className="panel p-7 lg:p-8 mb-8 rounded-3xl">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="flex items-center gap-2.5 font-bold text-base lg:text-lg text-white">
+          <Brain size={20} className="text-emerald-400" /> Concept Check Quiz
         </h3>
-        <span className="text-zinc-500 text-xs font-mono">
+        <span className="text-zinc-400 text-xs font-mono">
           Question {currentQ + 1} of {lesson.quiz.length}
         </span>
       </div>
 
-      <ProgressBar value={((currentQ + (showResult ? 1 : 0)) / lesson.quiz.length) * 100} size="xs" className="mb-4" />
+      <ProgressBar value={((currentQ + (showResult ? 1 : 0)) / lesson.quiz.length) * 100} size="sm" className="mb-6" />
 
-      <h4 className="text-sm font-medium mb-3">{q.question}</h4>
+      <h4 className="text-base font-semibold mb-4 text-white leading-snug">{q.question}</h4>
 
-      <div className="space-y-2 mb-4">
+      <div className="space-y-3 mb-6">
         {q.options?.map((opt, i) => (
           <button
             key={i}
             onClick={() => handleSelect(i)}
             className={clsx(
-              'w-full text-left p-3 rounded-xl border text-xs transition-all flex items-center justify-between',
+              'w-full text-left p-4 rounded-2xl border text-sm transition-all flex items-center justify-between',
               !showResult && selectedOpt === i
-                ? 'border-emerald-500 bg-emerald-950/40 font-medium shadow-[0_0_12px_rgba(16,185,129,0.2)] text-emerald-300'
+                ? 'border-emerald-500 bg-emerald-950/50 font-semibold shadow-[0_0_15px_rgba(16,185,129,0.2)] text-emerald-300'
                 : !showResult
-                ? 'border-[#142a20] bg-black/40 hover:border-emerald-500/40 text-zinc-400'
+                ? 'border-[#142a20] bg-black/50 hover:border-emerald-500/40 text-zinc-300'
                 : i === q.answer
-                ? 'border-emerald-400 bg-emerald-950/60 text-emerald-300 font-bold'
+                ? 'border-emerald-400 bg-emerald-950/70 text-emerald-300 font-bold'
                 : selectedOpt === i
-                ? 'border-rose-500/80 bg-rose-950/40 text-rose-300'
-                : 'border-[#142a20] bg-black/40 text-zinc-600'
+                ? 'border-rose-500/80 bg-rose-950/50 text-rose-300'
+                : 'border-[#142a20] bg-black/50 text-zinc-600'
             )}
           >
             <div>
-              <span className="font-mono mr-2 text-zinc-500">{String.fromCharCode(65 + i)}.</span>
+              <span className="font-mono mr-3 text-zinc-500 font-bold">{String.fromCharCode(65 + i)}.</span>
               {opt}
             </div>
-            {showResult && i === q.answer && <Check size={14} className="text-emerald-400 shrink-0 ml-2" />}
-            {showResult && selectedOpt === i && i !== q.answer && <X size={14} className="text-rose-400 shrink-0 ml-2" />}
+            {showResult && i === q.answer && <Check size={18} className="text-emerald-400 shrink-0 ml-3" />}
+            {showResult && selectedOpt === i && i !== q.answer && <X size={18} className="text-rose-400 shrink-0 ml-3" />}
           </button>
         ))}
       </div>
 
       {showResult && (
-        <div className={clsx('p-3 rounded-xl border text-xs mb-4', isCorrect ? 'bg-emerald-950/30 border-emerald-800/60 text-emerald-300' : 'bg-amber-950/30 border-amber-800/60 text-amber-300')}>
-          <p className="font-bold mb-0.5">{isCorrect ? 'Correct Answer' : 'Incorrect'}</p>
-          <p className="text-zinc-400">{q.explanation}</p>
+        <div className={clsx('p-4 rounded-2xl border text-sm mb-6 leading-relaxed', isCorrect ? 'bg-emerald-950/40 border-emerald-800/60 text-emerald-300' : 'bg-amber-950/40 border-amber-800/60 text-amber-300')}>
+          <p className="font-bold mb-1">{isCorrect ? 'Correct Answer' : 'Incorrect'}</p>
+          <p className="text-zinc-300">{q.explanation}</p>
         </div>
       )}
 
@@ -320,14 +336,14 @@ function QuizEngine({ lesson, onComplete }: { lesson: Lesson; onComplete: (score
           <button
             disabled={selectedOpt === null}
             onClick={handleCheck}
-            className="button-primary text-xs !py-2 !px-4"
+            className="button-primary text-sm !py-3 !px-6"
           >
             Submit Answer
           </button>
         ) : (
           <button
             onClick={handleNext}
-            className="button-primary text-xs !py-2 !px-4"
+            className="button-primary text-sm !py-3 !px-6"
           >
             {currentQ + 1 >= lesson.quiz.length ? 'Finish Quiz' : 'Next Question'}
           </button>
@@ -343,28 +359,28 @@ function PracticeSection({ lesson }: { lesson: Lesson }) {
   if (!lesson.practice || lesson.practice.length === 0) return null;
 
   return (
-    <div className="panel p-5 mb-6">
-      <h3 className="flex items-center gap-2 font-semibold text-sm mb-4">
-        <PlayCircle size={16} className="text-emerald-400" /> Practice Coding Challenge
+    <div className="panel p-7 lg:p-8 mb-8 rounded-3xl">
+      <h3 className="flex items-center gap-2.5 font-bold text-base lg:text-lg mb-6 text-white">
+        <PlayCircle size={20} className="text-emerald-400" /> Practice Coding Challenge
       </h3>
-      <div className="space-y-3">
+      <div className="space-y-4">
         {lesson.practice.map(p => (
-          <div key={p.id} className="p-4 rounded-xl bg-black/50 border border-[#142a20]">
-            <Badge variant="primary" size="xs" className="mb-2 uppercase tracking-wider">{p.type.replace('-', ' ')}</Badge>
-            <p className="text-xs font-medium mb-2">{p.question}</p>
-            {p.code && <pre className="code-block text-xs mb-3 font-mono">{p.code}</pre>}
+          <div key={p.id} className="p-6 rounded-2xl bg-black/60 border border-[#142a20]">
+            <Badge variant="primary" size="xs" className="mb-3 uppercase tracking-wider">{p.type.replace('-', ' ')}</Badge>
+            <p className="text-sm font-semibold text-white mb-3">{p.question}</p>
+            {p.code && <pre className="code-block text-sm mb-4 font-mono">{p.code}</pre>}
             <button
               onClick={() => setRevealed(prev => {
                 const next = new Set(prev);
                 next.has(p.id) ? next.delete(p.id) : next.add(p.id);
                 return next;
               })}
-              className="button-secondary text-xs !py-1 !px-3"
+              className="button-secondary text-xs !py-2 !px-4"
             >
               {revealed.has(p.id) ? 'Hide Solution' : 'Reveal Solution'}
             </button>
             {revealed.has(p.id) && (
-              <div className="mt-3 p-3 rounded-xl bg-emerald-950/40 border border-emerald-800/50 font-mono text-xs text-emerald-300 whitespace-pre-wrap">
+              <div className="mt-4 p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800/50 font-mono text-sm text-emerald-300 whitespace-pre-wrap leading-relaxed">
                 {p.answer}
               </div>
             )}
@@ -381,17 +397,17 @@ function InterviewSection({ lesson }: { lesson: Lesson }) {
   if (!lesson.interviewQuestions || lesson.interviewQuestions.length === 0) return null;
 
   return (
-    <div className="panel p-5 mb-6">
-      <h3 className="flex items-center gap-2 font-semibold text-sm mb-4">
-        <MessageSquare size={16} className="text-teal-400" /> Technical Interview Discussion
+    <div className="panel p-7 lg:p-8 mb-8 rounded-3xl">
+      <h3 className="flex items-center gap-2.5 font-bold text-base lg:text-lg mb-6 text-white">
+        <MessageSquare size={20} className="text-teal-400" /> Technical Interview Discussion
       </h3>
-      <div className="space-y-3">
+      <div className="space-y-4">
         {lesson.interviewQuestions.map(iq => (
-          <div key={iq.id} className="rounded-xl bg-black/50 border border-[#142a20] overflow-hidden">
-            <div className="p-3.5 flex items-start justify-between gap-3">
+          <div key={iq.id} className="rounded-2xl bg-black/60 border border-[#142a20] overflow-hidden">
+            <div className="p-5 flex items-start justify-between gap-4">
               <div>
-                <Badge variant={iq.level} size="xs" className="mb-1.5">{iq.level}</Badge>
-                <h4 className="text-xs font-medium leading-snug">{iq.question}</h4>
+                <Badge variant={iq.level} size="xs" className="mb-2">{iq.level}</Badge>
+                <h4 className="text-sm font-semibold text-white leading-snug">{iq.question}</h4>
               </div>
               <button
                 onClick={() => setRevealed(prev => {
@@ -399,16 +415,16 @@ function InterviewSection({ lesson }: { lesson: Lesson }) {
                   next.has(iq.id) ? next.delete(iq.id) : next.add(iq.id);
                   return next;
                 })}
-                className="button-secondary text-xs !py-1 !px-3 shrink-0"
+                className="button-secondary text-xs !py-2 !px-4 shrink-0"
               >
                 {revealed.has(iq.id) ? 'Hide' : 'Answer'}
               </button>
             </div>
             {revealed.has(iq.id) && (
-              <div className="p-3.5 bg-black/80 border-t border-[#142a20] text-xs text-zinc-400 leading-relaxed">
-                <p className="whitespace-pre-line mb-2">{iq.answer}</p>
+              <div className="p-5 bg-black/90 border-t border-[#142a20] text-sm text-zinc-300 leading-relaxed">
+                <p className="whitespace-pre-line mb-3">{iq.answer}</p>
                 {iq.example && (
-                  <pre className="code-block text-[11px] font-mono text-emerald-400 mt-2">{iq.example}</pre>
+                  <pre className="code-block text-xs font-mono text-emerald-400 mt-3">{iq.example}</pre>
                 )}
               </div>
             )}
@@ -450,9 +466,9 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
 
   if (!lesson) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 px-4">
-        <p className="text-zinc-400 mb-4">Lesson not found.</p>
-        <button onClick={() => navigate(`/${moduleKey}`)} className="button-secondary">
+      <div className="flex flex-col items-center justify-center py-24 px-4 text-center">
+        <p className="text-zinc-400 mb-6 text-lg">Lesson not found.</p>
+        <button onClick={() => navigate(`/${moduleKey}`)} className="button-secondary text-sm">
           Back to Module
         </button>
       </div>
@@ -495,42 +511,42 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 lg:px-6 py-6 selection:bg-emerald-500/30">
+    <div className="max-w-5xl mx-auto px-6 lg:px-10 py-10 selection:bg-emerald-500/30">
       {/* Breadcrumb Navigation */}
-      <div className="flex items-center gap-1.5 text-xs text-zinc-500 mb-4">
+      <div className="flex items-center gap-2 text-xs text-zinc-400 mb-6 font-mono">
         <button onClick={() => navigate('/roadmap')} className="hover:text-emerald-400 transition-colors">Roadmap</button>
-        <ChevronRight size={12} />
+        <ChevronRight size={14} />
         <button onClick={() => navigate(`/${moduleKey}`)} className="hover:text-emerald-400 transition-colors capitalize">{moduleKey}</button>
-        <ChevronRight size={12} />
-        <span className="text-emerald-400 truncate font-medium">{lesson.title}</span>
+        <ChevronRight size={14} />
+        <span className="text-emerald-400 truncate font-semibold">{lesson.title}</span>
       </div>
 
       {/* Lesson Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-3 mb-3">
             <Badge variant={lesson.difficulty}>{lesson.difficulty}</Badge>
-            <span className="text-xs text-zinc-500 font-mono">{lesson.duration} min</span>
+            <span className="text-xs text-zinc-400 font-mono">{lesson.duration} min</span>
             <span className="text-xs font-mono text-emerald-400 font-bold">+{lesson.xpReward} XP</span>
             {isCompleted && (
-              <span className="flex items-center gap-1 text-xs text-emerald-400 font-medium ml-2">
-                <CheckCircle2 size={13} /> Completed
+              <span className="flex items-center gap-1.5 text-xs text-emerald-400 font-bold ml-2 bg-emerald-950/60 px-3 py-1 rounded-xl border border-emerald-800/50">
+                <CheckCircle2 size={14} /> Completed
               </span>
             )}
           </div>
-          <h1 className="text-2xl lg:text-3xl font-display font-bold">
+          <h1 className="text-3xl lg:text-4xl font-display font-extrabold text-white leading-tight">
             {lesson.title}
           </h1>
         </div>
 
         {/* Controls: Mode toggle + Bookmark */}
-        <div className="flex items-center gap-2 shrink-0">
-          <div className="flex bg-black/40 p-0.5 rounded-xl border border-[#142a20] text-xs">
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="flex bg-black/60 p-1 rounded-2xl border border-[#142a20] text-xs">
             <button
               onClick={() => setBeginnerMode(true)}
               className={clsx(
-                'px-3 py-1.5 rounded-lg font-medium transition-all',
-                beginnerMode ? 'bg-emerald-500 text-black font-bold shadow-[0_0_12px_rgba(16,185,129,0.4)]' : 'text-zinc-400 hover:text-white'
+                'px-4 py-2 rounded-xl font-semibold transition-all',
+                beginnerMode ? 'bg-emerald-500 text-black font-bold shadow-[0_0_15px_rgba(16,185,129,0.4)]' : 'text-zinc-400 hover:text-white'
               )}
             >
               Beginner
@@ -538,8 +554,8 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
             <button
               onClick={() => setBeginnerMode(false)}
               className={clsx(
-                'px-3 py-1.5 rounded-lg font-medium transition-all',
-                !beginnerMode ? 'bg-emerald-500 text-black font-bold shadow-[0_0_12px_rgba(16,185,129,0.4)]' : 'text-zinc-400 hover:text-white'
+                'px-4 py-2 rounded-xl font-semibold transition-all',
+                !beginnerMode ? 'bg-emerald-500 text-black font-bold shadow-[0_0_15px_rgba(16,185,129,0.4)]' : 'text-zinc-400 hover:text-white'
               )}
             >
               Technical
@@ -549,35 +565,35 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
           <button
             onClick={handleBookmarkToggle}
             className={clsx(
-              'p-2 rounded-xl border transition-colors',
+              'p-3 rounded-2xl border transition-colors',
               isBookmarked
                 ? 'border-amber-500/60 bg-amber-950/40 text-amber-300'
-                : 'border-[#142a20] bg-black/40 text-zinc-500 hover:text-white'
+                : 'border-[#142a20] bg-black/60 text-zinc-500 hover:text-white'
             )}
             title="Bookmark this lesson"
           >
-            <Bookmark size={15} />
+            <Bookmark size={18} />
           </button>
         </div>
       </div>
 
       {/* Concept Explanation Card */}
-      <div className="panel p-5 mb-6">
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2 flex items-center gap-1.5">
-          <Lightbulb size={14} className="text-amber-400" />
+      <div className="panel p-7 lg:p-9 mb-8 rounded-3xl">
+        <h2 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3 flex items-center gap-2 font-mono">
+          <Lightbulb size={16} className="text-amber-400" />
           {beginnerMode ? 'Conceptual Overview' : 'Technical Architecture Specification'}
         </h2>
-        <p className="text-xs leading-relaxed whitespace-pre-line mb-4 text-zinc-300">
+        <p className="text-base lg:text-lg leading-relaxed whitespace-pre-line mb-6 text-zinc-200">
           {beginnerMode ? lesson.beginnerExplanation : lesson.technicalExplanation}
         </p>
 
         {lesson.keyPoints && lesson.keyPoints.length > 0 && (
-          <div className="pt-3 border-t border-[#142a20]">
-            <h4 className="text-xs font-semibold mb-2">Core Principles:</h4>
-            <ul className="space-y-1.5">
+          <div className="pt-5 border-t border-[#142a20]">
+            <h4 className="text-sm font-bold text-white mb-3">Core Takeaways:</h4>
+            <ul className="space-y-2">
               {lesson.keyPoints.map((kp, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs text-zinc-400">
-                  <span className="text-emerald-400 mt-0.5">•</span>
+                <li key={i} className="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed">
+                  <span className="text-emerald-400 font-bold mt-0.5">•</span>
                   <span>{kp}</span>
                 </li>
               ))}
@@ -586,7 +602,7 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
         )}
       </div>
 
-      {/* Interactive Visualizer Canvas */}
+      {/* Interactive Visualizer Canvas (ONLY if explicitly matching) */}
       {lesson.visualizer && (
         <VisualizerRegistry id={lesson.visualizer} />
       )}
@@ -594,53 +610,53 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
       {/* Code Explainer */}
       <CodeExplainer lesson={lesson} />
 
-      {/* Practice */}
+      {/* Practice Tasks */}
       <PracticeSection lesson={lesson} />
 
-      {/* Quiz */}
+      {/* Quiz Engine */}
       <QuizEngine lesson={lesson} onComplete={(score) => { setQuizScore(score); awardXP(30); }} />
 
-      {/* Interview Preparation */}
+      {/* Interview Discussion */}
       <InterviewSection lesson={lesson} />
 
       {/* Notes Drawer */}
-      <div className="panel p-5 mb-6">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 flex items-center gap-1.5">
-            <StickyNote size={14} className="text-amber-400" /> Lesson Engineering Notes
+      <div className="panel p-7 lg:p-8 mb-8 rounded-3xl">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-2 font-mono">
+            <StickyNote size={16} className="text-amber-400" /> Lesson Engineering Notes
           </h3>
-          <button onClick={handleSaveNote} className="button-secondary text-xs !py-1 !px-3">
+          <button onClick={handleSaveNote} className="button-secondary text-xs !py-2 !px-4">
             Save Notes
           </button>
         </div>
         <textarea
           value={noteText}
           onChange={e => setNoteText(e.target.value)}
-          placeholder="Enter technical takeaways and personal notes (saved locally in IndexedDB)..."
-          rows={3}
-          className="w-full bg-black/60 border border-[#142a20] rounded-xl p-3 text-emerald-100 text-xs outline-none focus:border-emerald-500/50 resize-none font-mono"
+          placeholder="Record key technical takeaways and architectural notes (persisted locally in IndexedDB)..."
+          rows={4}
+          className="w-full bg-black/60 border border-[#142a20] rounded-2xl p-4 text-emerald-100 text-sm outline-none focus:border-emerald-500/50 resize-none font-mono leading-relaxed"
         />
       </div>
 
       {/* Sticky Bottom Progression Bar */}
-      <div className="sticky bottom-0 bg-black/95 backdrop-blur-md py-4 border-t border-[#142a20] mt-8 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
+      <div className="sticky bottom-0 bg-black/95 backdrop-blur-md py-5 border-t border-[#142a20] mt-10 flex items-center justify-between gap-4 z-20">
+        <div className="flex items-center gap-3">
           {prevLesson && (
             <button
               onClick={() => navigate(`/${moduleKey}/${prevLesson.slug}`)}
-              className="button-secondary text-xs !py-2 !px-3"
+              className="button-secondary text-xs !py-3 !px-5"
             >
-              <ChevronLeft size={14} />
+              <ChevronLeft size={16} />
               <span>Previous</span>
             </button>
           )}
           {nextLesson && (
             <button
               onClick={() => navigate(`/${moduleKey}/${nextLesson.slug}`)}
-              className="button-secondary text-xs !py-2 !px-3"
+              className="button-secondary text-xs !py-3 !px-5"
             >
               <span>Next</span>
-              <ChevronRight size={14} />
+              <ChevronRight size={16} />
             </button>
           )}
         </div>
@@ -648,9 +664,9 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
         <button
           onClick={handleMarkComplete}
           disabled={isCompleted}
-          className={isCompleted ? "button-secondary text-xs !py-2 !px-4 text-emerald-400 font-bold cursor-default" : "button-primary text-xs !py-2 !px-4"}
+          className={isCompleted ? "button-secondary text-xs !py-3 !px-6 text-emerald-400 font-bold cursor-default" : "button-primary text-xs !py-3 !px-6"}
         >
-          {isCompleted ? <span className="flex items-center gap-1"><CheckCircle2 size={13} /> Completed</span> : `Mark Complete (+${lesson.xpReward} XP)`}
+          {isCompleted ? <span className="flex items-center gap-2"><CheckCircle2 size={16} /> Completed</span> : `Mark Complete (+${lesson.xpReward} XP)`}
         </button>
       </div>
     </div>

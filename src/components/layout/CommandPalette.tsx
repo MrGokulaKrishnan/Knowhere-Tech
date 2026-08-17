@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, ArrowRight, BookOpen, X } from 'lucide-react';
+import { Search, ArrowRight, BookOpen, X, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSearch } from '@/hooks/useSearch';
 import { clsx } from 'clsx';
@@ -59,35 +59,35 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
           />
           <motion.div
             key="palette"
-            initial={{ opacity: 0, scale: 0.95, y: -15 }}
+            initial={{ opacity: 0, scale: 0.96, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -15 }}
-            transition={{ duration: 0.15 }}
-            className="fixed top-20 left-1/2 -translate-x-1/2 w-full max-w-xl z-50 px-4"
+            exit={{ opacity: 0, scale: 0.96, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-24 left-1/2 -translate-x-1/2 w-full max-w-2xl z-50 px-4"
           >
-            <div className="bg-[#090E0A] border border-[#142318] rounded-2xl shadow-elevated overflow-hidden">
-              {/* Search Input */}
-              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#142318] bg-black">
-                <Search size={16} className="text-emerald-400 shrink-0" />
+            <div className="bg-[#070b09] border border-[#142a20] rounded-3xl shadow-2xl overflow-hidden">
+              {/* Search Input Box */}
+              <div className="flex items-center gap-4 px-6 py-5 border-b border-[#142a20] bg-black">
+                <Search size={20} className="text-emerald-400 shrink-0" />
                 <input
                   ref={inputRef}
                   value={query}
                   onChange={e => { setQuery(e.target.value); setSelected(0); }}
-                  placeholder="Search Java 25 concepts, OOP, Spring Boot, React, SQL..."
-                  className="flex-1 bg-transparent text-white placeholder:text-zinc-600 text-xs outline-none font-mono"
+                  placeholder="Search Java 25 LTS concepts, OOP, Spring Boot, React, SQL..."
+                  className="flex-1 bg-transparent text-white placeholder:text-zinc-500 text-sm outline-none font-mono"
                 />
                 {query && (
-                  <button onClick={clear} className="text-zinc-500 hover:text-white p-1">
-                    <X size={14} />
+                  <button onClick={clear} className="text-zinc-500 hover:text-white p-1 rounded-lg">
+                    <X size={16} />
                   </button>
                 )}
-                <kbd className="text-[10px] text-zinc-500 bg-[#101812] border border-[#142318] rounded px-1.5 py-0.5 font-mono">
+                <kbd className="text-xs text-zinc-400 bg-[#101812] border border-[#142a20] rounded-lg px-2.5 py-1 font-mono">
                   ESC
                 </kbd>
               </div>
 
-              {/* Results List */}
-              <div className="max-h-72 overflow-y-auto p-2">
+              {/* Results List View */}
+              <div className="max-h-96 overflow-y-auto p-3">
                 {results.length > 0 ? (
                   results.map((r, i) => (
                     <div
@@ -95,35 +95,37 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
                       onClick={() => handleSelect(r.url)}
                       onMouseEnter={() => setSelected(i)}
                       className={clsx(
-                        'flex items-center justify-between p-3 rounded-xl cursor-pointer text-xs transition-colors',
+                        'flex items-center justify-between p-4 rounded-2xl cursor-pointer text-sm transition-all mb-1',
                         selected === i
-                          ? 'bg-emerald-950/50 text-emerald-300 border border-emerald-500/40 font-medium'
-                          : 'text-zinc-400 hover:bg-[#101812]'
+                          ? 'bg-emerald-950/60 text-emerald-300 border border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.2)] font-semibold'
+                          : 'text-zinc-300 hover:bg-[#0c140f] border border-transparent'
                       )}
                     >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <BookOpen size={14} className={selected === i ? 'text-emerald-400' : 'text-zinc-600'} />
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-950/60 border border-emerald-800/50 flex items-center justify-center text-emerald-400 shrink-0">
+                          <BookOpen size={16} />
+                        </div>
                         <div className="min-w-0">
-                          <p className="font-semibold truncate text-white">{r.title}</p>
-                          <p className="text-[10px] text-zinc-500 truncate">{r.module} · {r.description}</p>
+                          <p className="font-bold text-white truncate text-sm">{r.title}</p>
+                          <p className="text-xs text-zinc-400 truncate mt-0.5">{r.module} · {r.description}</p>
                         </div>
                       </div>
-                      <ArrowRight size={14} className={selected === i ? 'text-emerald-400' : 'text-zinc-600'} />
+                      <ArrowRight size={16} className={selected === i ? 'text-emerald-400 translate-x-1' : 'text-zinc-600'} />
                     </div>
                   ))
                 ) : query ? (
-                  <div className="p-8 text-center text-zinc-500 text-xs">
-                    No results found for "{query}".
+                  <div className="p-12 text-center text-zinc-500 text-sm">
+                    No results found for &quot;{query}&quot;. Try searching for &apos;Java&apos;, &apos;Threads&apos;, or &apos;Docker&apos;.
                   </div>
                 ) : (
-                  <div className="p-4 text-xs text-zinc-500 font-mono">
-                    <p className="mb-2 uppercase text-[10px] tracking-wider">Popular Searches</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {['Java 25 LTS', 'OOP Architecture', 'Virtual Threads', 'Spring Boot 3', 'Docker', 'SQL JOINs', 'React 19'].map(s => (
+                  <div className="p-6 text-sm text-zinc-400 font-mono">
+                    <p className="text-xs uppercase text-zinc-500 font-bold tracking-wider mb-3">Popular Search Terms</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Java 25 LTS', 'Virtual Threads', 'OOP Architecture', 'Spring Boot 3', 'Docker Multi-Stage', 'SQL Indexing', 'React 19 Hooks'].map(s => (
                         <button
                           key={s}
                           onClick={() => setQuery(s)}
-                          className="px-2.5 py-1 rounded-lg bg-black border border-[#142318] text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/40 transition-colors"
+                          className="px-3.5 py-2 rounded-xl bg-black border border-[#142a20] text-zinc-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors text-xs"
                         >
                           {s}
                         </button>

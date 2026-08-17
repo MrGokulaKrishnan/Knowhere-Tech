@@ -55,34 +55,39 @@ export default function RestLifecycleVisualizer() {
         clearInterval(interval);
         setIsSimulating(false);
       }
-    }, 1000);
+    }, 1200);
   };
 
   return (
-    <div className="panel p-5 mb-6">
-      <div className="flex items-center justify-between mb-4">
+    <div className="panel p-6 lg:p-8 mb-8 rounded-3xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h3 className="font-semibold text-white text-sm flex items-center gap-2">
-            <Server size={16} className="text-emerald-400" />
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="eyebrow text-emerald-400 font-mono text-xs">
+              Spring Boot & React Integration
+            </span>
+          </div>
+          <h3 className="font-bold text-white text-lg lg:text-xl flex items-center gap-2.5">
+            <Server size={22} className="text-emerald-400" />
             Full Stack REST API Request Lifecycle Tracer
           </h3>
-          <p className="text-xs text-zinc-500">
-            Trace an HTTP Request from React UI → Controller → Service → Repository → Database.
+          <p className="text-sm text-zinc-400 mt-1">
+            Trace an HTTP Request from React UI → Controller → Service → Repository → Relational Database.
           </p>
         </div>
 
         <button
           onClick={simulateRequest}
           disabled={isSimulating}
-          className="button-primary text-xs !py-1.5 !px-3"
+          className="button-primary text-xs !py-2.5 !px-5 shrink-0"
         >
-          <Play size={12} />
-          <span>{isSimulating ? 'Tracing...' : 'Send Test Request'}</span>
+          <Play size={14} />
+          <span>{isSimulating ? 'Tracing Request...' : 'Send Test Request'}</span>
         </button>
       </div>
 
       {/* Architecture Node Flow */}
-      <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-6">
         {ARCH_STAGES.map((node, i) => {
           const isActive = currentStep === i;
           const isDone = currentStep > i;
@@ -92,32 +97,32 @@ export default function RestLifecycleVisualizer() {
             <div
               key={node.step}
               onClick={() => setCurrentStep(i)}
-              className={`cursor-pointer p-3.5 rounded-2xl border transition-all ${
+              className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 ${
                 isActive
-                  ? 'border-emerald-400 bg-emerald-950/60 shadow-[0_0_15px_rgba(16,185,129,0.25)]'
+                  ? 'border-emerald-400 bg-emerald-950/70 shadow-[0_0_20px_rgba(16,185,129,0.3)] scale-[1.02]'
                   : isDone
                   ? 'border-emerald-800/60 bg-emerald-950/20'
                   : 'border-[#142a20] bg-black opacity-50'
               }`}
             >
-              <div className="flex items-center justify-between mb-1">
-                <Icon size={16} className={isActive ? 'text-emerald-300' : 'text-zinc-400'} />
-                {isDone && <CheckCircle size={12} className="text-emerald-400" />}
+              <div className="flex items-center justify-between mb-2">
+                <Icon size={18} className={isActive ? 'text-emerald-300' : 'text-zinc-500'} />
+                {isDone && <CheckCircle size={14} className="text-emerald-400" />}
               </div>
-              <h4 className="font-semibold text-white text-xs">{node.title}</h4>
+              <h4 className="font-bold text-white text-xs leading-snug">{node.title}</h4>
             </div>
           );
         })}
       </div>
 
       {/* Detail Showcase */}
-      <div className="p-4 rounded-xl bg-black border border-[#142a20]">
+      <div className="p-6 rounded-2xl bg-black border border-[#142a20]">
         <span
-          className="text-[10px] font-mono font-bold uppercase px-2.5 py-0.5 rounded-lg border border-emerald-800/60 bg-emerald-950/40 text-emerald-300"
+          className="text-xs font-mono font-bold uppercase px-3 py-1 rounded-xl border border-emerald-800/60 bg-emerald-950/50 text-emerald-300"
         >
           Stage {ARCH_STAGES[currentStep].step}: {ARCH_STAGES[currentStep].title}
         </span>
-        <p className="text-zinc-300 text-xs leading-relaxed mt-2">
+        <p className="text-zinc-200 text-sm leading-relaxed mt-3">
           {ARCH_STAGES[currentStep].desc}
         </p>
       </div>

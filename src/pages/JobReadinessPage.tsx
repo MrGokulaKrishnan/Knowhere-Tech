@@ -30,26 +30,26 @@ export default function JobReadinessPage() {
   const status = getStatusText(overall);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 lg:px-6 py-6 selection:bg-emerald-500/30">
+    <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 selection:bg-emerald-500/30">
       {/* Header */}
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-1">
-          <TrendingUp className="text-emerald-400" size={22} />
-          <h1 className="text-2xl lg:text-3xl font-display font-bold text-white">
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <TrendingUp className="text-emerald-400" size={26} />
+          <h1 className="text-3xl lg:text-4xl font-display font-extrabold text-white">
             2027 Job Readiness Competency Matrix
           </h1>
         </div>
-        <p className="text-zinc-400 max-w-2xl text-sm">
+        <p className="text-zinc-300 max-w-3xl text-base leading-relaxed">
           A real-time evaluation of your technical readiness across core domains required for modern Java Full Stack Engineer positions.
         </p>
       </div>
 
       {/* Main Metric Hero Card */}
-      <div className="panel p-6 mb-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="panel p-8 lg:p-10 mb-8 rounded-3xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Radial meter */}
-          <div className="flex items-center gap-6">
-            <div className="relative w-32 h-32 shrink-0">
+          <div className="flex items-center gap-8">
+            <div className="relative w-36 h-36 shrink-0">
               <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
                 <circle cx="50" cy="50" r="40" fill="none" stroke="#142a20" strokeWidth="8" />
                 <circle
@@ -62,39 +62,39 @@ export default function JobReadinessPage() {
                   strokeDasharray={`${2 * Math.PI * 40}`}
                   strokeDashoffset={`${2 * Math.PI * 40 * (1 - overall / 100)}`}
                   strokeLinecap="round"
-                  className="transition-all duration-1000 ease-out shadow-[0_0_15px_rgba(16,185,129,0.5)]"
+                  className="transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(16,185,129,0.5)]"
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-2xl font-bold font-display text-emerald-400">{overall}%</span>
-                <span className="text-zinc-500 text-[10px] uppercase font-mono">Score</span>
+                <span className="text-3xl font-extrabold font-display text-emerald-400">{overall}%</span>
+                <span className="text-zinc-400 text-xs uppercase font-mono font-bold">Readiness</span>
               </div>
             </div>
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <ShieldCheck size={18} className="text-emerald-400" />
-                <span className={`text-lg font-bold ${status.color}`}>{status.title}</span>
+              <div className="flex items-center gap-2.5 mb-2">
+                <ShieldCheck size={22} className="text-emerald-400" />
+                <span className={`text-xl font-bold ${status.color}`}>{status.title}</span>
               </div>
-              <p className="text-zinc-400 text-xs max-w-md">{status.desc}</p>
-              <p className="text-zinc-500 text-xs mt-2 font-mono">
-                Completed: {progress?.totalLessonsCompleted || 0} Lessons · {progress?.xp || 0} XP
+              <p className="text-zinc-300 text-sm max-w-lg leading-relaxed">{status.desc}</p>
+              <p className="text-zinc-500 text-xs mt-3 font-mono">
+                Completed: {progress?.totalLessonsCompleted || 0} Lessons · {(progress?.xp || 0).toLocaleString()} XP
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row md:flex-col gap-2.5 shrink-0 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 w-full md:w-auto">
             <button
               onClick={() => navigate('/roadmap')}
-              className="button-primary text-xs !py-2 !px-4"
+              className="button-primary text-xs !py-3 !px-5"
             >
               <span>Follow Roadmap</span>
-              <ArrowRight size={14} />
+              <ArrowRight size={16} />
             </button>
             <button
               onClick={() => navigate('/interview')}
-              className="button-secondary text-xs !py-2 !px-4"
+              className="button-secondary text-xs !py-3 !px-5"
             >
-              <Trophy size={14} />
+              <Trophy size={16} />
               <span>Interview Questions</span>
             </button>
           </div>
@@ -102,25 +102,25 @@ export default function JobReadinessPage() {
       </div>
 
       {/* Chart Visualizations */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Horizontal Bar Breakdown */}
-        <div className="panel p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-semibold text-white text-sm flex items-center gap-2">
-              <Target size={16} className="text-emerald-400" /> Domain Breakdown
+        <div className="panel p-7 lg:p-8 rounded-3xl">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="font-bold text-white text-base flex items-center gap-2.5">
+              <Target size={18} className="text-emerald-400" /> Domain Breakdown
             </h2>
-            <span className="text-zinc-500 text-xs font-mono">2027 Weights</span>
+            <span className="text-zinc-400 text-xs font-mono">2027 Industry Weights</span>
           </div>
-          <div className="h-[320px]">
+          <div className="h-[360px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={scores} layout="vertical" margin={{ left: 10, right: 30, top: 10, bottom: 10 }}>
-                <XAxis type="number" domain={[0, 100]} tick={{ fill: '#4b6352', fontSize: 11 }} />
-                <YAxis type="category" dataKey="label" tick={{ fill: '#a7f3d0', fontSize: 11 }} width={110} />
+              <BarChart data={scores} layout="vertical" margin={{ left: 15, right: 30, top: 10, bottom: 10 }}>
+                <XAxis type="number" domain={[0, 100]} tick={{ fill: '#64748b', fontSize: 12 }} />
+                <YAxis type="category" dataKey="label" tick={{ fill: '#a7f3d0', fontSize: 12 }} width={120} />
                 <Tooltip
-                  contentStyle={{ background: '#050806', borderColor: '#142a20', borderRadius: 12, color: '#f9fafb' }}
+                  contentStyle={{ background: '#050806', borderColor: '#142a20', borderRadius: 16, color: '#f9fafb' }}
                   formatter={(value: any) => [`${value}%`, 'Competency']}
                 />
-                <Bar dataKey="score" radius={[0, 4, 4, 0]}>
+                <Bar dataKey="score" radius={[0, 6, 6, 0]}>
                   {scores.map((entry, idx) => (
                     <Cell key={`bar-${idx}`} fill={entry.color} />
                   ))}
@@ -131,18 +131,18 @@ export default function JobReadinessPage() {
         </div>
 
         {/* Radar Map */}
-        <div className="panel p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-semibold text-white text-sm flex items-center gap-2">
-              <Trophy size={16} className="text-emerald-400" /> Full Stack Competency Radar
+        <div className="panel p-7 lg:p-8 rounded-3xl">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="font-bold text-white text-base flex items-center gap-2.5">
+              <Trophy size={18} className="text-emerald-400" /> Full Stack Competency Radar
             </h2>
-            <span className="text-zinc-500 text-xs font-mono">Domain Balance</span>
+            <span className="text-zinc-400 text-xs font-mono">Domain Balance</span>
           </div>
-          <div className="h-[320px]">
+          <div className="h-[360px]">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={scores}>
                 <PolarGrid stroke="#142a20" />
-                <PolarAngleAxis dataKey="label" tick={{ fill: '#a7f3d0', fontSize: 10 }} />
+                <PolarAngleAxis dataKey="label" tick={{ fill: '#a7f3d0', fontSize: 11 }} />
                 <Radar dataKey="score" stroke="#10b981" fill="#10b981" fillOpacity={0.25} strokeWidth={2} />
               </RadarChart>
             </ResponsiveContainer>
@@ -151,24 +151,24 @@ export default function JobReadinessPage() {
       </div>
 
       {/* Domain Cards List */}
-      <div className="mb-6">
-        <h2 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-          <Award size={16} className="text-emerald-400" /> Domain Status Breakdown
+      <div className="mb-8">
+        <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2.5">
+          <Award size={18} className="text-emerald-400" /> Domain Status Breakdown
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {scores.map(item => (
             <div
               key={item.moduleKey}
               onClick={() => navigate(`/${item.moduleKey}`)}
-              className="panel p-4 cursor-pointer hover:border-emerald-500/50 transition-all group"
+              className="panel p-5 cursor-pointer hover:border-emerald-500/50 transition-all group rounded-2xl"
             >
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-medium text-white text-xs group-hover:text-emerald-400 transition-colors">{item.label}</span>
-                <span className="font-mono text-xs font-bold" style={{ color: item.color }}>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-semibold text-white text-sm group-hover:text-emerald-400 transition-colors">{item.label}</span>
+                <span className="font-mono text-sm font-bold" style={{ color: item.color }}>
                   {item.score}%
                 </span>
               </div>
-              <div className="h-1.5 bg-black border border-[#142a20] rounded-full overflow-hidden">
+              <div className="h-2 bg-black border border-[#142a20] rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all duration-500"
                   style={{ width: `${item.score}%`, background: item.color }}
@@ -180,9 +180,9 @@ export default function JobReadinessPage() {
       </div>
 
       {/* Transparency Note */}
-      <div className="panel p-4 flex items-start gap-3 text-xs text-zinc-400">
-        <Info size={16} className="text-emerald-400 shrink-0 mt-0.5" />
-        <p>
+      <div className="panel p-6 flex items-start gap-4 text-xs text-zinc-400 rounded-2xl">
+        <Info size={20} className="text-emerald-400 shrink-0 mt-0.5" />
+        <p className="leading-relaxed text-zinc-300">
           The Job Readiness Score evaluates your interactive code exercises, quiz attempts, and completed roadmap milestones.
         </p>
       </div>
