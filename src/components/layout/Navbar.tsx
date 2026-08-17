@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Search, Flame, Zap, Trophy, AppWindow, Download } from 'lucide-react';
+import { Menu, Search, Flame, Zap, Trophy, AppWindow, Download, PanelLeft } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { getLevelFromXP } from '@/services/progressEngine';
 import KnowhereLogo from '@/components/ui/KnowhereLogo';
@@ -18,16 +18,17 @@ export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
   return (
     <>
       <header className="h-[76px] flex items-center justify-between px-6 lg:px-10 border-b border-[#142a20] bg-[#000000]/90 backdrop-blur-md shrink-0 z-30 select-none">
-        {/* Left: Mobile Menu Trigger & Logo */}
-        <div className="flex items-center gap-4">
+        {/* Left: Menu Trigger & Quick Logo */}
+        <div className="flex items-center gap-3">
           <button
             onClick={onMenuClick}
-            className="lg:hidden p-2.5 rounded-xl text-zinc-400 hover:text-white hover:bg-emerald-950/40 transition-colors"
-            aria-label="Open navigation menu"
+            className="p-2.5 rounded-xl text-zinc-400 hover:text-emerald-400 hover:bg-emerald-950/40 transition-colors border border-transparent hover:border-emerald-800/40"
+            aria-label="Toggle navigation sidebar (Ctrl+B)"
+            title="Toggle sidebar (Ctrl+B)"
           >
-            <Menu size={22} />
+            <Menu size={20} />
           </button>
-          <div className="hidden lg:flex items-center">
+          <div className="flex items-center">
             <KnowhereLogo size="sm" showText={false} />
           </div>
         </div>
