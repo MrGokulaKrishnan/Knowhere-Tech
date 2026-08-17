@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import MobileNavigation from './MobileNavigation';
@@ -11,43 +12,16 @@ interface AppShellProps {
 
 export default function AppShell({ children }: AppShellProps) {
   const location = useLocation();
-  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  // Sidebar is CLOSED by default on web load and when entering courses
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [commandOpen, setCommandOpen] = useState(false);
 
-  // Check if current page is an active course/lesson (e.g., /java/intro, /oop/polymorphism, /react/hooks)
-  const isLessonRoute = location.pathname.split('/').filter(Boolean).length >= 2;
-
-  // Initialize desktop sidebar collapse state: default to collapsed on lesson routes or user preference
-  const [desktopCollapsed, setDesktopCollapsed] = useState(() => {
-    try {
-      const stored = localStorage.getItem('knowhere:sidebar_collapsed');
-      if (stored !== null) return stored === 'true';
-      // Default to collapsed on lesson pages
-      return window.location.pathname.split('/').filter(Boolean).length >= 2;
-    } catch {
-      return false;
-    }
-  });
-
-  // Auto-collapse sidebar when entering a lesson page so it is never clumsy or in the way
+  // Automatically close sidebar on any route / page change
   useEffect(() => {
-    if (isLessonRoute) {
-      setDesktopCollapsed(true);
-    }
-    // Always auto-close mobile drawer on route change
-    setMobileSidebarOpen(false);
+    setSidebarOpen(false);
   }, [location.pathname]);
 
-  const handleToggleDesktopSidebar = () => {
-    setDesktopCollapsed(prev => {
-      const next = !prev;
-      try {
-        localStorage.setItem('knowhere:sidebar_collapsed', String(next));
-      } catch { /* ignore */ }
-      return next;
-    });
-  };
-
-  // Global Keyboard shortcuts: Ctrl+K (Search), Ctrl+[ / Ctrl+] (Toggle Sidebar)
+  // Global Keyboard shortcuts: Ctrl+K (Search), Ctrl+B / Escape (Sidebar)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -56,54 +30,55 @@ export default function AppShell({ children }: AppShellProps) {
       }
       if ((e.ctrlKey || e.metaKey) && (e.key === 'b' || e.key === '\\')) {
         e.preventDefault();
-        handleToggleDesktopSidebar();
+        setSidebarOpen(prev => !prev);
+      }
+      if (e.key === 'Escape') {
+        setSidebarOpen(false);
+        setCommandOpen(false);
       }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, []);
 
-  const [commandOpen, setCommandOpen] = useState(false);
-
   return (
-    <div className="flex h-screen bg-black text-[#f9fafb] overflow-hidden">
-      {/* Desktop Sidebar (Collapsible: Sleek 72px or Spacious 288px) */}
-      <Sidebar
-        collapsed={desktopCollapsed}
-        onToggleCollapse={handleToggleDesktopSidebar}
-      />
+    <div className="flex h-screen bg-black text-[#f9fafb] overflow-hidden select-none">
+      {/* On-Demand Slide-Out Sidebar Drawer (Closed by default) */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <>
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm"
+              onClick={() => setSidebarOpen(false)}
+            />
 
-      {/* Mobile Drawer Overlay */}
-      {mobileSidebarOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm lg:hidden transition-opacity"
-          onClick={() => setMobileSidebarOpen(false)}
-        />
-      )}
+            {/* Slide-In Navigation Panel */}
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 28, stiffness: 300 }}
+              className="fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] bg-[#020403] border-r border-[#142a20] shadow-[0_0_50px_rgba(0,0,0,0.9)]"
+            >
+              <Sidebar mobile onClose={() => setSidebarOpen(false)} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
-      {/* Mobile Sidebar Drawer */}
-      <div
-        className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#000000] border-r border-[#142a20] transform transition-transform duration-300 ease-out lg:hidden ${
-          mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
-        <Sidebar mobile onClose={() => setMobileSidebarOpen(false)} />
-      </div>
-
-      {/* Main Content Viewport */}
-      <div className="flex flex-col flex-1 overflow-hidden min-w-0">
+      {/* Main Full-Width Content Viewport */}
+      <div className="flex flex-col flex-1 overflow-hidden min-w-0 w-full">
         <Navbar
-          onMenuClick={() => {
-            if (window.innerWidth < 1024) {
-              setMobileSidebarOpen(prev => !prev);
-            } else {
-              handleToggleDesktopSidebar();
-            }
-          }}
+          onMenuClick={() => setSidebarOpen(prev => !prev)}
           onSearchClick={() => setCommandOpen(true)}
         />
 
-        <main className="flex-1 overflow-y-auto pb-24 lg:pb-10 custom-scrollbar">
+        <main className="flex-1 overflow-y-auto pb-24 lg:pb-12 custom-scrollbar">
           {children}
         </main>
 
