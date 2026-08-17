@@ -25,5 +25,5 @@ export const ROADMAP_NODES: RoadmapNode[] = [
   { id: 'system-design', moduleKey: 'system-design', title: 'System Design & High Availability', icon: 'Layers', lessonCount: 3, dependencies: ['testing'], position: { x: 0, y: 17 } },
   { id: 'projects', moduleKey: 'projects', title: '8 Production Full Stack Projects', icon: 'FolderOpen', lessonCount: 8, dependencies: ['system-design'], position: { x: 0, y: 18 } },
   { id: 'interview', moduleKey: 'interview', title: 'Interview Preparation (500+ Q&A)', icon: 'MessageSquare', lessonCount: 20, dependencies: ['projects'], position: { x: 0, y: 19 } },
-  { id: 'job-ready', moduleKey: 'job-ready', title: 'JOB READY 2027', icon: 'Trophy', lessonCount: 0, dependencies: ['interview'], position: { x: 0, y: 20 } },
+  { id: 'job-ready', moduleKey: 'job-ready', title: 'JOB READY ENGINEER', icon: 'Trophy', lessonCount: 0, dependencies: ['interview'], position: { x: 0, y: 20 } },
 ];

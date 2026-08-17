@@ -31,7 +31,7 @@ export const LEVELS: Level[] = [
   { level: 4, title: 'Spring Architect',   minXP: 1200, maxXP: 2500,  color: '#14B8A6' },
   { level: 5, title: 'Full Stack Engineer',minXP: 2500, maxXP: 5000,  color: '#2DD4BF' },
   { level: 6, title: 'Cloud Architect',    minXP: 5000, maxXP: 10000, color: '#F59E0B' },
-  { level: 7, title: 'Staff Engineer 2027',minXP: 10000,maxXP: 99999, color: '#10B981' },
+  { level: 7, title: 'Principal Staff Engineer',minXP: 10000,maxXP: 99999, color: '#10B981' },
 ];
 
 export function getLevelFromXP(xp: number): Level {
@@ -192,7 +192,7 @@ export function getOverallJobReadiness(scores: JobReadinessScore[]): number {
 
 // ─── Badges (Strictly Professional, No Emojis) ───
 export const ALL_BADGES: Badge[] = [
-  { id: 'first-step',       title: 'First Step',        description: 'Initiate your 2027 developer roadmap', icon: 'Zap', condition: 'firstLesson',     xpReward: 10, rarity: 'common' },
+  { id: 'first-step',       title: 'First Step',        description: 'Initiate your developer roadmap', icon: 'Zap', condition: 'firstLesson',     xpReward: 10, rarity: 'common' },
   { id: 'java-beginner',    title: 'Java 25 Master',    description: 'Complete 5 Java core lessons',        icon: 'Coffee', condition: 'java5',          xpReward: 25, rarity: 'common' },
   { id: 'oop-master',       title: 'OOP Architect',     description: 'Master Encapsulation, Records & Polymorphism', icon: 'Layers', condition: 'oopAll', xpReward: 50, rarity: 'rare' },
   { id: 'dsa-starter',      title: 'DSA Pioneer',       description: 'Complete Big-O & Sorting modules',    icon: 'Code2', condition: 'dsa5',           xpReward: 25, rarity: 'common' },
@@ -200,5 +200,5 @@ export const ALL_BADGES: Badge[] = [
   { id: 'spring-dev',       title: 'Spring Boot Pro',   description: 'Build robust enterprise services',    icon: 'Leaf', condition: 'springBootAll',   xpReward: 100, rarity: 'epic' },
   { id: 'react-dev',        title: 'React 19 Engineer', description: 'Master components, hooks & actions',  icon: 'Atom', condition: 'reactAll',        xpReward: 100, rarity: 'epic' },
   { id: 'dockerized',       title: 'Container Captain', description: 'Deploy multi-stage Docker apps',      icon: 'Package', condition: 'dockerAll',       xpReward: 75, rarity: 'rare' },
-  { id: 'job-ready',        title: 'Job Ready 2027',    description: 'Reach maximum competency score',      icon: 'ShieldCheck', condition: 'jobReady',        xpReward: 500, rarity: 'legendary' },
+  { id: 'job-ready',        title: 'Job Ready Master',  description: 'Reach maximum competency score',      icon: 'ShieldCheck', condition: 'jobReady',        xpReward: 500, rarity: 'legendary' },
 ];

@@ -20,7 +20,7 @@ export default function NotFoundPage() {
           Page Not Found
         </h1>
         <p className="text-text-muted text-sm mb-6">
-          The requested path doesn't exist or is currently being updated in our 2027 curriculum.
+          The requested path doesn't exist or is currently being updated in our curriculum.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button

@@ -3,10 +3,10 @@ import { Terminal, Send, RotateCcw } from 'lucide-react';
 
 const COMMANDS: Record<string, string> = {
   help: 'Available commands:\n- pwd          : Print working directory\n- ls -la       : List all files and permissions\n- whoami       : Show current user\n- java -version: Show installed Java runtime\n- docker ps    : List active containers\n- uname -a     : Show kernel and OS release\n- clear        : Clear terminal screen',
-  pwd: '/home/developer/knowhere-tech/java-fullstack-2027',
+  pwd: '/home/developer/knowhere-tech/java-fullstack',
   'ls -la': 'total 56\ndrwxr-xr-x  6 dev dev 4096 Aug 17 08:00 .\ndrwxr-xr-x 18 dev dev 4096 Aug 17 07:45 ..\n-rw-r--r--  1 dev dev  820 Aug 17 08:00 pom.xml\ndrwxr-xr-x  4 dev dev 4096 Aug 17 08:00 src\n-rw-r--r--  1 dev dev  420 Aug 17 08:00 Dockerfile\n-rw-r--r--  1 dev dev  680 Aug 17 08:00 compose.yml\n-rw-r--r--  1 dev dev 1240 Aug 17 08:00 application.yml',
   whoami: 'developer (uid=1000 gid=1000 groups=sudo,docker,developers)',
-  'java -version': 'openjdk version "25-ea" 2027-03-16\nOpenJDK Runtime Environment (build 25-ea+12-LTS)\nOpenJDK 64-Bit Server VM (build 25-ea+12-LTS, mixed mode, sharing)',
+  'java -version': 'openjdk version "25-ea" LTS\nOpenJDK Runtime Environment (build 25-ea+12-LTS)\nOpenJDK 64-Bit Server VM (build 25-ea+12-LTS, mixed mode, sharing)',
   'docker ps': 'CONTAINER ID   IMAGE                 COMMAND                  PORTS                    NAMES\n8a21fbc34d12   mysql:8.4             "docker-entrypoint.s…"   0.0.0.0:3306->3306/tcp   mysql-production\n9b12dda81234   redis:alpine          "docker-entrypoint.s…"   0.0.0.0:6379->6379/tcp   redis-cluster-cache\n4c88f121a990   knowhere-api:latest   "java -jar app.jar"      0.0.0.0:8080->8080/tcp   backend-service',
   'uname -a': 'Linux knowhere-node-01 6.8.0-generic #28-Ubuntu SMP x86_64 GNU/Linux'
 };

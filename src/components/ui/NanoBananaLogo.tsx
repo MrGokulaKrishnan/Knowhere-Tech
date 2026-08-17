@@ -58,9 +58,6 @@ export default function NanoBananaLogo({
             <span className={`font-display font-extrabold tracking-tight text-white ${textSizes[size]}`}>
               nano<span className="text-[#00FF88]">banana</span>
             </span>
-            <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-mono border border-emerald-500/30">
-              2027
-            </span>
           </div>
           <p className="text-[10px] font-mono text-[#4A6B53] tracking-wide uppercase">
             Java Full Stack

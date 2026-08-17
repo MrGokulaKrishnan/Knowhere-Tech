@@ -53,7 +53,7 @@ function GreetingHero() {
         <div className="max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="eyebrow text-emerald-400 font-mono text-xs">
-              Knowhere Tech · 2027 Engineering Learning Platform
+              Knowhere Tech · Full Stack Engineering Platform
             </span>
           </div>
 

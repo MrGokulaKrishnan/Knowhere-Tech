@@ -21,7 +21,7 @@ export default function JobReadinessPage() {
   const overall = getOverallJobReadiness(scores);
 
   const getStatusText = (score: number) => {
-    if (score >= 80) return { title: 'Staff Full Stack Ready', desc: 'You possess comprehensive skills expected of a 2027 Java Full Stack Developer.', color: 'text-emerald-400' };
+    if (score >= 80) return { title: 'Staff Full Stack Ready', desc: 'You possess comprehensive skills expected of a Senior Full Stack Engineer.', color: 'text-emerald-400' };
     if (score >= 50) return { title: 'Approaching Full Stack Competence', desc: 'Strong foundation. Focus next on Docker, AWS Cloud, and System Design.', color: 'text-teal-400' };
     if (score >= 20) return { title: 'Intermediate In-Progress', desc: 'Good start. Continue practicing with Spring Boot, SQL, and React modules.', color: 'text-amber-400' };
     return { title: 'Foundational Stage', desc: 'Begin with Java Fundamentals, OOP principles, and DSA core concepts.', color: 'text-zinc-400' };
@@ -36,7 +36,7 @@ export default function JobReadinessPage() {
         <div className="flex items-center gap-3 mb-2">
           <TrendingUp className="text-emerald-400" size={26} />
           <h1 className="text-3xl lg:text-4xl font-display font-extrabold text-white">
-            2027 Job Readiness Competency Matrix
+            Job Readiness Competency Matrix
           </h1>
         </div>
         <p className="text-zinc-300 max-w-3xl text-base leading-relaxed">
@@ -109,7 +109,7 @@ export default function JobReadinessPage() {
             <h2 className="font-bold text-white text-base flex items-center gap-2.5">
               <Target size={18} className="text-emerald-400" /> Domain Breakdown
             </h2>
-            <span className="text-zinc-400 text-xs font-mono">2027 Industry Weights</span>
+            <span className="text-zinc-400 text-xs font-mono">Core Industry Weights</span>
           </div>
           <div className="h-[360px]">
             <ResponsiveContainer width="100%" height="100%">

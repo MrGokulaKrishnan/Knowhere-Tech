@@ -1,6 +1,6 @@
-# ⚡ Knowhere Tech — Java Full Stack 2027 Learning Platform
+# ⚡ Knowhere Tech — Java Full Stack Learning Platform
 
-> A complete, modern, lightweight, frontend-only interactive learning platform for mastering the Java Full Stack developer ecosystem in 2027.
+> A complete, modern, lightweight, frontend-only interactive learning platform for mastering the Java Full Stack developer ecosystem.
 
 ---
 
@@ -20,6 +20,7 @@ Built with an **AMOLED Pure Dark theme**, crisp glassmorphism panels, interactiv
 - **Styling**: Tailwind CSS + Custom AlgoVisual Design System (Pure AMOLED Black `#000000` + Emerald `#10b981`)
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
+- **PWA & Standalone App**: Web App Manifest + Service Worker + Open in App support
 - **Visualizers & Charts**: Custom Canvas / SVG Visualizers + Recharts
 - **Storage & State**: React Context + IndexedDB (`idb`) + LocalStorage (100% Client-Side, Zero External Telemetry)
 - **Deployment**: Netlify & Vercel SPA Ready (`_redirects`, `netlify.toml`, `vercel.json`)
@@ -75,4 +76,4 @@ npm run preview
 
 ## 📄 License
 
-MIT License © 2027 Knowhere Tech
+MIT License © Knowhere Tech

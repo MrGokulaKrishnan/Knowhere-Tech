@@ -11,7 +11,7 @@ export default function KnowhereLogo({
   size = 'md',
   showText = true,
   className = '',
-  subtext = 'Java Full Stack 2027'
+  subtext = 'Java Full Stack Platform'
 }: KnowhereLogoProps) {
   const iconDimensions = {
     sm: 'h-9 w-auto',

@@ -54,7 +54,7 @@ export default function RoadmapPage() {
         <div className="flex items-center gap-3 mb-2">
           <Map className="text-emerald-400" size={26} />
           <h1 className="text-3xl lg:text-4xl font-display font-extrabold text-white">
-            2027 Java Full Stack Developer Roadmap
+            Java Full Stack Developer Roadmap
           </h1>
         </div>
         <p className="text-zinc-400 text-base leading-relaxed max-w-3xl">

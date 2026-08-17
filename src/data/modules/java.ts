@@ -10,8 +10,8 @@ export const JAVA_LESSONS: Lesson[] = [
     duration: 8,
     order: 1,
     prerequisites: [],
-    tags: ['java', 'basics', 'wora', 'jvm', '2027'],
-    explanation: 'Java is a robust, class-based, object-oriented programming language designed for maximum cross-platform portability following the "Write Once, Run Anywhere" (WORA) philosophy. In 2027, Java 25 LTS powers enterprise microservices, cloud native workloads, Android apps, and high-frequency backend systems.',
+    tags: ['java', 'basics', 'wora', 'jvm', 'enterprise'],
+    explanation: 'Java is a robust, class-based, object-oriented programming language designed for maximum cross-platform portability following the "Write Once, Run Anywhere" (WORA) philosophy. Java 25 LTS powers enterprise microservices, cloud native workloads, Android apps, and high-frequency backend systems.',
     beginnerExplanation: 'Think of Java like a universal translator for computers. When you write instructions in Java, it doesn\'t lock into Windows, Mac, or Linux directly. Instead, Java converts it into a universal format (Bytecode) that any computer with a JVM engine can run flawlessly.',
     technicalExplanation: 'Java source code (.java) is compiled by javac into platform-neutral Bytecode (.class). At runtime, the Java Virtual Machine (JVM) loads the bytecode, verifies execution safety, and employs adaptive Just-In-Time (JIT) compilation and tiered compilation (C1/C2) to translate hot bytecode sequences directly into optimized native CPU machine instructions.',
     keyPoints: [
@@ -23,7 +23,7 @@ export const JAVA_LESSONS: Lesson[] = [
     ],
     codeExample: `public class Main {
     public static void main(String[] args) {
-        // Welcome to Java 2027!
+        // Welcome to Modern Java!
         String version = "Java 25 LTS";
         System.out.println("Hello, " + version + " Developer!");
         
@@ -116,7 +116,7 @@ System.out.println("Result: " + a + b);`,
       'Stack: Thread-private, stores method frames, primitive locals, and object references',
       'Heap: Thread-shared, holds all instantiated objects and arrays',
       'Metaspace: Stores class metadata in native memory (replaced PermGen in Java 8)',
-      'Modern GCs (ZGC, G1) achieve sub-millisecond pause times in 2027 enterprise apps',
+      'Modern GCs (ZGC, G1) achieve sub-millisecond pause times in modern enterprise apps',
       'JIT Compiler (Tiered C1/C2) optimizes hot execution paths to raw machine instructions'
     ],
     codeExample: `public class MemoryDemo {
