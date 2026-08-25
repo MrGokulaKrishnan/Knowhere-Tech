@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, Search, Flame, Zap, Trophy, AppWindow } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { getLevelFromXP } from '@/services/progressEngine';
@@ -56,15 +57,17 @@ export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
             <span className="hidden sm:inline tracking-wide">Menu</span>
           </button>
 
-          <div className="flex items-center ml-1">
-            <KnowhereLogo size="sm" showText={false} />
-          </div>
+          <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <div className="flex items-center ml-1">
+              <KnowhereLogo size="sm" showText={false} />
+            </div>
 
-          {/* Brand name visible on md+ */}
-          <div className="hidden md:flex flex-col leading-none">
-            <span className="text-white font-extrabold text-sm tracking-tight">Knowhere</span>
-            <span className="text-emerald-400/70 text-[10px] font-mono tracking-widest uppercase">Tech</span>
-          </div>
+            {/* Brand name visible on md+ */}
+            <div className="hidden md:flex flex-col leading-none">
+              <span className="text-white font-extrabold text-sm tracking-tight">Knowhere</span>
+              <span className="text-emerald-400/70 text-[10px] font-mono tracking-widest uppercase">Tech</span>
+            </div>
+          </Link>
         </div>
 
         {/* Center: Command Palette Trigger */}

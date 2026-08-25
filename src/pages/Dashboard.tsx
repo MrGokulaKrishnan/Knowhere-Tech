@@ -6,7 +6,7 @@ import {
   Coffee, Code2, Database, Globe,
   Atom, Leaf, Server, Shield, Terminal, Package, Cloud, Layers, FolderOpen,
   MessageSquare, TrendingUp, GitBranch, Workflow, Network, TestTube, BookOpenCheck,
-  ShieldCheck, Compass, CheckCircle2, ChevronRight, Sparkles, Star
+  ShieldCheck, Compass, CheckCircle2, ChevronRight, Sparkles, Star, PlayCircle, Map
 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { getLevelFromXP, getLevelProgress, LEVELS } from '@/services/progressEngine';
@@ -131,7 +131,7 @@ function GreetingHero() {
                 onClick={() => navigate('/java/intro')}
                 className="button-primary"
               >
-                <Sparkles size={16} />
+                <PlayCircle size={16} />
                 <span>Start Java 25 Path</span>
                 <ArrowRight size={15} />
               </button>
@@ -139,7 +139,7 @@ function GreetingHero() {
                 onClick={() => navigate('/roadmap')}
                 className="button-secondary"
               >
-                <Compass size={15} />
+                <Map size={15} />
                 <span>Interactive Roadmap</span>
               </button>
             </div>
