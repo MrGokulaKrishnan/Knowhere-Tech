@@ -34,8 +34,8 @@ function PageLoader() {
 }
 
 function LessonPageWrapper() {
-  const { moduleKey } = useParams<{ moduleKey: string }>();
-  return <LessonPage moduleKey={(moduleKey || 'java') as ModuleKey} />;
+  const { moduleKey, slug } = useParams<{ moduleKey: string, slug: string }>();
+  return <LessonPage key={`${moduleKey}-${slug}`} moduleKey={(moduleKey || 'java') as ModuleKey} />;
 }
 
 export default function App() {
