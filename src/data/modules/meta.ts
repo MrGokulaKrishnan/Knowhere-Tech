@@ -54,6 +54,22 @@ export const ALL_MODULES_META: ModuleMeta[] = [
     ],
   },
   {
+    key: 'advanced-java',
+    title: 'Advanced Java 25 & Concurrency',
+    description: 'Virtual Threads, Streams, Pattern Matching, Locks & GC Architecture',
+    color: 'text-teal-400',
+    icon: 'Cpu',
+    order: 3,
+    lessons: [
+      { id: 'adv-virtual-threads', title: 'Virtual Threads & Project Loom', slug: 'virtual-threads', tags: ['concurrency', 'virtual-threads', 'loom', 'java25'], explanation: 'High-throughput lightweight concurrency with Java 25 Virtual Threads.' },
+      { id: 'adv-streams', title: 'Streams & Functional Pipelines', slug: 'streams', tags: ['streams', 'lambdas', 'functional', 'collectors'], explanation: 'Processing data sequences with map, filter, reduce, and parallel streams.' },
+      { id: 'adv-pattern-matching', title: 'Pattern Matching & Modern Syntax', slug: 'pattern-matching', tags: ['pattern-matching', 'switch', 'records', 'syntax'], explanation: 'Exhaustive switch pattern matching and Record deconstruction.' },
+      { id: 'adv-concurrency', title: 'Concurrent Collections & Locks', slug: 'concurrency', tags: ['locks', 'reentrantlock', 'concurrenthashmap', 'atomic'], explanation: 'Thread synchronization, atomic variables, and lock-free data structures.' },
+      { id: 'adv-memory-gc', title: 'JVM Memory Model & ZGC Tuning', slug: 'memory-gc', tags: ['jvm', 'memory', 'garbage-collection', 'zgc'], explanation: 'Heap generations, ZGC sub-millisecond pauses, and memory leak diagnosis.' },
+      { id: 'adv-reflection-annotations', title: 'Reflection & Custom Annotations', slug: 'reflection-annotations', tags: ['reflection', 'annotations', 'proxies', 'metaprogramming'], explanation: 'Dynamic runtime inspection and how frameworks like Spring Boot work under the hood.' },
+    ],
+  },
+  {
     key: 'dsa',
     title: 'Data Structures & Algorithms',
     description: 'Learn DSA from scratch with visual animations',

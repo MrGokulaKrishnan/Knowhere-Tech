@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { getLevelFromXP } from '@/services/progressEngine';
+import { ALL_MODULES_META } from '@/data/modules/meta';
 import KnowhereLogo from '@/components/ui/KnowhereLogo';
 import OpenInAppModal from '@/components/ui/OpenInAppModal';
 import { clsx } from 'clsx';
@@ -18,6 +19,7 @@ interface NavSection {
     path: string;
     icon: React.ComponentType<{ size?: number; className?: string }>;
     badge?: string;
+    moduleKey?: string;
   }[];
 }
 
@@ -31,29 +33,29 @@ const NAV_SECTIONS: NavSection[] = [
   {
     title: 'CORE CURRICULUM',
     items: [
-      { label: 'Java 25 LTS', path: '/java', icon: Coffee },
-      { label: 'OOP & Records', path: '/oop', icon: Layers },
-      { label: 'DSA & Algorithms', path: '/dsa', icon: Code2 },
-      { label: 'SQL & Relational DB', path: '/sql', icon: Database },
-      { label: 'React 19 & Frontend', path: '/react', icon: Atom },
-      { label: 'Spring Boot 3', path: '/spring', icon: Leaf },
-      { label: 'REST API & Microservices', path: '/rest-api', icon: Server },
+      { label: 'Java 25 LTS', path: '/java', icon: Coffee, moduleKey: 'java' },
+      { label: 'OOP & Records', path: '/oop', icon: Layers, moduleKey: 'oop' },
+      { label: 'DSA & Algorithms', path: '/dsa', icon: Code2, moduleKey: 'dsa' },
+      { label: 'SQL & Relational DB', path: '/sql', icon: Database, moduleKey: 'sql' },
+      { label: 'React 19 & Frontend', path: '/react', icon: Atom, moduleKey: 'react' },
+      { label: 'Spring Boot 3', path: '/spring', icon: Leaf, moduleKey: 'spring' },
+      { label: 'REST API & Microservices', path: '/rest-api', icon: Server, moduleKey: 'rest-api' },
     ],
   },
   {
     title: 'DEVOPS & CLOUD',
     items: [
-      { label: 'Docker & Containers', path: '/docker', icon: Package },
-      { label: 'DevOps & CI/CD', path: '/devops', icon: Workflow },
-      { label: 'AWS Cloud Architecture', path: '/aws', icon: Cloud },
-      { label: 'Linux Bash Terminal', path: '/linux', icon: Terminal },
+      { label: 'Docker & Containers', path: '/docker', icon: Package, moduleKey: 'docker' },
+      { label: 'DevOps & CI/CD', path: '/devops', icon: Workflow, moduleKey: 'devops' },
+      { label: 'AWS Cloud Architecture', path: '/aws', icon: Cloud, moduleKey: 'aws' },
+      { label: 'Linux Bash Terminal', path: '/linux', icon: Terminal, moduleKey: 'linux' },
     ],
   },
   {
     title: 'PRACTICE & READINESS',
     items: [
-      { label: '8 Project Blueprints', path: '/projects', icon: FolderOpen, badge: '8' },
-      { label: '500+ Interview Bank', path: '/interview', icon: MessageSquare, badge: '500+' },
+      { label: '8 Project Blueprints', path: '/projects', icon: FolderOpen, badge: '8', moduleKey: 'projects' },
+      { label: '500+ Interview Bank', path: '/interview', icon: MessageSquare, badge: '500+', moduleKey: 'interview' },
       { label: 'Job Readiness Matrix', path: '/job-readiness', icon: TrendingUp },
       { label: 'Saved Bookmarks', path: '/bookmarks', icon: BookOpen },
     ],
@@ -147,6 +149,9 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
                   const Icon = item.icon;
                   const isActive = location.pathname === item.path ||
                     (item.path !== '/dashboard' && location.pathname.startsWith(item.path));
+                  const moduleKey = item.moduleKey || item.path.replace(/^\//, '');
+                  const isModule = ALL_MODULES_META.some(m => m.key === moduleKey) || !!item.moduleKey;
+                  const percentage = isModule ? (progress?.modules?.[moduleKey]?.percentage || 0) : 0;
 
                   return (
                     <NavLink
@@ -169,6 +174,11 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
                           )}
                         />
                         <span className="truncate">{item.label}</span>
+                        {percentage > 0 && (
+                          <span className="text-emerald-500 text-[10px] font-mono shrink-0">
+                            {percentage}%
+                          </span>
+                        )}
                       </div>
 
                       {item.badge && (

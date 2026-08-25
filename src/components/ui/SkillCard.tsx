@@ -29,12 +29,12 @@ export default function SkillCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.06 }}
       onClick={() => navigate(`/${moduleKey}`)}
-      className="group cursor-pointer rounded-xl border border-border bg-bg-card p-4 hover:border-border-light hover:bg-bg-elevated transition-all duration-200"
+      className="panel p-5 cursor-pointer hover:border-emerald-500/50 transition-all duration-200 group rounded-2xl"
     >
       <div className="flex items-start justify-between mb-3">
         <div className={clsx('text-2xl', color)}>{icon}</div>
         {isComplete ? (
-          <CheckCircle size={16} className="text-secondary" />
+          <CheckCircle size={16} className="text-[#14b8a6]" />
         ) : (
           <ChevronRight size={16} className="text-text-subtle group-hover:text-text-muted transition-colors" />
         )}

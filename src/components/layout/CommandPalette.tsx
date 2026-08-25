@@ -48,13 +48,13 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   return (
     <AnimatePresence>
       {open && (
-        <>
+        <div className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-16 sm:pt-24 select-none overflow-y-auto">
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/85 backdrop-blur-md z-50"
+            className="fixed inset-0 bg-black/85 backdrop-blur-md"
             onClick={onClose}
           />
           <motion.div
@@ -63,7 +63,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 w-full max-w-2xl z-50 px-4"
+            className="relative z-10 w-full max-w-2xl"
           >
             <div className="bg-[#070b09] border border-[#142a20] rounded-3xl shadow-2xl overflow-hidden">
               {/* Search Input Box */}
@@ -136,7 +136,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
               </div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

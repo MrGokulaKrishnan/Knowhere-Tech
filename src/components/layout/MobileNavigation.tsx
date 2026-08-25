@@ -13,7 +13,7 @@ const MOBILE_NAV = [
 
 export default function MobileNavigation() {
   return (
-    <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#000000]/95 backdrop-blur-md border-t border-[#142a20] flex items-center justify-around py-2 px-1">
+    <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#000000]/95 backdrop-blur-md border-t border-[#142a20] flex items-center justify-around py-2 px-1 pb-[env(safe-area-inset-bottom)]">
       {MOBILE_NAV.map(item => {
         const Icon = item.icon;
         return (

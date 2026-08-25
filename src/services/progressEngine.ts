@@ -3,6 +3,7 @@
 // ─────────────────────────────────────────────────────
 import type { UserProgress, UserSettings, ModuleKey, Level, Badge } from '@/types';
 import { saveProgress, loadProgress } from './db';
+import { ALL_MODULES_META } from '@/data/modules/meta';
 
 function generateId(): string {
   if (typeof crypto !== 'undefined' && crypto.randomUUID) {
@@ -104,14 +105,16 @@ export function markLessonComplete(
     },
   };
 
-  const currentModule = progress?.modules?.[moduleKey] || { completedLessons: 0, totalLessons: 10, percentage: 0 };
+  const totalLessons = ALL_MODULES_META.find(m => m.key === moduleKey)?.lessons?.length || 10;
+  const currentModule = progress?.modules?.[moduleKey] || { completedLessons: 0, totalLessons, percentage: 0 };
   const updatedModules = {
     ...(progress?.modules || {}),
     [moduleKey]: {
       ...currentModule,
       moduleKey,
+      totalLessons,
       completedLessons: currentModule.completedLessons + 1,
-      percentage: Math.min(100, Math.round(((currentModule.completedLessons + 1) / (currentModule.totalLessons || 10)) * 100))
+      percentage: Math.min(100, Math.round(((currentModule.completedLessons + 1) / (totalLessons || 10)) * 100))
     }
   };
 

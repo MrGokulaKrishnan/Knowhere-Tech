@@ -25,6 +25,7 @@ export default function Card({
       onClick={onClick}
       className={clsx(
         'panel',
+        glass && 'backdrop-blur-2xl bg-[#060a08]/80 border-emerald-500/20',
         hover && 'hover:border-emerald-500/50 cursor-pointer',
         onClick && 'cursor-pointer',
         PAD[padding],

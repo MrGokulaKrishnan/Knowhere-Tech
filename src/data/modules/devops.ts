@@ -39,7 +39,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]`,
       { code: 'FROM eclipse-temurin:25-jdk-alpine AS builder', token: 'AS builder', explanation: 'Stage 1 build environment containing heavy compiler tools.' },
       { code: 'COPY --from=builder /app/target/*.jar app.jar', token: '--from=builder', explanation: 'Extracts only the compiled binary artifact, discarding compiler and source code to minimize attack surface.' }
     ],
-    visualizer: 'git-workflow',
+    visualizer: 'docker-architecture',
     quiz: [
       {
         id: 'q1',

@@ -24,23 +24,23 @@ export default function Modal({ open, onClose, title, children, size = 'md' }: M
   return (
     <AnimatePresence>
       {open && (
-        <>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto select-none">
           <motion.div key="backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onClick={onClose} />
+            className="fixed inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
           <motion.div key="modal" initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }} transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            className={clsx('fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full px-4', SIZE_CLASS[size])}>
-            <div className="bg-bg-card border border-border rounded-xl shadow-elevated">
+            className={clsx('relative z-10 w-full', SIZE_CLASS[size])}>
+            <div className="bg-[#070b09] border border-[#142a20] rounded-3xl shadow-2xl overflow-hidden">
               {title && (
-                <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-                  <h3 className="font-semibold text-text">{title}</h3>
-                  <button onClick={onClose} className="text-text-muted hover:text-text p-1 rounded"><X size={18} /></button>
+                <div className="flex items-center justify-between px-6 py-5 border-b border-[#142a20]">
+                  <h3 className="font-bold text-white text-base">{title}</h3>
+                  <button onClick={onClose} className="text-zinc-400 hover:text-white p-1.5 rounded-xl hover:bg-emerald-950/40 transition-colors"><X size={18} /></button>
                 </div>
               )}
-              <div className="p-5">{children}</div>
+              <div className="p-6">{children}</div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

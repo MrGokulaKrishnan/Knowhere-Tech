@@ -67,7 +67,7 @@ export default function App() {
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/interview" element={<InterviewPage />} />
                 <Route path="/job-readiness" element={<JobReadinessPage />} />
-                <Route path="/progress" element={<JobReadinessPage />} />
+                <Route path="/progress" element={<ProgressPage />} />
                 <Route path="/daily" element={<DailyChallengePage />} />
                 <Route path="/bookmarks" element={<BookmarksPage />} />
                 <Route path="/settings" element={<SettingsPage />} />

@@ -46,7 +46,7 @@ export function saveProgress(progress: UserProgress): void {
 
 export function loadProgress(): UserProgress | null {
   try {
-    const raw = localStorage.getItem(LS_KEY) || localStorage.getItem('stackpath:progress');
+    const raw = localStorage.getItem(LS_KEY);
     return raw ? JSON.parse(raw) : null;
   } catch { return null; }
 }
@@ -59,7 +59,7 @@ export function saveSettings(settings: UserSettings): void {
 
 export function loadSettings(): UserSettings | null {
   try {
-    const raw = localStorage.getItem(LS_SETTINGS) || localStorage.getItem('stackpath:settings');
+    const raw = localStorage.getItem(LS_SETTINGS);
     return raw ? JSON.parse(raw) : null;
   } catch { return null; }
 }
@@ -77,8 +77,6 @@ export function clearAllStorage(): void {
     localStorage.removeItem(LS_KEY);
     localStorage.removeItem(LS_SETTINGS);
     localStorage.removeItem(LS_LAST_ROUTE);
-    localStorage.removeItem('stackpath:progress');
-    localStorage.removeItem('stackpath:settings');
   } catch { /* ignore */ }
 }
 

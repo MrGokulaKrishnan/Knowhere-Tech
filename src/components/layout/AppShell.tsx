@@ -42,7 +42,7 @@ export default function AppShell({ children }: AppShellProps) {
   }, []);
 
   return (
-    <div className="flex h-screen bg-black text-[#f9fafb] overflow-hidden select-none">
+    <div className="flex h-screen bg-black text-[#f9fafb] overflow-hidden">
       {/* On-Demand Slide-Out Sidebar Drawer (Closed by default) */}
       <AnimatePresence>
         {sidebarOpen && (

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// StackPath - Core TypeScript Types
+// Knowhere Tech - Core TypeScript Types
 // ─────────────────────────────────────────────────────
 
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';

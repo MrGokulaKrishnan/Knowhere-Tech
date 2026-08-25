@@ -55,7 +55,7 @@ export default function BookmarksPage() {
                 <div className="min-w-0">
                   <h4 className="font-medium text-text text-sm truncate">{bm.title}</h4>
                   <p className="text-text-subtle text-xs">
-                    Type: <span className="uppercase text-[10px]">{bm.type}</span> · Saved: {new Date(bm.createdAt).toLocaleDateString()}
+                    Type: <span className="capitalize text-[10px]">{bm.type}</span> · Saved: {new Date(bm.createdAt).toLocaleDateString()}
                   </p>
                 </div>
               </div>

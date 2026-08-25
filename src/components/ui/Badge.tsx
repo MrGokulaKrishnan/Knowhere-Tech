@@ -25,7 +25,7 @@ const VARIANT_CLASS: Record<BadgeVariant, string> = {
 export default function Badge({ children, variant = 'muted', size = 'sm', className }: BadgeProps) {
   return (
     <span className={clsx(
-      'inline-flex items-center border rounded-lg font-mono font-medium select-none',
+      'inline-flex items-center border rounded-lg font-mono font-medium select-none capitalize',
       size === 'xs' ? 'text-[10px] px-2 py-0.5' : 'text-xs px-2.5 py-0.5',
       VARIANT_CLASS[variant],
       className

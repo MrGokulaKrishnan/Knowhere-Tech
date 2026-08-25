@@ -9,12 +9,26 @@ import {
 import { useLearning } from '@/context/LearningContext';
 import { ALL_MODULES_META } from '@/data/modules/meta';
 import { JAVA_LESSONS } from '@/data/modules/java';
+import { ADVANCED_JAVA_LESSONS } from '@/data/modules/advancedJava';
 import { OOP_LESSONS } from '@/data/modules/oop';
 import { DSA_LESSONS } from '@/data/modules/dsa';
 import { SQL_LESSONS } from '@/data/modules/sql';
 import { SPRING_LESSONS } from '@/data/modules/spring';
 import { REACT_LESSONS } from '@/data/modules/react';
 import { DEVOPS_LESSONS } from '@/data/modules/devops';
+import { SPRING_BOOT_LESSONS } from '@/data/modules/springBoot';
+import { REST_API_LESSONS } from '@/data/modules/restApi';
+import { DOCKER_LESSONS } from '@/data/modules/docker';
+import { GIT_LESSONS } from '@/data/modules/git';
+import { LINUX_LESSONS } from '@/data/modules/linux';
+import { AWS_LESSONS } from '@/data/modules/aws';
+import { TESTING_LESSONS } from '@/data/modules/testing';
+import { SYSTEM_DESIGN_LESSONS } from '@/data/modules/systemDesign';
+import { SECURITY_LESSONS } from '@/data/modules/security';
+import { HTML_LESSONS } from '@/data/modules/html';
+import { CSS_LESSONS } from '@/data/modules/css';
+import { JAVASCRIPT_LESSONS } from '@/data/modules/javascript';
+import { NETWORKING_LESSONS } from '@/data/modules/networking';
 import VisualizerRegistry from '@/components/visualizers/VisualizerRegistry';
 import type { ModuleKey, Lesson } from '@/types';
 import Badge from '@/components/ui/Badge';
@@ -25,18 +39,26 @@ import { clsx } from 'clsx';
 // Aggregate lesson registry across curriculum
 const MODULE_LESSONS: Record<string, Lesson[]> = {
   java: JAVA_LESSONS,
+  'advanced-java': ADVANCED_JAVA_LESSONS,
   oop: OOP_LESSONS,
-  'advanced-java': JAVA_LESSONS.filter(l => l.tags.includes('concurrency') || l.tags.includes('collections')),
   dsa: DSA_LESSONS,
   sql: SQL_LESSONS,
   spring: SPRING_LESSONS,
-  'spring-boot': SPRING_LESSONS,
-  'rest-api': SPRING_LESSONS,
+  'spring-boot': SPRING_BOOT_LESSONS,
+  'rest-api': REST_API_LESSONS,
   react: REACT_LESSONS,
-  docker: DEVOPS_LESSONS,
+  docker: DOCKER_LESSONS,
+  git: GIT_LESSONS,
+  linux: LINUX_LESSONS,
+  aws: AWS_LESSONS,
+  testing: TESTING_LESSONS,
+  'system-design': SYSTEM_DESIGN_LESSONS,
+  security: SECURITY_LESSONS,
+  html: HTML_LESSONS,
+  css: CSS_LESSONS,
+  javascript: JAVASCRIPT_LESSONS,
+  networking: NETWORKING_LESSONS,
   devops: DEVOPS_LESSONS,
-  git: DEVOPS_LESSONS,
-  linux: DEVOPS_LESSONS,
 };
 
 function getFallbackVisualizer(moduleKey: ModuleKey, slug: string): string | undefined {
@@ -407,7 +429,7 @@ function InterviewSection({ lesson }: { lesson: Lesson }) {
           <div key={iq.id} className="rounded-2xl bg-black/60 border border-[#142a20] overflow-hidden">
             <div className="p-5 flex items-start justify-between gap-4">
               <div>
-                <Badge variant={iq.level} size="xs" className="mb-2">{iq.level}</Badge>
+                <Badge variant={iq.level} size="xs" className="mb-2">{iq.level.charAt(0).toUpperCase() + iq.level.slice(1)}</Badge>
                 <h4 className="text-sm font-semibold text-white leading-snug">{iq.question}</h4>
               </div>
               <button
@@ -479,7 +501,7 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
   const handleMarkComplete = () => {
     if (isCompleted) return;
     completeLesson(lesson.id, moduleKey, quizScore ?? undefined);
-    awardXP(lesson.xpReward);
+    // XP is already awarded inside markLessonComplete via addXP
   };
 
   const handleBookmarkToggle = async () => {
@@ -526,7 +548,7 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <Badge variant={lesson.difficulty}>{lesson.difficulty}</Badge>
+            <Badge variant={lesson.difficulty}>{lesson.difficulty.charAt(0).toUpperCase() + lesson.difficulty.slice(1)}</Badge>
             <span className="text-xs text-zinc-400 font-mono">{lesson.duration} min</span>
             <span className="text-xs font-mono text-emerald-400 font-bold">+{lesson.xpReward} XP</span>
             {isCompleted && (

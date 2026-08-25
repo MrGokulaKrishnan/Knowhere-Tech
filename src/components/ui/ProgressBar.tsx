@@ -44,7 +44,7 @@ export default function ProgressBar({
           <span className="font-mono text-emerald-400 font-bold">{Math.round(pct)}%</span>
         </div>
       )}
-      <div className={clsx('w-full bg-[#000000] border border-[#142a20] rounded-full overflow-hidden p-0.5', SIZE_MAP[size])}>
+      <div className={clsx('w-full bg-[#000000] border border-[#142a20] rounded-full overflow-hidden', SIZE_MAP[size])}>
         <div
           className={clsx(
             'h-full',
