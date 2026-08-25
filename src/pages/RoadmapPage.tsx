@@ -256,7 +256,10 @@ export default function RoadmapPage() {
                         : 'border-amber-500/30 bg-amber-950/15 text-amber-400/60'
                     )}
                   >
-                    {isStart ? '🚀 ' : '🏆 '}{node.title}
+                  <div className="flex items-center justify-center gap-2">
+                    {isStart ? <Rocket size={18} /> : <Trophy size={18} />}
+                    <span>{node.title}</span>
+                  </div>
                   </div>
                 ) : (
                   <div

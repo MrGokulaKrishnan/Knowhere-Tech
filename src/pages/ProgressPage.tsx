@@ -2,7 +2,7 @@ import React from 'react';
 import {
   TrendingUp, Zap, Flame, Trophy, BookOpen, CheckCircle, Award,
   Coffee, Layers, Code2, Database, Leaf, Atom, Package, ShieldCheck,
-  Star, Target, ArrowRight
+  Star, Target, ArrowRight, Lock
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLearning } from '@/context/LearningContext';
@@ -211,9 +211,7 @@ export default function ProgressPage() {
         {/* Locked Badges */}
         {lockedBadges.length > 0 && (
           <div>
-            <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3">
-              🔒 Locked — {lockedBadges.length} remaining
-            </p>
+            <h3 className="font-bold text-lg mb-1 flex items-center gap-2"><Lock size={18} /> Locked — {lockedBadges.length} remaining</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {lockedBadges.map(badge => {
                 const IconComp = ICON_MAP[badge.icon];

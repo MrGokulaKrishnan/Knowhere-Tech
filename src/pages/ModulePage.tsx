@@ -218,7 +218,7 @@ export default function ModulePage({ moduleKey }: ModulePageProps) {
           className="mt-8 panel p-7 rounded-3xl text-center bg-emerald-950/20 border-emerald-500/30"
         >
           <Trophy size={36} className="text-amber-400 mx-auto mb-3" />
-          <h3 className="text-xl font-extrabold text-white mb-2">Module Complete! 🎉</h3>
+          <h3 className="text-xl font-extrabold text-white mb-2">Module Complete!</h3>
           <p className="text-zinc-400 text-sm mb-5">
             You've mastered all {meta.lessons.length} lessons in {meta.title}. Ready for the next challenge?
           </p>

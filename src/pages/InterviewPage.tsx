@@ -13,17 +13,19 @@ const LEVEL_COLORS: Record<string, string> = {
   advanced:     'pill-red',
 };
 
-const CATEGORY_ICONS: Record<string, string> = {
-  Java: '☕',
-  'Spring Boot': '🌱',
-  SQL: '🗄️',
-  React: '⚛️',
-  Docker: '🐳',
-  AWS: '☁️',
-  'System Design': '🏗️',
-  DSA: '🔢',
-  OOP: '🧱',
-  'REST API': '🔗',
+import { Coffee, Leaf, Database, Atom, Package, Cloud, Layers, Code2, Boxes, Server } from 'lucide-react';
+
+const CATEGORY_ICONS: Record<string, React.ReactNode> = {
+  Java: <Coffee size={16} />,
+  'Spring Boot': <Leaf size={16} />,
+  SQL: <Database size={16} />,
+  React: <Atom size={16} />,
+  Docker: <Package size={16} />,
+  AWS: <Cloud size={16} />,
+  'System Design': <Layers size={16} />,
+  DSA: <Code2 size={16} />,
+  OOP: <Boxes size={16} />,
+  'REST API': <Server size={16} />,
 };
 
 export default function InterviewPage() {
