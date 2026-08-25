@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, Search, Flame, Zap, Trophy, AppWindow } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { getLevelFromXP } from '@/services/progressEngine';
@@ -15,6 +15,28 @@ export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
   const level = getLevelFromXP(progress?.xp || 0);
   const [appModalOpen, setAppModalOpen] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
+  const [hasDownloaded, setHasDownloaded] = useState(() => {
+    return localStorage.getItem('hasDownloadedApp') === 'true';
+  });
+
+  useEffect(() => {
+    const handleLocalInstall = () => {
+      setHasDownloaded(true);
+    };
+
+    window.addEventListener('appinstalled_local', handleLocalInstall);
+
+    // Also check if running in standalone
+    const isStandaloneMode = window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as any).standalone === true;
+    if (isStandaloneMode) {
+      setHasDownloaded(true);
+    }
+
+    return () => {
+      window.removeEventListener('appinstalled_local', handleLocalInstall);
+    };
+  }, []);
 
   return (
     <>
@@ -68,14 +90,16 @@ export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
         {/* Right: Stats & Open In App */}
         <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Open in App */}
-          <button
-            onClick={() => setAppModalOpen(true)}
-            className="flex items-center gap-2 px-3 py-2.5 rounded-2xl bg-[#040705] border border-[#142a20] hover:border-emerald-500/40 text-emerald-300 hover:bg-[#061208] text-xs font-bold font-mono transition-all hover:scale-[1.02] cursor-pointer"
-            title="Install Knowhere Tech as a standalone app"
-          >
-            <AppWindow size={15} className="text-emerald-400 shrink-0" />
-            <span className="hidden xl:inline">Open in App</span>
-          </button>
+          {!hasDownloaded && (
+            <button
+              onClick={() => setAppModalOpen(true)}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-2xl bg-[#040705] border border-[#142a20] hover:border-emerald-500/40 text-emerald-300 hover:bg-[#061208] text-xs font-bold font-mono transition-all hover:scale-[1.02] cursor-pointer"
+              title="Install Knowhere Tech as a standalone app"
+            >
+              <AppWindow size={15} className="text-emerald-400 shrink-0" />
+              <span className="hidden xl:inline">Open in App</span>
+            </button>
+          )}
 
           {/* Streak */}
           <div className="hidden sm:flex items-center gap-2 px-3 py-2.5 rounded-2xl bg-[#040705] border border-[#1e2a1a] text-xs">

@@ -34,7 +34,14 @@ export default function OpenInAppModal({ open, onClose }: OpenInAppModalProps) {
     window.addEventListener('appinstalled', () => {
       setInstalled(true);
       setDeferredPrompt(null);
+      localStorage.setItem('hasDownloadedApp', 'true');
+      window.dispatchEvent(new Event('appinstalled_local'));
     });
+
+    if (isStandaloneMode) {
+      localStorage.setItem('hasDownloadedApp', 'true');
+      window.dispatchEvent(new Event('appinstalled_local'));
+    }
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
@@ -48,6 +55,8 @@ export default function OpenInAppModal({ open, onClose }: OpenInAppModalProps) {
       if (outcome === 'accepted') {
         setInstalled(true);
         setDeferredPrompt(null);
+        localStorage.setItem('hasDownloadedApp', 'true');
+        window.dispatchEvent(new Event('appinstalled_local'));
       }
     }
   };
