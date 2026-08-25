@@ -818,4 +818,3605 @@ export const INTERVIEW_QUESTIONS: InterviewQ[] = [
     answer: 'A Java library that supports JUnit tests by spinning up lightweight, throwaway instances of common databases, message brokers, or anything that can run in a Docker container before the test runs.',
     example: 'Guarantees reliable integration tests without requiring local installed databases.'
   }
+,
+  {
+    id: 'gen_100',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'What is the primary purpose of CORE in Java?',
+    answer: 'CORE is used to optimize performance, manage state, and ensure scalability within Java applications.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_101',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'Explain the difference between JVM and alternative approaches in Java.',
+    answer: 'While alternatives offer flexibility, JVM provides strict typing, better performance, and seamless integration in the Java ecosystem.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_102',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'How would you handle a memory leak caused by MULTITHREADING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Java garbage collection best practices.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_103',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'What are the common pitfalls when implementing COLLECTIONS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_104',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'streams'],
+    question: 'How does STREAMS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_105',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'memory'],
+    question: 'Can you explain the lifecycle of MEMORY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_106',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'Why is CORE preferred in enterprise Java applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_107',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'Describe a scenario where you would NOT use JVM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of JVM might be unjustified.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_108',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'How does MULTITHREADING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_109',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'What is the time complexity of the most common operation in COLLECTIONS?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_110',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'streams'],
+    question: 'What is the primary purpose of STREAMS in Java?',
+    answer: 'STREAMS is used to optimize performance, manage state, and ensure scalability within Java applications.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_111',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'memory'],
+    question: 'Explain the difference between MEMORY and alternative approaches in Java.',
+    answer: 'While alternatives offer flexibility, MEMORY provides strict typing, better performance, and seamless integration in the Java ecosystem.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_112',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'How would you handle a memory leak caused by CORE?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Java garbage collection best practices.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_113',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'What are the common pitfalls when implementing JVM?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_114',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'How does MULTITHREADING integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_115',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'Can you explain the lifecycle of COLLECTIONS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_116',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'streams'],
+    question: 'Why is STREAMS preferred in enterprise Java applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_117',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'memory'],
+    question: 'Describe a scenario where you would NOT use MEMORY.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of MEMORY might be unjustified.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_118',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'How does CORE achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_119',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'What is the time complexity of the most common operation in JVM?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_120',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'What is the primary purpose of MULTITHREADING in Java?',
+    answer: 'MULTITHREADING is used to optimize performance, manage state, and ensure scalability within Java applications.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_121',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'Explain the difference between COLLECTIONS and alternative approaches in Java.',
+    answer: 'While alternatives offer flexibility, COLLECTIONS provides strict typing, better performance, and seamless integration in the Java ecosystem.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_122',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'streams'],
+    question: 'How would you handle a memory leak caused by STREAMS?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Java garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_123',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'memory'],
+    question: 'What are the common pitfalls when implementing MEMORY?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_124',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'How does CORE integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_125',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'Can you explain the lifecycle of JVM?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_126',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'Why is MULTITHREADING preferred in enterprise Java applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_127',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'Describe a scenario where you would NOT use COLLECTIONS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of COLLECTIONS might be unjustified.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_128',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'streams'],
+    question: 'How does STREAMS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_129',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'memory'],
+    question: 'What is the time complexity of the most common operation in MEMORY?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_130',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'What is the primary purpose of CORE in Java?',
+    answer: 'CORE is used to optimize performance, manage state, and ensure scalability within Java applications.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_131',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'Explain the difference between JVM and alternative approaches in Java.',
+    answer: 'While alternatives offer flexibility, JVM provides strict typing, better performance, and seamless integration in the Java ecosystem.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_132',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'How would you handle a memory leak caused by MULTITHREADING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Java garbage collection best practices.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_133',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'What are the common pitfalls when implementing COLLECTIONS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_134',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'streams'],
+    question: 'How does STREAMS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_135',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'memory'],
+    question: 'Can you explain the lifecycle of MEMORY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_136',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'core'],
+    question: 'Why is CORE preferred in enterprise Java applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_137',
+    category: 'Java',
+    level: 'intermediate',
+    tags: ['java', 'jvm'],
+    question: 'Describe a scenario where you would NOT use JVM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of JVM might be unjustified.',
+    example: 'This is a standard intermediate interview question for Java.'
+  },
+  {
+    id: 'gen_138',
+    category: 'Java',
+    level: 'advanced',
+    tags: ['java', 'multithreading'],
+    question: 'How does MULTITHREADING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for Java.'
+  },
+  {
+    id: 'gen_139',
+    category: 'Java',
+    level: 'beginner',
+    tags: ['java', 'collections'],
+    question: 'What is the time complexity of the most common operation in COLLECTIONS?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for Java.'
+  },
+  {
+    id: 'gen_140',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'spring'],
+    question: 'What is the primary purpose of SPRING in Spring Boot?',
+    answer: 'SPRING is used to optimize performance, manage state, and ensure scalability within Spring Boot applications.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_141',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'mvc'],
+    question: 'Explain the difference between MVC and alternative approaches in Spring Boot.',
+    answer: 'While alternatives offer flexibility, MVC provides strict typing, better performance, and seamless integration in the Spring Boot ecosystem.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_142',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'security'],
+    question: 'How would you handle a memory leak caused by SECURITY?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Spring Boot garbage collection best practices.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_143',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'data'],
+    question: 'What are the common pitfalls when implementing DATA?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_144',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'jpa'],
+    question: 'How does JPA integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_145',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'aop'],
+    question: 'Can you explain the lifecycle of AOP?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_146',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'beans'],
+    question: 'Why is BEANS preferred in enterprise Spring Boot applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_147',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'spring'],
+    question: 'Describe a scenario where you would NOT use SPRING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of SPRING might be unjustified.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_148',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'mvc'],
+    question: 'How does MVC achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_149',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'security'],
+    question: 'What is the time complexity of the most common operation in SECURITY?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_150',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'data'],
+    question: 'What is the primary purpose of DATA in Spring Boot?',
+    answer: 'DATA is used to optimize performance, manage state, and ensure scalability within Spring Boot applications.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_151',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'jpa'],
+    question: 'Explain the difference between JPA and alternative approaches in Spring Boot.',
+    answer: 'While alternatives offer flexibility, JPA provides strict typing, better performance, and seamless integration in the Spring Boot ecosystem.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_152',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'aop'],
+    question: 'How would you handle a memory leak caused by AOP?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Spring Boot garbage collection best practices.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_153',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'beans'],
+    question: 'What are the common pitfalls when implementing BEANS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_154',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'spring'],
+    question: 'How does SPRING integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_155',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'mvc'],
+    question: 'Can you explain the lifecycle of MVC?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_156',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'security'],
+    question: 'Why is SECURITY preferred in enterprise Spring Boot applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_157',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'data'],
+    question: 'Describe a scenario where you would NOT use DATA.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of DATA might be unjustified.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_158',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'jpa'],
+    question: 'How does JPA achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_159',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'aop'],
+    question: 'What is the time complexity of the most common operation in AOP?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_160',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'beans'],
+    question: 'What is the primary purpose of BEANS in Spring Boot?',
+    answer: 'BEANS is used to optimize performance, manage state, and ensure scalability within Spring Boot applications.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_161',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'spring'],
+    question: 'Explain the difference between SPRING and alternative approaches in Spring Boot.',
+    answer: 'While alternatives offer flexibility, SPRING provides strict typing, better performance, and seamless integration in the Spring Boot ecosystem.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_162',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'mvc'],
+    question: 'How would you handle a memory leak caused by MVC?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Spring Boot garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_163',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'security'],
+    question: 'What are the common pitfalls when implementing SECURITY?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_164',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'data'],
+    question: 'How does DATA integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_165',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'jpa'],
+    question: 'Can you explain the lifecycle of JPA?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_166',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'aop'],
+    question: 'Why is AOP preferred in enterprise Spring Boot applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_167',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'beans'],
+    question: 'Describe a scenario where you would NOT use BEANS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of BEANS might be unjustified.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_168',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'spring'],
+    question: 'How does SPRING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_169',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'mvc'],
+    question: 'What is the time complexity of the most common operation in MVC?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_170',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'security'],
+    question: 'What is the primary purpose of SECURITY in Spring Boot?',
+    answer: 'SECURITY is used to optimize performance, manage state, and ensure scalability within Spring Boot applications.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_171',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'data'],
+    question: 'Explain the difference between DATA and alternative approaches in Spring Boot.',
+    answer: 'While alternatives offer flexibility, DATA provides strict typing, better performance, and seamless integration in the Spring Boot ecosystem.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_172',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'jpa'],
+    question: 'How would you handle a memory leak caused by JPA?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Spring Boot garbage collection best practices.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_173',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'aop'],
+    question: 'What are the common pitfalls when implementing AOP?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_174',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'beans'],
+    question: 'How does BEANS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_175',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'spring'],
+    question: 'Can you explain the lifecycle of SPRING?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_176',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'mvc'],
+    question: 'Why is MVC preferred in enterprise Spring Boot applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_177',
+    category: 'Spring Boot',
+    level: 'intermediate',
+    tags: ['spring-boot', 'security'],
+    question: 'Describe a scenario where you would NOT use SECURITY.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of SECURITY might be unjustified.',
+    example: 'This is a standard intermediate interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_178',
+    category: 'Spring Boot',
+    level: 'advanced',
+    tags: ['spring-boot', 'data'],
+    question: 'How does DATA achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_179',
+    category: 'Spring Boot',
+    level: 'beginner',
+    tags: ['spring-boot', 'jpa'],
+    question: 'What is the time complexity of the most common operation in JPA?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for Spring Boot.'
+  },
+  {
+    id: 'gen_180',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'rdbms'],
+    question: 'What is the primary purpose of RDBMS in SQL?',
+    answer: 'RDBMS is used to optimize performance, manage state, and ensure scalability within SQL applications.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_181',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'joins'],
+    question: 'Explain the difference between JOINS and alternative approaches in SQL.',
+    answer: 'While alternatives offer flexibility, JOINS provides strict typing, better performance, and seamless integration in the SQL ecosystem.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_182',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'indexes'],
+    question: 'How would you handle a memory leak caused by INDEXES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard SQL garbage collection best practices.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_183',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'transactions'],
+    question: 'What are the common pitfalls when implementing TRANSACTIONS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_184',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'normalization'],
+    question: 'How does NORMALIZATION integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_185',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'rdbms'],
+    question: 'Can you explain the lifecycle of RDBMS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_186',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'joins'],
+    question: 'Why is JOINS preferred in enterprise SQL applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_187',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'indexes'],
+    question: 'Describe a scenario where you would NOT use INDEXES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of INDEXES might be unjustified.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_188',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'transactions'],
+    question: 'How does TRANSACTIONS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_189',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'normalization'],
+    question: 'What is the time complexity of the most common operation in NORMALIZATION?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_190',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'rdbms'],
+    question: 'What is the primary purpose of RDBMS in SQL?',
+    answer: 'RDBMS is used to optimize performance, manage state, and ensure scalability within SQL applications.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_191',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'joins'],
+    question: 'Explain the difference between JOINS and alternative approaches in SQL.',
+    answer: 'While alternatives offer flexibility, JOINS provides strict typing, better performance, and seamless integration in the SQL ecosystem.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_192',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'indexes'],
+    question: 'How would you handle a memory leak caused by INDEXES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard SQL garbage collection best practices.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_193',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'transactions'],
+    question: 'What are the common pitfalls when implementing TRANSACTIONS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_194',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'normalization'],
+    question: 'How does NORMALIZATION integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_195',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'rdbms'],
+    question: 'Can you explain the lifecycle of RDBMS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_196',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'joins'],
+    question: 'Why is JOINS preferred in enterprise SQL applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_197',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'indexes'],
+    question: 'Describe a scenario where you would NOT use INDEXES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of INDEXES might be unjustified.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_198',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'transactions'],
+    question: 'How does TRANSACTIONS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_199',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'normalization'],
+    question: 'What is the time complexity of the most common operation in NORMALIZATION?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_200',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'rdbms'],
+    question: 'What is the primary purpose of RDBMS in SQL?',
+    answer: 'RDBMS is used to optimize performance, manage state, and ensure scalability within SQL applications.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_201',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'joins'],
+    question: 'Explain the difference between JOINS and alternative approaches in SQL.',
+    answer: 'While alternatives offer flexibility, JOINS provides strict typing, better performance, and seamless integration in the SQL ecosystem.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_202',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'indexes'],
+    question: 'How would you handle a memory leak caused by INDEXES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard SQL garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_203',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'transactions'],
+    question: 'What are the common pitfalls when implementing TRANSACTIONS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_204',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'normalization'],
+    question: 'How does NORMALIZATION integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_205',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'rdbms'],
+    question: 'Can you explain the lifecycle of RDBMS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_206',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'joins'],
+    question: 'Why is JOINS preferred in enterprise SQL applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_207',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'indexes'],
+    question: 'Describe a scenario where you would NOT use INDEXES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of INDEXES might be unjustified.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_208',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'transactions'],
+    question: 'How does TRANSACTIONS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_209',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'normalization'],
+    question: 'What is the time complexity of the most common operation in NORMALIZATION?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_210',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'rdbms'],
+    question: 'What is the primary purpose of RDBMS in SQL?',
+    answer: 'RDBMS is used to optimize performance, manage state, and ensure scalability within SQL applications.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_211',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'joins'],
+    question: 'Explain the difference between JOINS and alternative approaches in SQL.',
+    answer: 'While alternatives offer flexibility, JOINS provides strict typing, better performance, and seamless integration in the SQL ecosystem.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_212',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'indexes'],
+    question: 'How would you handle a memory leak caused by INDEXES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard SQL garbage collection best practices.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_213',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'transactions'],
+    question: 'What are the common pitfalls when implementing TRANSACTIONS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_214',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'normalization'],
+    question: 'How does NORMALIZATION integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_215',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'rdbms'],
+    question: 'Can you explain the lifecycle of RDBMS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_216',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'joins'],
+    question: 'Why is JOINS preferred in enterprise SQL applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_217',
+    category: 'SQL',
+    level: 'intermediate',
+    tags: ['sql', 'indexes'],
+    question: 'Describe a scenario where you would NOT use INDEXES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of INDEXES might be unjustified.',
+    example: 'This is a standard intermediate interview question for SQL.'
+  },
+  {
+    id: 'gen_218',
+    category: 'SQL',
+    level: 'advanced',
+    tags: ['sql', 'transactions'],
+    question: 'How does TRANSACTIONS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for SQL.'
+  },
+  {
+    id: 'gen_219',
+    category: 'SQL',
+    level: 'beginner',
+    tags: ['sql', 'normalization'],
+    question: 'What is the time complexity of the most common operation in NORMALIZATION?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for SQL.'
+  },
+  {
+    id: 'gen_220',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'hooks'],
+    question: 'What is the primary purpose of HOOKS in React?',
+    answer: 'HOOKS is used to optimize performance, manage state, and ensure scalability within React applications.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_221',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'state'],
+    question: 'Explain the difference between STATE and alternative approaches in React.',
+    answer: 'While alternatives offer flexibility, STATE provides strict typing, better performance, and seamless integration in the React ecosystem.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_222',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'props'],
+    question: 'How would you handle a memory leak caused by PROPS?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard React garbage collection best practices.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_223',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'context'],
+    question: 'What are the common pitfalls when implementing CONTEXT?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_224',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'redux'],
+    question: 'How does REDUX integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_225',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'performance'],
+    question: 'Can you explain the lifecycle of PERFORMANCE?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_226',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'dom'],
+    question: 'Why is DOM preferred in enterprise React applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_227',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'hooks'],
+    question: 'Describe a scenario where you would NOT use HOOKS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of HOOKS might be unjustified.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_228',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'state'],
+    question: 'How does STATE achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_229',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'props'],
+    question: 'What is the time complexity of the most common operation in PROPS?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_230',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'context'],
+    question: 'What is the primary purpose of CONTEXT in React?',
+    answer: 'CONTEXT is used to optimize performance, manage state, and ensure scalability within React applications.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_231',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'redux'],
+    question: 'Explain the difference between REDUX and alternative approaches in React.',
+    answer: 'While alternatives offer flexibility, REDUX provides strict typing, better performance, and seamless integration in the React ecosystem.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_232',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'performance'],
+    question: 'How would you handle a memory leak caused by PERFORMANCE?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard React garbage collection best practices.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_233',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'dom'],
+    question: 'What are the common pitfalls when implementing DOM?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_234',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'hooks'],
+    question: 'How does HOOKS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_235',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'state'],
+    question: 'Can you explain the lifecycle of STATE?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_236',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'props'],
+    question: 'Why is PROPS preferred in enterprise React applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_237',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'context'],
+    question: 'Describe a scenario where you would NOT use CONTEXT.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of CONTEXT might be unjustified.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_238',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'redux'],
+    question: 'How does REDUX achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_239',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'performance'],
+    question: 'What is the time complexity of the most common operation in PERFORMANCE?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_240',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'dom'],
+    question: 'What is the primary purpose of DOM in React?',
+    answer: 'DOM is used to optimize performance, manage state, and ensure scalability within React applications.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_241',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'hooks'],
+    question: 'Explain the difference between HOOKS and alternative approaches in React.',
+    answer: 'While alternatives offer flexibility, HOOKS provides strict typing, better performance, and seamless integration in the React ecosystem.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_242',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'state'],
+    question: 'How would you handle a memory leak caused by STATE?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard React garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_243',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'props'],
+    question: 'What are the common pitfalls when implementing PROPS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_244',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'context'],
+    question: 'How does CONTEXT integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_245',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'redux'],
+    question: 'Can you explain the lifecycle of REDUX?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_246',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'performance'],
+    question: 'Why is PERFORMANCE preferred in enterprise React applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_247',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'dom'],
+    question: 'Describe a scenario where you would NOT use DOM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of DOM might be unjustified.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_248',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'hooks'],
+    question: 'How does HOOKS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_249',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'state'],
+    question: 'What is the time complexity of the most common operation in STATE?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_250',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'props'],
+    question: 'What is the primary purpose of PROPS in React?',
+    answer: 'PROPS is used to optimize performance, manage state, and ensure scalability within React applications.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_251',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'context'],
+    question: 'Explain the difference between CONTEXT and alternative approaches in React.',
+    answer: 'While alternatives offer flexibility, CONTEXT provides strict typing, better performance, and seamless integration in the React ecosystem.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_252',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'redux'],
+    question: 'How would you handle a memory leak caused by REDUX?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard React garbage collection best practices.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_253',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'performance'],
+    question: 'What are the common pitfalls when implementing PERFORMANCE?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_254',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'dom'],
+    question: 'How does DOM integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_255',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'hooks'],
+    question: 'Can you explain the lifecycle of HOOKS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_256',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'state'],
+    question: 'Why is STATE preferred in enterprise React applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_257',
+    category: 'React',
+    level: 'intermediate',
+    tags: ['react', 'props'],
+    question: 'Describe a scenario where you would NOT use PROPS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of PROPS might be unjustified.',
+    example: 'This is a standard intermediate interview question for React.'
+  },
+  {
+    id: 'gen_258',
+    category: 'React',
+    level: 'advanced',
+    tags: ['react', 'context'],
+    question: 'How does CONTEXT achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for React.'
+  },
+  {
+    id: 'gen_259',
+    category: 'React',
+    level: 'beginner',
+    tags: ['react', 'redux'],
+    question: 'What is the time complexity of the most common operation in REDUX?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for React.'
+  },
+  {
+    id: 'gen_260',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'containers'],
+    question: 'What is the primary purpose of CONTAINERS in Docker?',
+    answer: 'CONTAINERS is used to optimize performance, manage state, and ensure scalability within Docker applications.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_261',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'images'],
+    question: 'Explain the difference between IMAGES and alternative approaches in Docker.',
+    answer: 'While alternatives offer flexibility, IMAGES provides strict typing, better performance, and seamless integration in the Docker ecosystem.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_262',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'volumes'],
+    question: 'How would you handle a memory leak caused by VOLUMES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Docker garbage collection best practices.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_263',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'networking'],
+    question: 'What are the common pitfalls when implementing NETWORKING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_264',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'compose'],
+    question: 'How does COMPOSE integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_265',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'containers'],
+    question: 'Can you explain the lifecycle of CONTAINERS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_266',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'images'],
+    question: 'Why is IMAGES preferred in enterprise Docker applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_267',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'volumes'],
+    question: 'Describe a scenario where you would NOT use VOLUMES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of VOLUMES might be unjustified.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_268',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'networking'],
+    question: 'How does NETWORKING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_269',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'compose'],
+    question: 'What is the time complexity of the most common operation in COMPOSE?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_270',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'containers'],
+    question: 'What is the primary purpose of CONTAINERS in Docker?',
+    answer: 'CONTAINERS is used to optimize performance, manage state, and ensure scalability within Docker applications.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_271',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'images'],
+    question: 'Explain the difference between IMAGES and alternative approaches in Docker.',
+    answer: 'While alternatives offer flexibility, IMAGES provides strict typing, better performance, and seamless integration in the Docker ecosystem.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_272',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'volumes'],
+    question: 'How would you handle a memory leak caused by VOLUMES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Docker garbage collection best practices.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_273',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'networking'],
+    question: 'What are the common pitfalls when implementing NETWORKING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_274',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'compose'],
+    question: 'How does COMPOSE integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_275',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'containers'],
+    question: 'Can you explain the lifecycle of CONTAINERS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_276',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'images'],
+    question: 'Why is IMAGES preferred in enterprise Docker applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_277',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'volumes'],
+    question: 'Describe a scenario where you would NOT use VOLUMES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of VOLUMES might be unjustified.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_278',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'networking'],
+    question: 'How does NETWORKING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_279',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'compose'],
+    question: 'What is the time complexity of the most common operation in COMPOSE?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_280',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'containers'],
+    question: 'What is the primary purpose of CONTAINERS in Docker?',
+    answer: 'CONTAINERS is used to optimize performance, manage state, and ensure scalability within Docker applications.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_281',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'images'],
+    question: 'Explain the difference between IMAGES and alternative approaches in Docker.',
+    answer: 'While alternatives offer flexibility, IMAGES provides strict typing, better performance, and seamless integration in the Docker ecosystem.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_282',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'volumes'],
+    question: 'How would you handle a memory leak caused by VOLUMES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Docker garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_283',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'networking'],
+    question: 'What are the common pitfalls when implementing NETWORKING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_284',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'compose'],
+    question: 'How does COMPOSE integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_285',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'containers'],
+    question: 'Can you explain the lifecycle of CONTAINERS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_286',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'images'],
+    question: 'Why is IMAGES preferred in enterprise Docker applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_287',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'volumes'],
+    question: 'Describe a scenario where you would NOT use VOLUMES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of VOLUMES might be unjustified.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_288',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'networking'],
+    question: 'How does NETWORKING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_289',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'compose'],
+    question: 'What is the time complexity of the most common operation in COMPOSE?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_290',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'containers'],
+    question: 'What is the primary purpose of CONTAINERS in Docker?',
+    answer: 'CONTAINERS is used to optimize performance, manage state, and ensure scalability within Docker applications.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_291',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'images'],
+    question: 'Explain the difference between IMAGES and alternative approaches in Docker.',
+    answer: 'While alternatives offer flexibility, IMAGES provides strict typing, better performance, and seamless integration in the Docker ecosystem.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_292',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'volumes'],
+    question: 'How would you handle a memory leak caused by VOLUMES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard Docker garbage collection best practices.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_293',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'networking'],
+    question: 'What are the common pitfalls when implementing NETWORKING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_294',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'compose'],
+    question: 'How does COMPOSE integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_295',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'containers'],
+    question: 'Can you explain the lifecycle of CONTAINERS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_296',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'images'],
+    question: 'Why is IMAGES preferred in enterprise Docker applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_297',
+    category: 'Docker',
+    level: 'intermediate',
+    tags: ['docker', 'volumes'],
+    question: 'Describe a scenario where you would NOT use VOLUMES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of VOLUMES might be unjustified.',
+    example: 'This is a standard intermediate interview question for Docker.'
+  },
+  {
+    id: 'gen_298',
+    category: 'Docker',
+    level: 'advanced',
+    tags: ['docker', 'networking'],
+    question: 'How does NETWORKING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for Docker.'
+  },
+  {
+    id: 'gen_299',
+    category: 'Docker',
+    level: 'beginner',
+    tags: ['docker', 'compose'],
+    question: 'What is the time complexity of the most common operation in COMPOSE?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for Docker.'
+  },
+  {
+    id: 'gen_300',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'ec2'],
+    question: 'What is the primary purpose of EC2 in AWS?',
+    answer: 'EC2 is used to optimize performance, manage state, and ensure scalability within AWS applications.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_301',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 's3'],
+    question: 'Explain the difference between S3 and alternative approaches in AWS.',
+    answer: 'While alternatives offer flexibility, S3 provides strict typing, better performance, and seamless integration in the AWS ecosystem.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_302',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'rds'],
+    question: 'How would you handle a memory leak caused by RDS?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard AWS garbage collection best practices.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_303',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'iam'],
+    question: 'What are the common pitfalls when implementing IAM?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_304',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'vpc'],
+    question: 'How does VPC integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_305',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'lambda'],
+    question: 'Can you explain the lifecycle of LAMBDA?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_306',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'ecs'],
+    question: 'Why is ECS preferred in enterprise AWS applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_307',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'ec2'],
+    question: 'Describe a scenario where you would NOT use EC2.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of EC2 might be unjustified.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_308',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 's3'],
+    question: 'How does S3 achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_309',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'rds'],
+    question: 'What is the time complexity of the most common operation in RDS?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_310',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'iam'],
+    question: 'What is the primary purpose of IAM in AWS?',
+    answer: 'IAM is used to optimize performance, manage state, and ensure scalability within AWS applications.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_311',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'vpc'],
+    question: 'Explain the difference between VPC and alternative approaches in AWS.',
+    answer: 'While alternatives offer flexibility, VPC provides strict typing, better performance, and seamless integration in the AWS ecosystem.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_312',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'lambda'],
+    question: 'How would you handle a memory leak caused by LAMBDA?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard AWS garbage collection best practices.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_313',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'ecs'],
+    question: 'What are the common pitfalls when implementing ECS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_314',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'ec2'],
+    question: 'How does EC2 integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_315',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 's3'],
+    question: 'Can you explain the lifecycle of S3?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_316',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'rds'],
+    question: 'Why is RDS preferred in enterprise AWS applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_317',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'iam'],
+    question: 'Describe a scenario where you would NOT use IAM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of IAM might be unjustified.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_318',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'vpc'],
+    question: 'How does VPC achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_319',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'lambda'],
+    question: 'What is the time complexity of the most common operation in LAMBDA?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_320',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'ecs'],
+    question: 'What is the primary purpose of ECS in AWS?',
+    answer: 'ECS is used to optimize performance, manage state, and ensure scalability within AWS applications.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_321',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'ec2'],
+    question: 'Explain the difference between EC2 and alternative approaches in AWS.',
+    answer: 'While alternatives offer flexibility, EC2 provides strict typing, better performance, and seamless integration in the AWS ecosystem.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_322',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 's3'],
+    question: 'How would you handle a memory leak caused by S3?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard AWS garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_323',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'rds'],
+    question: 'What are the common pitfalls when implementing RDS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_324',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'iam'],
+    question: 'How does IAM integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_325',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'vpc'],
+    question: 'Can you explain the lifecycle of VPC?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_326',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'lambda'],
+    question: 'Why is LAMBDA preferred in enterprise AWS applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_327',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'ecs'],
+    question: 'Describe a scenario where you would NOT use ECS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of ECS might be unjustified.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_328',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'ec2'],
+    question: 'How does EC2 achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_329',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 's3'],
+    question: 'What is the time complexity of the most common operation in S3?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_330',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'rds'],
+    question: 'What is the primary purpose of RDS in AWS?',
+    answer: 'RDS is used to optimize performance, manage state, and ensure scalability within AWS applications.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_331',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'iam'],
+    question: 'Explain the difference between IAM and alternative approaches in AWS.',
+    answer: 'While alternatives offer flexibility, IAM provides strict typing, better performance, and seamless integration in the AWS ecosystem.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_332',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'vpc'],
+    question: 'How would you handle a memory leak caused by VPC?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard AWS garbage collection best practices.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_333',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'lambda'],
+    question: 'What are the common pitfalls when implementing LAMBDA?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_334',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'ecs'],
+    question: 'How does ECS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_335',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'ec2'],
+    question: 'Can you explain the lifecycle of EC2?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_336',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 's3'],
+    question: 'Why is S3 preferred in enterprise AWS applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_337',
+    category: 'AWS',
+    level: 'intermediate',
+    tags: ['aws', 'rds'],
+    question: 'Describe a scenario where you would NOT use RDS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of RDS might be unjustified.',
+    example: 'This is a standard intermediate interview question for AWS.'
+  },
+  {
+    id: 'gen_338',
+    category: 'AWS',
+    level: 'advanced',
+    tags: ['aws', 'iam'],
+    question: 'How does IAM achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for AWS.'
+  },
+  {
+    id: 'gen_339',
+    category: 'AWS',
+    level: 'beginner',
+    tags: ['aws', 'vpc'],
+    question: 'What is the time complexity of the most common operation in VPC?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for AWS.'
+  },
+  {
+    id: 'gen_340',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'scalability'],
+    question: 'What is the primary purpose of SCALABILITY in System Design?',
+    answer: 'SCALABILITY is used to optimize performance, manage state, and ensure scalability within System Design applications.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_341',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'microservices'],
+    question: 'Explain the difference between MICROSERVICES and alternative approaches in System Design.',
+    answer: 'While alternatives offer flexibility, MICROSERVICES provides strict typing, better performance, and seamless integration in the System Design ecosystem.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_342',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'caching'],
+    question: 'How would you handle a memory leak caused by CACHING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard System Design garbage collection best practices.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_343',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'load-balancing'],
+    question: 'What are the common pitfalls when implementing LOAD-BALANCING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_344',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'How does CAP-THEOREM integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_345',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'scalability'],
+    question: 'Can you explain the lifecycle of SCALABILITY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_346',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'microservices'],
+    question: 'Why is MICROSERVICES preferred in enterprise System Design applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_347',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'caching'],
+    question: 'Describe a scenario where you would NOT use CACHING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of CACHING might be unjustified.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_348',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'load-balancing'],
+    question: 'How does LOAD-BALANCING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_349',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'What is the time complexity of the most common operation in CAP-THEOREM?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_350',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'scalability'],
+    question: 'What is the primary purpose of SCALABILITY in System Design?',
+    answer: 'SCALABILITY is used to optimize performance, manage state, and ensure scalability within System Design applications.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_351',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'microservices'],
+    question: 'Explain the difference between MICROSERVICES and alternative approaches in System Design.',
+    answer: 'While alternatives offer flexibility, MICROSERVICES provides strict typing, better performance, and seamless integration in the System Design ecosystem.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_352',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'caching'],
+    question: 'How would you handle a memory leak caused by CACHING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard System Design garbage collection best practices.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_353',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'load-balancing'],
+    question: 'What are the common pitfalls when implementing LOAD-BALANCING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_354',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'How does CAP-THEOREM integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_355',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'scalability'],
+    question: 'Can you explain the lifecycle of SCALABILITY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_356',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'microservices'],
+    question: 'Why is MICROSERVICES preferred in enterprise System Design applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_357',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'caching'],
+    question: 'Describe a scenario where you would NOT use CACHING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of CACHING might be unjustified.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_358',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'load-balancing'],
+    question: 'How does LOAD-BALANCING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_359',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'What is the time complexity of the most common operation in CAP-THEOREM?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_360',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'scalability'],
+    question: 'What is the primary purpose of SCALABILITY in System Design?',
+    answer: 'SCALABILITY is used to optimize performance, manage state, and ensure scalability within System Design applications.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_361',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'microservices'],
+    question: 'Explain the difference between MICROSERVICES and alternative approaches in System Design.',
+    answer: 'While alternatives offer flexibility, MICROSERVICES provides strict typing, better performance, and seamless integration in the System Design ecosystem.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_362',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'caching'],
+    question: 'How would you handle a memory leak caused by CACHING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard System Design garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_363',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'load-balancing'],
+    question: 'What are the common pitfalls when implementing LOAD-BALANCING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_364',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'How does CAP-THEOREM integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_365',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'scalability'],
+    question: 'Can you explain the lifecycle of SCALABILITY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_366',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'microservices'],
+    question: 'Why is MICROSERVICES preferred in enterprise System Design applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_367',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'caching'],
+    question: 'Describe a scenario where you would NOT use CACHING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of CACHING might be unjustified.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_368',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'load-balancing'],
+    question: 'How does LOAD-BALANCING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_369',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'What is the time complexity of the most common operation in CAP-THEOREM?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_370',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'scalability'],
+    question: 'What is the primary purpose of SCALABILITY in System Design?',
+    answer: 'SCALABILITY is used to optimize performance, manage state, and ensure scalability within System Design applications.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_371',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'microservices'],
+    question: 'Explain the difference between MICROSERVICES and alternative approaches in System Design.',
+    answer: 'While alternatives offer flexibility, MICROSERVICES provides strict typing, better performance, and seamless integration in the System Design ecosystem.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_372',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'caching'],
+    question: 'How would you handle a memory leak caused by CACHING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard System Design garbage collection best practices.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_373',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'load-balancing'],
+    question: 'What are the common pitfalls when implementing LOAD-BALANCING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_374',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'How does CAP-THEOREM integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_375',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'scalability'],
+    question: 'Can you explain the lifecycle of SCALABILITY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_376',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'microservices'],
+    question: 'Why is MICROSERVICES preferred in enterprise System Design applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_377',
+    category: 'System Design',
+    level: 'intermediate',
+    tags: ['system-design', 'caching'],
+    question: 'Describe a scenario where you would NOT use CACHING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of CACHING might be unjustified.',
+    example: 'This is a standard intermediate interview question for System Design.'
+  },
+  {
+    id: 'gen_378',
+    category: 'System Design',
+    level: 'advanced',
+    tags: ['system-design', 'load-balancing'],
+    question: 'How does LOAD-BALANCING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for System Design.'
+  },
+  {
+    id: 'gen_379',
+    category: 'System Design',
+    level: 'beginner',
+    tags: ['system-design', 'cap-theorem'],
+    question: 'What is the time complexity of the most common operation in CAP-THEOREM?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for System Design.'
+  },
+  {
+    id: 'gen_380',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'What is the primary purpose of ARRAYS in DSA?',
+    answer: 'ARRAYS is used to optimize performance, manage state, and ensure scalability within DSA applications.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_381',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'Explain the difference between TREES and alternative approaches in DSA.',
+    answer: 'While alternatives offer flexibility, TREES provides strict typing, better performance, and seamless integration in the DSA ecosystem.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_382',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'How would you handle a memory leak caused by GRAPHS?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard DSA garbage collection best practices.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_383',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'What are the common pitfalls when implementing DYNAMIC-PROGRAMMING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_384',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'sorting'],
+    question: 'How does SORTING integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_385',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'searching'],
+    question: 'Can you explain the lifecycle of SEARCHING?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_386',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'Why is ARRAYS preferred in enterprise DSA applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_387',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'Describe a scenario where you would NOT use TREES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of TREES might be unjustified.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_388',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'How does GRAPHS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_389',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'What is the time complexity of the most common operation in DYNAMIC-PROGRAMMING?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_390',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'sorting'],
+    question: 'What is the primary purpose of SORTING in DSA?',
+    answer: 'SORTING is used to optimize performance, manage state, and ensure scalability within DSA applications.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_391',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'searching'],
+    question: 'Explain the difference between SEARCHING and alternative approaches in DSA.',
+    answer: 'While alternatives offer flexibility, SEARCHING provides strict typing, better performance, and seamless integration in the DSA ecosystem.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_392',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'How would you handle a memory leak caused by ARRAYS?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard DSA garbage collection best practices.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_393',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'What are the common pitfalls when implementing TREES?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_394',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'How does GRAPHS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_395',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'Can you explain the lifecycle of DYNAMIC-PROGRAMMING?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_396',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'sorting'],
+    question: 'Why is SORTING preferred in enterprise DSA applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_397',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'searching'],
+    question: 'Describe a scenario where you would NOT use SEARCHING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of SEARCHING might be unjustified.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_398',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'How does ARRAYS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_399',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'What is the time complexity of the most common operation in TREES?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_400',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'What is the primary purpose of GRAPHS in DSA?',
+    answer: 'GRAPHS is used to optimize performance, manage state, and ensure scalability within DSA applications.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_401',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'Explain the difference between DYNAMIC-PROGRAMMING and alternative approaches in DSA.',
+    answer: 'While alternatives offer flexibility, DYNAMIC-PROGRAMMING provides strict typing, better performance, and seamless integration in the DSA ecosystem.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_402',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'sorting'],
+    question: 'How would you handle a memory leak caused by SORTING?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard DSA garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_403',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'searching'],
+    question: 'What are the common pitfalls when implementing SEARCHING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_404',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'How does ARRAYS integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_405',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'Can you explain the lifecycle of TREES?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_406',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'Why is GRAPHS preferred in enterprise DSA applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_407',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'Describe a scenario where you would NOT use DYNAMIC-PROGRAMMING.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of DYNAMIC-PROGRAMMING might be unjustified.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_408',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'sorting'],
+    question: 'How does SORTING achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_409',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'searching'],
+    question: 'What is the time complexity of the most common operation in SEARCHING?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_410',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'What is the primary purpose of ARRAYS in DSA?',
+    answer: 'ARRAYS is used to optimize performance, manage state, and ensure scalability within DSA applications.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_411',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'Explain the difference between TREES and alternative approaches in DSA.',
+    answer: 'While alternatives offer flexibility, TREES provides strict typing, better performance, and seamless integration in the DSA ecosystem.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_412',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'How would you handle a memory leak caused by GRAPHS?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard DSA garbage collection best practices.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_413',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'What are the common pitfalls when implementing DYNAMIC-PROGRAMMING?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_414',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'sorting'],
+    question: 'How does SORTING integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_415',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'searching'],
+    question: 'Can you explain the lifecycle of SEARCHING?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_416',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'arrays'],
+    question: 'Why is ARRAYS preferred in enterprise DSA applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_417',
+    category: 'DSA',
+    level: 'intermediate',
+    tags: ['dsa', 'trees'],
+    question: 'Describe a scenario where you would NOT use TREES.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of TREES might be unjustified.',
+    example: 'This is a standard intermediate interview question for DSA.'
+  },
+  {
+    id: 'gen_418',
+    category: 'DSA',
+    level: 'advanced',
+    tags: ['dsa', 'graphs'],
+    question: 'How does GRAPHS achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for DSA.'
+  },
+  {
+    id: 'gen_419',
+    category: 'DSA',
+    level: 'beginner',
+    tags: ['dsa', 'dynamic-programming'],
+    question: 'What is the time complexity of the most common operation in DYNAMIC-PROGRAMMING?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for DSA.'
+  },
+  {
+    id: 'gen_420',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'encapsulation'],
+    question: 'What is the primary purpose of ENCAPSULATION in OOP?',
+    answer: 'ENCAPSULATION is used to optimize performance, manage state, and ensure scalability within OOP applications.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_421',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'inheritance'],
+    question: 'Explain the difference between INHERITANCE and alternative approaches in OOP.',
+    answer: 'While alternatives offer flexibility, INHERITANCE provides strict typing, better performance, and seamless integration in the OOP ecosystem.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_422',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'polymorphism'],
+    question: 'How would you handle a memory leak caused by POLYMORPHISM?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard OOP garbage collection best practices.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_423',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'abstraction'],
+    question: 'What are the common pitfalls when implementing ABSTRACTION?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_424',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'solid'],
+    question: 'How does SOLID integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_425',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'encapsulation'],
+    question: 'Can you explain the lifecycle of ENCAPSULATION?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_426',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'inheritance'],
+    question: 'Why is INHERITANCE preferred in enterprise OOP applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_427',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'polymorphism'],
+    question: 'Describe a scenario where you would NOT use POLYMORPHISM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of POLYMORPHISM might be unjustified.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_428',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'abstraction'],
+    question: 'How does ABSTRACTION achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_429',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'solid'],
+    question: 'What is the time complexity of the most common operation in SOLID?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_430',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'encapsulation'],
+    question: 'What is the primary purpose of ENCAPSULATION in OOP?',
+    answer: 'ENCAPSULATION is used to optimize performance, manage state, and ensure scalability within OOP applications.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_431',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'inheritance'],
+    question: 'Explain the difference between INHERITANCE and alternative approaches in OOP.',
+    answer: 'While alternatives offer flexibility, INHERITANCE provides strict typing, better performance, and seamless integration in the OOP ecosystem.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_432',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'polymorphism'],
+    question: 'How would you handle a memory leak caused by POLYMORPHISM?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard OOP garbage collection best practices.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_433',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'abstraction'],
+    question: 'What are the common pitfalls when implementing ABSTRACTION?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_434',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'solid'],
+    question: 'How does SOLID integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_435',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'encapsulation'],
+    question: 'Can you explain the lifecycle of ENCAPSULATION?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_436',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'inheritance'],
+    question: 'Why is INHERITANCE preferred in enterprise OOP applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_437',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'polymorphism'],
+    question: 'Describe a scenario where you would NOT use POLYMORPHISM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of POLYMORPHISM might be unjustified.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_438',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'abstraction'],
+    question: 'How does ABSTRACTION achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_439',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'solid'],
+    question: 'What is the time complexity of the most common operation in SOLID?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_440',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'encapsulation'],
+    question: 'What is the primary purpose of ENCAPSULATION in OOP?',
+    answer: 'ENCAPSULATION is used to optimize performance, manage state, and ensure scalability within OOP applications.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_441',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'inheritance'],
+    question: 'Explain the difference between INHERITANCE and alternative approaches in OOP.',
+    answer: 'While alternatives offer flexibility, INHERITANCE provides strict typing, better performance, and seamless integration in the OOP ecosystem.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_442',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'polymorphism'],
+    question: 'How would you handle a memory leak caused by POLYMORPHISM?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard OOP garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_443',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'abstraction'],
+    question: 'What are the common pitfalls when implementing ABSTRACTION?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_444',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'solid'],
+    question: 'How does SOLID integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_445',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'encapsulation'],
+    question: 'Can you explain the lifecycle of ENCAPSULATION?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_446',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'inheritance'],
+    question: 'Why is INHERITANCE preferred in enterprise OOP applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_447',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'polymorphism'],
+    question: 'Describe a scenario where you would NOT use POLYMORPHISM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of POLYMORPHISM might be unjustified.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_448',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'abstraction'],
+    question: 'How does ABSTRACTION achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_449',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'solid'],
+    question: 'What is the time complexity of the most common operation in SOLID?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_450',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'encapsulation'],
+    question: 'What is the primary purpose of ENCAPSULATION in OOP?',
+    answer: 'ENCAPSULATION is used to optimize performance, manage state, and ensure scalability within OOP applications.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_451',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'inheritance'],
+    question: 'Explain the difference between INHERITANCE and alternative approaches in OOP.',
+    answer: 'While alternatives offer flexibility, INHERITANCE provides strict typing, better performance, and seamless integration in the OOP ecosystem.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_452',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'polymorphism'],
+    question: 'How would you handle a memory leak caused by POLYMORPHISM?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard OOP garbage collection best practices.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_453',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'abstraction'],
+    question: 'What are the common pitfalls when implementing ABSTRACTION?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_454',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'solid'],
+    question: 'How does SOLID integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_455',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'encapsulation'],
+    question: 'Can you explain the lifecycle of ENCAPSULATION?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_456',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'inheritance'],
+    question: 'Why is INHERITANCE preferred in enterprise OOP applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_457',
+    category: 'OOP',
+    level: 'intermediate',
+    tags: ['oop', 'polymorphism'],
+    question: 'Describe a scenario where you would NOT use POLYMORPHISM.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of POLYMORPHISM might be unjustified.',
+    example: 'This is a standard intermediate interview question for OOP.'
+  },
+  {
+    id: 'gen_458',
+    category: 'OOP',
+    level: 'advanced',
+    tags: ['oop', 'abstraction'],
+    question: 'How does ABSTRACTION achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for OOP.'
+  },
+  {
+    id: 'gen_459',
+    category: 'OOP',
+    level: 'beginner',
+    tags: ['oop', 'solid'],
+    question: 'What is the time complexity of the most common operation in SOLID?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for OOP.'
+  },
+  {
+    id: 'gen_460',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'What is the primary purpose of HTTP in REST API?',
+    answer: 'HTTP is used to optimize performance, manage state, and ensure scalability within REST API applications.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_461',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'Explain the difference between METHODS and alternative approaches in REST API.',
+    answer: 'While alternatives offer flexibility, METHODS provides strict typing, better performance, and seamless integration in the REST API ecosystem.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_462',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'How would you handle a memory leak caused by STATUS-CODES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard REST API garbage collection best practices.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_463',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'What are the common pitfalls when implementing SECURITY?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_464',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'graphql'],
+    question: 'How does GRAPHQL integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_465',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'json'],
+    question: 'Can you explain the lifecycle of JSON?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_466',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'Why is HTTP preferred in enterprise REST API applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_467',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'Describe a scenario where you would NOT use METHODS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of METHODS might be unjustified.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_468',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'How does STATUS-CODES achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_469',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'What is the time complexity of the most common operation in SECURITY?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_470',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'graphql'],
+    question: 'What is the primary purpose of GRAPHQL in REST API?',
+    answer: 'GRAPHQL is used to optimize performance, manage state, and ensure scalability within REST API applications.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_471',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'json'],
+    question: 'Explain the difference between JSON and alternative approaches in REST API.',
+    answer: 'While alternatives offer flexibility, JSON provides strict typing, better performance, and seamless integration in the REST API ecosystem.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_472',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'How would you handle a memory leak caused by HTTP?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard REST API garbage collection best practices.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_473',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'What are the common pitfalls when implementing METHODS?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_474',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'How does STATUS-CODES integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_475',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'Can you explain the lifecycle of SECURITY?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_476',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'graphql'],
+    question: 'Why is GRAPHQL preferred in enterprise REST API applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_477',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'json'],
+    question: 'Describe a scenario where you would NOT use JSON.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of JSON might be unjustified.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_478',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'How does HTTP achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_479',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'What is the time complexity of the most common operation in METHODS?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_480',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'What is the primary purpose of STATUS-CODES in REST API?',
+    answer: 'STATUS-CODES is used to optimize performance, manage state, and ensure scalability within REST API applications.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_481',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'Explain the difference between SECURITY and alternative approaches in REST API.',
+    answer: 'While alternatives offer flexibility, SECURITY provides strict typing, better performance, and seamless integration in the REST API ecosystem.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_482',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'graphql'],
+    question: 'How would you handle a memory leak caused by GRAPHQL?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard REST API garbage collection best practices.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_483',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'json'],
+    question: 'What are the common pitfalls when implementing JSON?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_484',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'How does HTTP integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_485',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'Can you explain the lifecycle of METHODS?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_486',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'Why is STATUS-CODES preferred in enterprise REST API applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_487',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'Describe a scenario where you would NOT use SECURITY.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of SECURITY might be unjustified.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_488',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'graphql'],
+    question: 'How does GRAPHQL achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_489',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'json'],
+    question: 'What is the time complexity of the most common operation in JSON?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_490',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'What is the primary purpose of HTTP in REST API?',
+    answer: 'HTTP is used to optimize performance, manage state, and ensure scalability within REST API applications.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_491',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'Explain the difference between METHODS and alternative approaches in REST API.',
+    answer: 'While alternatives offer flexibility, METHODS provides strict typing, better performance, and seamless integration in the REST API ecosystem.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_492',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'How would you handle a memory leak caused by STATUS-CODES?',
+    answer: 'I would use profiling tools to trace the root cause, ensure references are properly nullified, and apply standard REST API garbage collection best practices.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_493',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'What are the common pitfalls when implementing SECURITY?',
+    answer: 'Common pitfalls include thread-safety issues, improper resource closure, and O(n^2) time complexity if not optimized properly.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_494',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'graphql'],
+    question: 'How does GRAPHQL integrate with modern CI/CD pipelines?',
+    answer: 'It can be containerized, tested via automated suites, and deployed using immutable infrastructure principles.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_495',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'json'],
+    question: 'Can you explain the lifecycle of JSON?',
+    answer: 'It begins with initialization, transitions through active execution states, and concludes with teardown and resource reclamation.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_496',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'http'],
+    question: 'Why is HTTP preferred in enterprise REST API applications?',
+    answer: 'Because it offers robust security, out-of-the-box fault tolerance, and an extensive ecosystem of community plugins.',
+    example: 'This is a standard beginner interview question for REST API.'
+  },
+  {
+    id: 'gen_497',
+    category: 'REST API',
+    level: 'intermediate',
+    tags: ['rest-api', 'methods'],
+    question: 'Describe a scenario where you would NOT use METHODS.',
+    answer: 'If the application requires extreme low-latency operations or is a lightweight script, the overhead of METHODS might be unjustified.',
+    example: 'This is a standard intermediate interview question for REST API.'
+  },
+  {
+    id: 'gen_498',
+    category: 'REST API',
+    level: 'advanced',
+    tags: ['rest-api', 'status-codes'],
+    question: 'How does STATUS-CODES achieve thread safety?',
+    answer: 'By using immutable data structures, atomic variables, and synchronized blocks where necessary.',
+    example: 'This is a standard advanced interview question for REST API.'
+  },
+  {
+    id: 'gen_499',
+    category: 'REST API',
+    level: 'beginner',
+    tags: ['rest-api', 'security'],
+    question: 'What is the time complexity of the most common operation in SECURITY?',
+    answer: 'It typically runs in O(1) or O(log n) time, depending on the underlying data structure implementation.',
+    example: 'This is a standard beginner interview question for REST API.'
+  }
 ];
