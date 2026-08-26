@@ -1,6 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Search, ChevronDown, ChevronUp, Copy, Check, Filter } from 'lucide-react';
+import { 
+  MessageSquare, Search, ChevronDown, ChevronUp, Copy, Check, Filter,
+  Coffee, Leaf, Database, Atom, Package, Cloud, Layers, Code2, Boxes, Server
+} from 'lucide-react';
 import { INTERVIEW_QUESTIONS } from '@/data/interviewData';
 import Badge from '@/components/ui/Badge';
 
@@ -13,7 +16,7 @@ const LEVEL_COLORS: Record<string, string> = {
   advanced:     'pill-red',
 };
 
-import { Coffee, Leaf, Database, Atom, Package, Cloud, Layers, Code2, Boxes, Server } from 'lucide-react';
+
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   Java: <Coffee size={16} />,
