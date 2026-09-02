@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Search, Flame, Zap, Trophy } from 'lucide-react';
+import { Menu, Search, Flame, Zap, Trophy, Fingerprint, LogOut, CheckCircle2 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
+import { useAuth } from '@/context/AuthContext';
 import { getLevelFromXP } from '@/services/progressEngine';
 import KnowhereLogo from '@/components/ui/KnowhereLogo';
 import AuthModal from '@/components/auth/AuthModal';
-import CyberSignInButton from '@/components/ui/CyberSignInButton';
 
 interface NavbarProps {
   onMenuClick: () => void;
@@ -14,9 +14,11 @@ interface NavbarProps {
 
 export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
   const { progress } = useLearning();
+  const { user, logOut } = useAuth();
   const level = getLevelFromXP(progress?.xp || 0);
   const [searchFocused, setSearchFocused] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
   return (
     <>
@@ -69,7 +71,7 @@ export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
           </kbd>
         </button>
 
-        {/* Right: Stats & Unique Cyber Auth Profile */}
+        {/* Right: Stats & Auth Profile */}
         <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Streak */}
           <div className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-2xl bg-[#040a06] border border-[#142a20] text-xs">
@@ -89,8 +91,59 @@ export default function Navbar({ onMenuClick, onSearchClick }: NavbarProps) {
             <span className="font-semibold truncate max-w-[120px]">{level.title}</span>
           </div>
 
-          {/* Unique Cyber Holographic Sign-In / Account Button */}
-          <CyberSignInButton onOpenAuthModal={() => setAuthModalOpen(true)} />
+          {/* Auth Button / Profile Menu */}
+          {user ? (
+            <div className="relative">
+              <button
+                onClick={() => setUserDropdownOpen(prev => !prev)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-gradient-to-b from-[#0a2014] to-[#040e08] border border-emerald-500/40 hover:border-emerald-400 text-xs text-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.18)] cursor-pointer"
+              >
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt={user.displayName || 'User'} className="w-6 h-6 rounded-full border border-emerald-400/50 object-cover" />
+                ) : (
+                  <div className="w-6 h-6 rounded-full bg-emerald-800/80 border border-emerald-400 flex items-center justify-center font-mono font-bold text-[11px] text-emerald-200">
+                    {(user.displayName || user.email || 'U').charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <span className="hidden sm:inline font-medium text-xs max-w-[110px] truncate">
+                  {user.displayName || user.email?.split('@')[0]}
+                </span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Firestore Connected" />
+              </button>
+
+              {userDropdownOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setUserDropdownOpen(false)} />
+                  <div className="absolute right-0 mt-2 w-64 p-3 rounded-2xl bg-[#050b07]/95 border border-emerald-500/30 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 animate-scale-in">
+                    <div className="px-3 py-2 mb-2 border-b border-[#142a20]">
+                      <p className="text-xs font-bold text-white truncate">{user.displayName || 'Developer'}</p>
+                      <p className="text-[11px] font-mono text-zinc-400 truncate">{user.email}</p>
+                      <div className="flex items-center gap-1.5 mt-2 text-[10px] font-mono text-emerald-400">
+                        <CheckCircle2 size={12} /> Live Cloud Firestore Sync
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setUserDropdownOpen(false);
+                        logOut();
+                      }}
+                      className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs text-rose-300 hover:bg-rose-950/40 transition-colors font-mono cursor-pointer"
+                    >
+                      <LogOut size={14} /> Sign Out
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          ) : (
+            <button
+              onClick={() => setAuthModalOpen(true)}
+              className="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-black font-bold text-xs font-mono uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] cursor-pointer group"
+            >
+              <Fingerprint size={15} className="text-black stroke-[2.2] group-hover:scale-110 transition-transform" />
+              <span>Sign In</span>
+            </button>
+          )}
         </div>
       </header>
 
