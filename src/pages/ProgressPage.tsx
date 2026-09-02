@@ -10,7 +10,6 @@ import { getLevelFromXP, getLevelProgress, LEVELS, ALL_BADGES } from '@/services
 import { ALL_MODULES_META } from '@/data/modules/meta';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { motion } from 'framer-motion';
-import { LiquidStatCard } from '@/components/ui/LiquidGlassStats';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Zap, Coffee, Layers, Code2, Database, Leaf, Atom, Package, ShieldCheck,
@@ -67,6 +66,13 @@ export default function ProgressPage() {
   const totalLessons = ALL_MODULES_META.reduce((acc, m) => acc + m.lessons.length, 0);
   const nextLevel = LEVELS[level.level] ?? level;
 
+  const stats = [
+    { label: 'Total XP', value: progress.xp.toLocaleString(), icon: Zap, color: 'text-emerald-400' },
+    { label: 'Study Streak', value: `${progress.streak} Days`, icon: Flame, color: 'text-amber-400' },
+    { label: 'Lessons Done', value: `${progress.totalLessonsCompleted}/${totalLessons}`, icon: CheckCircle, color: 'text-teal-400' },
+    { label: 'Badges Earned', value: `${progress.badges.length}/${ALL_BADGES.length}`, icon: Trophy, color: 'text-yellow-300' },
+  ];
+
   const earnedBadges = ALL_BADGES.filter(b => progress.badges.includes(b.id));
   const lockedBadges = ALL_BADGES.filter(b => !progress.badges.includes(b.id));
 
@@ -75,7 +81,7 @@ export default function ProgressPage() {
       {/* Header */}
       <div className="mb-10 animate-fade-up">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-11 h-11 rounded-2xl bg-emerald-950/60 border border-emerald-800/50 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+          <div className="w-11 h-11 rounded-2xl bg-emerald-950/60 border border-emerald-800/50 flex items-center justify-center">
             <TrendingUp className="text-emerald-400" size={21} />
           </div>
           <div>
@@ -86,36 +92,27 @@ export default function ProgressPage() {
           </div>
         </div>
         <p className="text-zinc-400 text-base leading-relaxed ml-14">
-          Track your XP, learning streaks, level rank, and unlocked achievement badges in real time.
+          Track your XP, learning streaks, level rank, and unlocked achievement badges.
         </p>
       </div>
 
-      {/* Liquid Glass KPI Stats Grid */}
+      {/* KPI Stats Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 animate-fade-up delay-100">
-        <LiquidStatCard
-          type="xp"
-          title="Total Experience"
-          value={`${progress.xp.toLocaleString()} XP`}
-          subtitle="Cloud Synced"
-        />
-        <LiquidStatCard
-          type="streak"
-          title="Study Streak"
-          value={`${progress.streak} Days`}
-          subtitle="Keep the flame alive"
-        />
-        <LiquidStatCard
-          type="lessons"
-          title="Lessons Done"
-          value={`${progress.totalLessonsCompleted}/${totalLessons}`}
-          subtitle="Mastery Progress"
-        />
-        <LiquidStatCard
-          type="rank"
-          title="Rank / Badges"
-          value={level.title}
-          subtitle={`${progress.badges.length}/${ALL_BADGES.length} Badges`}
-        />
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.06 }}
+            className="panel p-5 rounded-2xl flex flex-col gap-2"
+          >
+            <div className="flex items-center gap-2">
+              <stat.icon size={15} className={stat.color} />
+              <span className="text-zinc-500 text-xs font-medium">{stat.label}</span>
+            </div>
+            <p className={`text-2xl font-extrabold font-mono ${stat.color} leading-none`}>{stat.value}</p>
+          </motion.div>
+        ))}
       </div>
 
       {/* Current Level Card */}

@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Map, Coffee, Database, Atom, Leaf,
   Server, Terminal, Package, Workflow, Cloud, Layers,
   Settings, Flame, X, Code2, Award, AppWindow, Download,
-  CheckCircle2, LogIn, LogOut, TestTube
+  CheckCircle2, LogIn, LogOut, TestTube, Sparkles
 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { useAuth } from '@/context/AuthContext';
@@ -13,7 +13,6 @@ import { ALL_MODULES_META } from '@/data/modules/meta';
 import KnowhereLogo from '@/components/ui/KnowhereLogo';
 import OpenInAppModal from '@/components/ui/OpenInAppModal';
 import AuthModal from '@/components/auth/AuthModal';
-import { LiquidGlassIcon } from '@/components/ui/LiquidGlassStats';
 import { clsx } from 'clsx';
 
 interface NavSection {
@@ -39,39 +38,55 @@ const NAV_SECTIONS: NavSection[] = [
     items: [
       { label: 'Java 25 LTS', path: '/java', icon: Coffee, moduleKey: 'java' },
       { label: 'OOP & Records', path: '/oop', icon: Layers, moduleKey: 'oop' },
-      { label: 'DSA & Algorithms', path: '/dsa', icon: Code2, moduleKey: 'dsa' },
-      { label: 'SQL & Relational DB', path: '/sql', icon: Database, moduleKey: 'sql' },
-      { label: 'React 19 & Frontend', path: '/react', icon: Atom, moduleKey: 'react' },
-      { label: 'Spring Boot 3', path: '/spring', icon: Leaf, moduleKey: 'spring' },
-      { label: 'REST API & Microservices', path: '/rest-api', icon: Server, moduleKey: 'rest-api' },
-    ],
-  },
-  {
-    title: 'DEVOPS & CLOUD',
-    items: [
-      { label: 'Docker & Containers', path: '/docker', icon: Package, moduleKey: 'docker' },
+      { label: 'Advanced Java', path: '/advanced-java', icon: Code2, moduleKey: 'advanced-java' },
+      { label: 'DSA & Patterns', path: '/dsa', icon: Terminal, moduleKey: 'dsa' },
+      { label: 'SQL & Database', path: '/sql', icon: Database, moduleKey: 'sql' },
+      { label: 'HTML5 & Modern Web', path: '/html', icon: LayoutDashboard, moduleKey: 'html' },
+      { label: 'CSS3 & Tailwind', path: '/css', icon: Layers, moduleKey: 'css' },
+      { label: 'JavaScript ES2026', path: '/javascript', icon: Code2, moduleKey: 'javascript' },
+      { label: 'React 19 & Next.js', path: '/react', icon: Atom, moduleKey: 'react' },
+      { label: 'Spring Core 6', path: '/spring', icon: Leaf, moduleKey: 'spring' },
+      { label: 'Spring Boot 3.4', path: '/spring-boot', icon: Package, moduleKey: 'spring-boot' },
+      { label: 'REST API & OpenAPI', path: '/rest-api', icon: Server, moduleKey: 'rest-api' },
+      { label: 'Security & OAuth2', path: '/security', icon: Award, moduleKey: 'security' },
+      { label: 'Linux CLI & Admin', path: '/linux', icon: Terminal, moduleKey: 'linux' },
+      { label: 'Networking & HTTP', path: '/networking', icon: Workflow, moduleKey: 'networking' },
+      { label: 'Git & GitHub Pro', path: '/git', icon: Code2, moduleKey: 'git' },
+      { label: 'Docker Containers', path: '/docker', icon: Package, moduleKey: 'docker' },
       { label: 'DevOps & CI/CD', path: '/devops', icon: Workflow, moduleKey: 'devops' },
       { label: 'AWS Cloud Architecture', path: '/aws', icon: Cloud, moduleKey: 'aws' },
-      { label: 'Linux Bash Terminal', path: '/linux', icon: Terminal, moduleKey: 'linux' },
-      { label: 'Automated Testing', path: '/testing', icon: TestTube, moduleKey: 'testing' },
-      { label: 'System Design Patterns', path: '/system-design', icon: Server, moduleKey: 'system-design' },
+      { label: 'Testing & JUnit 5', path: '/testing', icon: TestTube, moduleKey: 'testing' },
+      { label: 'System Design', path: '/system-design', icon: Server, moduleKey: 'system-design' },
     ],
   },
   {
-    title: 'Settings & Data',
+    title: 'PRACTICE & TOOLS',
     items: [
-      { label: 'Storage & Preferences', path: '/settings', icon: Settings },
+      { label: 'Daily Challenge', path: '/daily', icon: Award, badge: 'Daily' },
+      { label: 'Interactive Visualizers', path: '/dsa', icon: Terminal },
+      { label: 'Full-Stack Projects', path: '/projects', icon: Package },
+      { label: 'Interview Simulator', path: '/interview', icon: Award, badge: 'AI' },
+      { label: 'Job Readiness Tracker', path: '/job-readiness', icon: Award },
+      { label: 'My Bookmarks', path: '/bookmarks', icon: Settings },
+      { label: 'Analytics & Stats', path: '/progress', icon: Award },
+    ],
+  },
+  {
+    title: 'PREFERENCES',
+    items: [
+      { label: 'Settings', path: '/settings', icon: Settings },
     ],
   },
 ];
 
 interface SidebarProps {
   mobile?: boolean;
+  open?: boolean;
   onClose?: () => void;
   onOpenAppModal?: () => void;
 }
 
-export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: SidebarProps) {
+export default function Sidebar({ mobile: _mobile, open = true, onClose, onOpenAppModal }: SidebarProps) {
   const { progress } = useLearning();
   const { user, logOut } = useAuth();
   const level = getLevelFromXP(progress?.xp || 0);
@@ -81,17 +96,19 @@ export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: Si
 
   return (
     <>
-      <aside className="flex flex-col bg-[#030604] border-r border-emerald-500/20 h-full selection:bg-emerald-500/30 select-none z-20 w-full relative">
-        {/* Specular Ambient Glow Line */}
-        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-emerald-500/25 to-transparent pointer-events-none" />
-
-        {/* Brand Header with Close Button */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#142a20] bg-gradient-to-b from-[#061208] to-[#030604]">
-          <NavLink to="/dashboard" onClick={onClose} className="flex items-center">
-            <KnowhereLogo size="md" subtext="Java Full Stack Platform" />
+      <aside className="flex flex-col bg-[#020503] h-full selection:bg-emerald-500/30 select-none z-20 w-full relative">
+        
+        {/* Brand Header */}
+        <div className="h-[80px] flex items-center justify-between px-6 border-b border-[#142a20]">
+          <NavLink to="/" onClick={onClose} className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+            <KnowhereLogo size="md" showText={false} />
+            <div className="flex flex-col">
+              <span className="text-white font-extrabold text-base tracking-tight leading-tight">Knowhere</span>
+              <span className="text-emerald-400 text-[10px] font-mono tracking-widest uppercase">Tech Academy</span>
+            </div>
           </NavLink>
 
-          {onClose && (
+          {open && (
             <button
               onClick={onClose}
               className="text-zinc-400 hover:text-white p-2 rounded-xl hover:bg-emerald-950/40 transition-colors cursor-pointer"
@@ -103,7 +120,7 @@ export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: Si
         </div>
 
         {/* User Account / Auth Card */}
-        <div className="px-6 py-3.5 border-b border-[#142a20] bg-[#040805]">
+        <div className="px-5 py-3.5 border-b border-[#142a20] bg-[#040805]">
           {user ? (
             <div className="flex items-center justify-between gap-3 p-2.5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
               <div className="flex items-center gap-2.5 min-w-0">
@@ -132,37 +149,41 @@ export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: Si
           ) : (
             <button
               onClick={() => setAuthModalOpen(true)}
-              className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 text-xs font-mono font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] group cursor-pointer"
+              className="w-full cyber-btn-wrapper group !p-[1.5px] cursor-pointer"
             >
-              <div className="flex items-center gap-2">
-                <LogIn size={15} className="text-emerald-400 group-hover:scale-110 transition-transform" />
-                <span>Sign In / Sync Data</span>
+              <div className="w-full cyber-btn-inner !py-2.5 !px-3.5 !justify-between !rounded-2xl">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+                  </span>
+                  <Sparkles size={13} className="text-emerald-300 group-hover:rotate-12 transition-transform duration-300" />
+                  <span className="bg-gradient-to-r from-white via-emerald-200 to-teal-300 bg-clip-text text-transparent font-extrabold tracking-wider text-xs font-mono">
+                    Sign In / Sync
+                  </span>
+                </div>
+                <span className="text-[9px] bg-emerald-950 px-2 py-0.5 rounded-full border border-emerald-500/50 text-emerald-300 font-mono font-bold">
+                  CLOUD
+                </span>
               </div>
-              <span className="text-[10px] bg-emerald-950 px-2 py-0.5 rounded-full border border-emerald-500/50 text-emerald-300">
-                Free
-              </span>
             </button>
           )}
         </div>
 
-        {/* User Level Card - Liquid Glass */}
-        <div className="px-5 py-4 border-b border-[#142a20] bg-gradient-to-b from-[#05120a] to-[#020604] relative overflow-hidden">
-          {/* Ambient subtle liquid highlight */}
-          <div className="absolute top-0 left-3 right-3 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent pointer-events-none" />
-
-          <div className="flex items-center justify-between gap-2 mb-2.5">
-            <div className="flex items-center gap-2 min-w-0">
-              <LiquidGlassIcon type="rank" size="sm" />
-              <span className="text-xs font-bold text-white truncate font-mono">{level.title}</span>
-            </div>
-            <span className="text-xs font-mono text-emerald-300 font-extrabold shrink-0">
+        {/* User Level Card */}
+        <div className="px-6 py-4 border-b border-[#142a20] bg-[#040705]">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5">
+              <Award size={15} className="text-emerald-400" /> {level.title}
+            </span>
+            <span className="text-xs font-mono text-emerald-400 font-bold">
               {(progress?.xp || 0).toLocaleString()} XP
             </span>
           </div>
 
-          <div className="h-2 bg-[#020503] rounded-full overflow-hidden border border-emerald-950/80 mb-2.5 p-[1px]">
+          <div className="h-2 bg-[#020503] rounded-full overflow-hidden border border-[#142a20] mb-2">
             <div
-              className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 rounded-full transition-all duration-700 shadow-[0_0_12px_rgba(52,211,153,0.6)]"
+              className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-700 shadow-[0_0_15px_rgba(16,185,129,0.4)]"
               style={{
                 width: `${Math.min(
                   100,
@@ -177,10 +198,10 @@ export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: Si
             />
           </div>
 
-          <div className="flex items-center justify-between text-[11px] text-zinc-400 font-mono">
+          <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
             <span>Tier {level.level} of 7</span>
-            <span className="text-amber-300 flex items-center gap-1.5 font-bold">
-              <LiquidGlassIcon type="streak" size="sm" /> {progress?.streak || 1}d Streak
+            <span className="text-amber-400 flex items-center gap-1 font-semibold">
+              <Flame size={12} /> {progress?.streak || 1}d Streak
             </span>
           </div>
         </div>
