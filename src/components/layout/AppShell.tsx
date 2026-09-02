@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import MobileNavigation from './MobileNavigation';
 import CommandPalette from './CommandPalette';
+import OpenInAppModal from '@/components/ui/OpenInAppModal';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export default function AppShell({ children }: AppShellProps) {
   // Sidebar is CLOSED by default on web load and when entering courses
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
+  const [appModalOpen, setAppModalOpen] = useState(false);
 
   // Automatically close sidebar on any route / page change
   useEffect(() => {
@@ -35,6 +37,7 @@ export default function AppShell({ children }: AppShellProps) {
       if (e.key === 'Escape') {
         setSidebarOpen(false);
         setCommandOpen(false);
+        setAppModalOpen(false);
       }
     };
     window.addEventListener('keydown', handler);
@@ -65,7 +68,14 @@ export default function AppShell({ children }: AppShellProps) {
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
               className="fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] bg-[#020403] border-r border-[#142a20] shadow-[0_0_50px_rgba(0,0,0,0.9)]"
             >
-              <Sidebar mobile onClose={() => setSidebarOpen(false)} />
+              <Sidebar
+                mobile
+                onClose={() => setSidebarOpen(false)}
+                onOpenAppModal={() => {
+                  setSidebarOpen(false);
+                  setAppModalOpen(true);
+                }}
+              />
             </motion.div>
           </>
         )}
@@ -88,6 +98,9 @@ export default function AppShell({ children }: AppShellProps) {
 
       {/* Command Search Palette Modal */}
       <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />
+
+      {/* Standalone PWA App Install Modal */}
+      <OpenInAppModal open={appModalOpen} onClose={() => setAppModalOpen(false)} />
     </div>
   );
 }

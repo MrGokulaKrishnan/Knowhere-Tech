@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderOpen, Clock, Zap, ChevronRight, Server, Database, Layers, CheckCircle2, Code2, X, ArrowRight, Package, Cloud, Atom } from 'lucide-react';
+import { FolderOpen, Clock, Zap, ChevronRight, Server, Database, Layers, CheckCircle2, Code2, X, Package, Cloud, Atom } from 'lucide-react';
 import { PROJECTS_DATA, type ProjectItem } from '@/data/projectsData';
-import Badge from '@/components/ui/Badge';
 
 const LEVEL_BORDER: Record<string, string> = {
   beginner:     'border-t-emerald-500',
@@ -99,7 +98,7 @@ export default function ProjectsPage() {
           >
             <div>
               <div className="flex items-start justify-between mb-5">
-                <div className="w-13 h-13 w-12 h-12 rounded-2xl bg-emerald-950/50 border border-emerald-800/50 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-950/50 border border-emerald-800/50 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
                   <Layers size={22} />
                 </div>
                 <div className="flex items-center gap-2 flex-wrap justify-end">

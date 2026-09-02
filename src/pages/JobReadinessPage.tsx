@@ -1,6 +1,6 @@
 import React from 'react';
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
-import { TrendingUp, Trophy, Target, Info, ArrowRight, ShieldCheck, Award, Zap, BookOpen, AlertCircle } from 'lucide-react';
+import { TrendingUp, Trophy, Target, Info, ArrowRight, ShieldCheck, Award, Zap, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLearning } from '@/context/LearningContext';
@@ -8,14 +8,17 @@ import { calculateJobReadiness, getOverallJobReadiness } from '@/services/progre
 import { ALL_MODULES_META } from '@/data/modules/meta';
 
 const DOMAIN_TIPS: Record<string, string> = {
-  'Java Core':        'Complete remaining Java 25 LTS lessons focusing on pattern matching, records, and sealed classes.',
-  'OOP & Design':     'Practice SOLID principles and design patterns in the OOP module to strengthen architecture skills.',
-  'DSA & Algorithms': 'Focus on tree traversal, dynamic programming, and graph algorithms for technical interview success.',
-  'SQL & Database':   'Practice complex JOIN queries, window functions, and indexing strategies in the SQL module.',
-  'Frontend':         'Build hands-on React 19 components using custom hooks, context API, and the new concurrent features.',
-  'Spring Boot':      'Complete Spring Boot 3 microservices with Spring Security, JPA repositories, and REST controllers.',
-  'DevOps & Cloud':   'Get hands-on with Docker multi-stage builds, CI/CD pipelines, and AWS ECS deployment patterns.',
-  'System Design':    'Study distributed systems, CAP theorem, and design patterns used in production microservices.',
+  java:            'Complete Java 25 LTS lessons focusing on pattern matching, records, and virtual threads.',
+  'spring-boot':   'Build Spring Boot 3 microservices with Spring Data JPA, security filters, and REST controllers.',
+  react:           'Master React 19 component architecture, custom hooks, and state management.',
+  sql:             'Practice complex JOIN queries, window functions, and indexing strategies in SQL.',
+  dsa:             'Strengthen tree traversal, dynamic programming, and graph algorithms for interviews.',
+  linux:           'Master Linux server navigation, bash scripting, file permissions, and process management.',
+  docker:          'Practice multi-stage container builds, compose configs, and container networking.',
+  aws:             'Deploy cloud architectures with EC2, S3, RDS, and ECS Fargate deployment patterns.',
+  'system-design': 'Study distributed systems, CAP theorem, caching, and microservice patterns.',
+  projects:        'Implement end-to-end full stack blueprints with production APIs and database schemas.',
+  interview:       'Rehearse technical interview questions across backend, frontend, and cloud domains.',
 };
 
 function CircleGauge({ value }: { value: number }) {
@@ -266,7 +269,7 @@ export default function JobReadinessPage() {
                     <span className="pill pill-amber text-[10px]">{domain.score}% current</span>
                   </div>
                   <p className="text-zinc-400 text-xs leading-relaxed">
-                    {DOMAIN_TIPS[domain.label] || `Focus on completing more lessons in ${domain.label} to improve your competency score.`}
+                    {DOMAIN_TIPS[domain.moduleKey] || `Focus on completing more lessons in ${domain.label} to improve your competency score.`}
                   </p>
                 </div>
                 <button

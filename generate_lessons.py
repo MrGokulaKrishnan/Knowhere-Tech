@@ -56,7 +56,8 @@ def generate_file(filename, array_name, module_key, lessons_data):
     content += lessons_str
     content += "\n];\n"
     
-    with open(f"c:\\Knowhere\\src\\data\\modules\\{filename}", "w", encoding="utf-8") as f:
+    output_path = os.path.join(os.path.dirname(__file__), "src", "data", "modules", filename)
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(content)
 
 # Data based on prompt and meta.ts

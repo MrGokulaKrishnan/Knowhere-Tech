@@ -50,7 +50,11 @@ export default function InterviewPage() {
   const toggle = (id: string) => {
     setRevealed(prev => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
       return next;
     });
   };
@@ -59,6 +63,22 @@ export default function InterviewPage() {
     await navigator.clipboard.writeText(answer);
     setCopied(id);
     setTimeout(() => setCopied(null), 2000);
+  };
+
+  const getLevelButtonClass = (l: string) => {
+    if (level !== l) {
+      return 'bg-black/60 border border-[#142a20] text-zinc-400 hover:border-zinc-500/30 hover:text-zinc-200';
+    }
+    if (l === 'beginner') {
+      return 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/60 shadow-[0_0_12px_rgba(16,185,129,0.25)]';
+    }
+    if (l === 'intermediate') {
+      return 'bg-amber-950/80 text-amber-300 border border-amber-500/60 shadow-[0_0_12px_rgba(245,158,11,0.2)]';
+    }
+    if (l === 'advanced') {
+      return 'bg-red-950/80 text-red-300 border border-red-500/60 shadow-[0_0_12px_rgba(239,68,68,0.2)]';
+    }
+    return 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/60';
   };
 
   return (
@@ -135,14 +155,7 @@ export default function InterviewPage() {
               <button
                 key={l}
                 onClick={() => setLevel(l)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold font-mono transition-all capitalize ${
-                  level === l
-                    ? l === 'beginner'     ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/60 shadow-[0_0_12px_rgba(16,185,129,0.25)]'
-                    : l === 'intermediate' ? 'bg-amber-950/80 text-amber-300 border border-amber-500/60 shadow-[0_0_12px_rgba(245,158,11,0.2)]'
-                    : l === 'advanced'     ? 'bg-red-950/80 text-red-300 border border-red-500/60 shadow-[0_0_12px_rgba(239,68,68,0.2)]'
-                    : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/60'
-                    : 'bg-black/60 border border-[#142a20] text-zinc-400 hover:border-zinc-500/30 hover:text-zinc-200'
-                }`}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold font-mono transition-all capitalize ${getLevelButtonClass(l)}`}
               >
                 {l.charAt(0).toUpperCase() + l.slice(1)}
               </button>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Settings, Download, Upload, Trash2, AlertTriangle, CheckCircle2, ShieldCheck, HardDrive } from 'lucide-react';
+import { Settings, Download, Upload, Trash2, AlertTriangle, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
 import { exportAllData, importAllData, clearAllStorage } from '@/services/db';
 import Modal from '@/components/ui/Modal';
@@ -112,9 +112,9 @@ export default function SettingsPage() {
           </button>
 
           <label className="cursor-pointer">
-            <input type="file" accept=".json" className="hidden" onChange={handleImport} />
+            <input type="file" accept=".json" className="hidden" onChange={handleImport} disabled={importing} />
             <span className="button-secondary text-xs !py-3 !px-5 cursor-pointer">
-              <Upload size={16} /> Import Backup File
+              <Upload size={16} /> {importing ? 'Importing...' : 'Import Backup File'}
             </span>
           </label>
         </div>

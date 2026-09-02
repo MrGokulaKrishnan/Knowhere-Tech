@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ChevronRight, ChevronLeft, CheckCircle2, Bookmark, StickyNote,
   Lightbulb, Code2, PlayCircle, Brain, MessageSquare, Eye, EyeOff, Sparkles, Check, X,
@@ -33,7 +33,7 @@ import VisualizerRegistry from '@/components/visualizers/VisualizerRegistry';
 import type { ModuleKey, Lesson } from '@/types';
 import Badge from '@/components/ui/Badge';
 import ProgressBar from '@/components/ui/ProgressBar';
-import { saveBookmark, deleteBookmark, saveNote, getNotesByLesson } from '@/services/db';
+import { saveBookmark, deleteBookmark, getAllBookmarks, saveNote, getNotesByLesson } from '@/services/db';
 import { clsx } from 'clsx';
 
 // Aggregate lesson registry across curriculum
@@ -273,8 +273,8 @@ function QuizEngine({ lesson, onComplete }: { lesson: Lesson; onComplete: (score
 
   const handleNext = () => {
     if (currentQ + 1 >= lesson.quiz.length) {
-      const maxScore = lesson.quiz.reduce((acc, item) => acc + item.points, 0);
-      const finalPct = Math.round(((score + (isCorrect ? 0 : 0)) / maxScore) * 100);
+      const maxScore = lesson.quiz.reduce((acc, item) => acc + (item.points || 10), 0) || 1;
+      const finalPct = Math.min(100, Math.round(((score + (isCorrect ? 0 : 0)) / maxScore) * 100));
       onComplete(finalPct);
       setIsFinished(true);
     } else {
@@ -284,10 +284,10 @@ function QuizEngine({ lesson, onComplete }: { lesson: Lesson; onComplete: (score
     }
   };
 
-  const maxPoints = lesson.quiz.reduce((acc, item) => acc + item.points, 0);
+  const maxPoints = lesson.quiz.reduce((acc, item) => acc + (item.points || 10), 0) || 1;
 
   if (isFinished) {
-    const finalPct = Math.round((score / maxPoints) * 100);
+    const finalPct = Math.min(100, Math.round((score / maxPoints) * 100));
     return (
       <div className="panel p-8 lg:p-10 mb-8 text-center rounded-3xl">
         <div className="w-16 h-16 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto mb-4 shadow-[0_0_20px_rgba(16,185,129,0.25)]">
@@ -395,7 +395,11 @@ function PracticeSection({ lesson }: { lesson: Lesson }) {
             <button
               onClick={() => setRevealed(prev => {
                 const next = new Set(prev);
-                next.has(p.id) ? next.delete(p.id) : next.add(p.id);
+                if (next.has(p.id)) {
+                  next.delete(p.id);
+                } else {
+                  next.add(p.id);
+                }
                 return next;
               })}
               className="button-secondary text-xs !py-2 !px-4"
@@ -435,7 +439,11 @@ function InterviewSection({ lesson }: { lesson: Lesson }) {
               <button
                 onClick={() => setRevealed(prev => {
                   const next = new Set(prev);
-                  next.has(iq.id) ? next.delete(iq.id) : next.add(iq.id);
+                  if (next.has(iq.id)) {
+                    next.delete(iq.id);
+                  } else {
+                    next.add(iq.id);
+                  }
                   return next;
                 })}
                 className="button-secondary text-xs !py-2 !px-4 shrink-0"
@@ -483,6 +491,10 @@ export default function LessonPage({ moduleKey }: { moduleKey: ModuleKey }) {
     if (lesson) {
       getNotesByLesson(lesson.id).then(notes => {
         if (notes.length > 0) setNoteText(notes[0].content);
+        else setNoteText('');
+      });
+      getAllBookmarks().then(bms => {
+        setIsBookmarked(bms.some(b => b.referenceId === lesson.id || b.id === `bm-${lesson.id}`));
       });
     }
   }, [slug, lesson]);

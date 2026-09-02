@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Package, Play, Layers, CheckCircle2, Server, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
+import { Package, Play, Layers } from 'lucide-react';
 
 const DOCKER_LAYERS = [
   { id: 'app', title: 'Layer 4: Spring Boot Executable (.jar)', size: '42 MB', type: 'Writable Container Layer', desc: 'Application bytecode, configuration profiles, and embedded Tomcat runtime.' },

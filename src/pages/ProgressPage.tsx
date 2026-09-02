@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  TrendingUp, Zap, Flame, Trophy, BookOpen, CheckCircle, Award,
+  TrendingUp, Zap, Flame, Trophy, CheckCircle, Award,
   Coffee, Layers, Code2, Database, Leaf, Atom, Package, ShieldCheck,
   Star, Target, ArrowRight, Lock
 } from 'lucide-react';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Home, Map, ArrowLeft } from 'lucide-react';
+import { Home, Map } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
 export default function NotFoundPage() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, CheckCircle, Lock } from 'lucide-react';
+import { ChevronRight, CheckCircle } from 'lucide-react';
 import ProgressBar from './ProgressBar';
 import { clsx } from 'clsx';
 

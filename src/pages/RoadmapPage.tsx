@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Rocket, Trophy, CheckCircle, Circle, ChevronRight, Info,
+  Rocket, Trophy, CheckCircle, ChevronRight, Info,
   Map, Lock, Coffee, Layers, Code2, Database, Atom, Leaf,
   Server, Terminal, Package, Workflow, Cloud, GitBranch,
   Network, TestTube, ShieldCheck, BookOpen, FolderOpen, MessageSquare
@@ -72,13 +72,6 @@ const STATUS_BADGE: Record<NodeStatus, React.ReactNode> = {
   'in-progress': <span className="pill pill-amber text-[10px] animate-pulse">⟳ In Progress</span>,
   available:   <span className="pill pill-zinc text-[10px]">Available</span>,
   locked:      <span className="pill pill-zinc text-[10px] opacity-60"><Lock size={9} /> Locked</span>,
-};
-
-const STATUS_LINE: Record<NodeStatus, string> = {
-  completed:   'bg-emerald-500',
-  'in-progress': 'bg-amber-400',
-  available:   'bg-[#142a20]',
-  locked:      'bg-[#0f1f17]',
 };
 
 export default function RoadmapPage() {

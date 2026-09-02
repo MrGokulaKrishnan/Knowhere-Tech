@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { LearningProvider } from '@/context/LearningContext';
+import { AuthProvider } from '@/context/AuthContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import AppShell from '@/components/layout/AppShell';
 import ErrorBoundary from '@/components/ui/ErrorBoundary';
@@ -41,9 +42,10 @@ function LessonPageWrapper() {
 export default function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider>
-        <LearningProvider>
-          <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider>
+          <LearningProvider>
+            <BrowserRouter>
             <AppShell>
               <Suspense fallback={<PageLoader />}>
                 <Routes>
@@ -94,6 +96,7 @@ export default function App() {
           </BrowserRouter>
         </LearningProvider>
       </ThemeProvider>
-    </ErrorBoundary>
-  );
+    </AuthProvider>
+  </ErrorBoundary>
+);
 }

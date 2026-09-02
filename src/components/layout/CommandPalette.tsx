@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, ArrowRight, BookOpen, X, Sparkles } from 'lucide-react';
+import { Search, ArrowRight, BookOpen, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSearch } from '@/hooks/useSearch';
 import { clsx } from 'clsx';

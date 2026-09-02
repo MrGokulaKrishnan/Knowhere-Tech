@@ -316,7 +316,7 @@ networks:
       { code: 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/knowhere', token: 'postgres:5432', explanation: '"postgres" here is the SERVICE NAME — Docker Compose provides automatic DNS so containers reference each other by service name, not IP address.' },
       { code: 'volumes:\n  - postgres-data:/var/lib/postgresql/data', token: 'postgres-data:', explanation: 'Named volume persists PostgreSQL data. Without this, all your database data is destroyed every time you run docker compose down.' },
       { code: 'condition: service_healthy', token: 'service_healthy', explanation: 'Waits for the healthcheck to pass before starting the dependent service. Prevents Spring Boot from crashing because it tried to connect before PostgreSQL was ready.' },
-      { code: '- POSTGRES_PASSWORD=\${DB_PASSWORD}', token: '${DB_PASSWORD}', explanation: 'References a variable from a .env file in the same directory. Never hardcode passwords — use .env files and add .env to .gitignore.' }
+      { code: '- POSTGRES_PASSWORD=${DB_PASSWORD}', token: '${DB_PASSWORD}', explanation: 'References a variable from a .env file in the same directory. Never hardcode passwords — use .env files and add .env to .gitignore.' }
     ],
     quiz: [
       {

@@ -6,9 +6,10 @@ import {
   Coffee, Code2, Database, Globe,
   Atom, Leaf, Server, Shield, Terminal, Package, Cloud, Layers, FolderOpen,
   MessageSquare, TrendingUp, GitBranch, Workflow, Network, TestTube, BookOpenCheck,
-  ShieldCheck, Compass, CheckCircle2, ChevronRight, Sparkles, Star, PlayCircle, Map
+  CheckCircle2, ChevronRight, Star, PlayCircle, Map
 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
+import { useAuth } from '@/context/AuthContext';
 import { getLevelFromXP, getLevelProgress, LEVELS } from '@/services/progressEngine';
 import { ALL_MODULES_META } from '@/data/modules/meta';
 import ProgressBar from '@/components/ui/ProgressBar';
@@ -62,52 +63,40 @@ const ICON_COLORS: Record<string, string> = {
   linux: 'text-zinc-300',
 };
 
-function StatBadge({ icon: Icon, label, value, color }: { icon: any; label: string; value: string; color: string }) {
-  return (
-    <div className="glass-card flex items-center gap-3 px-5 py-4 rounded-2xl">
-      <div className={`w-9 h-9 rounded-xl flex items-center justify-center bg-black/50 ${color}`}>
-        <Icon size={17} />
-      </div>
-      <div>
-        <p className="text-zinc-400 text-xs font-medium mb-0.5">{label}</p>
-        <p className={`font-extrabold font-mono text-base leading-none ${color}`}>{value}</p>
-      </div>
-    </div>
-  );
-}
-
 function GreetingHero() {
   const navigate = useNavigate();
   const { progress } = useLearning();
+  const { user } = useAuth();
   const level = getLevelFromXP(progress?.xp || 0);
 
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  const userName = user?.displayName?.split(' ')[0] || user?.email?.split('@')[0] || 'Engineer';
 
   return (
-    <div className="relative overflow-hidden rounded-3xl mb-8 panel bg-ambient-radial bg-hero-mesh border-[#142a20]">
+    <div className="relative overflow-hidden rounded-3xl mb-8 liquid-glass liquid-mesh-bg border-emerald-500/30">
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/3 w-64 h-64 rounded-full bg-teal-500/5 blur-3xl pointer-events-none" />
-      <div className="absolute inset-0 bg-ambient-grid opacity-30 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/3 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-ambient-grid opacity-25 pointer-events-none" />
 
       <div className="relative z-10 p-8 lg:p-12">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="eyebrow">Knowhere Tech · Full Stack Engineering Platform</span>
-              <span className="flex items-center gap-1 text-amber-400 text-xs font-mono font-bold">
-                <Star size={12} className="fill-amber-400" /> Pro
+              <span className="eyebrow">Knowhere Tech · Full Stack Cloud Platform</span>
+              <span className="flex items-center gap-1 text-amber-400 text-xs font-mono font-bold bg-amber-950/40 px-2 py-0.5 rounded-full border border-amber-500/30">
+                <Star size={12} className="fill-amber-400" /> Firestore Connected
               </span>
             </div>
 
             <h1 className="text-3xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight leading-[1.1]">
               {greeting},{' '}
-              <span className="text-gradient">Full Stack Engineer</span>
+              <span className="text-gradient">{userName}</span>
             </h1>
 
             <p className="text-zinc-300 text-base lg:text-lg leading-relaxed mb-7 max-w-xl">
-              Master <span className="text-emerald-300 font-semibold">Java 25 LTS</span>, Spring Boot 3 microservices, React 19 frontends, and cloud-native infrastructure with interactive visual concept tracers.
+              Master <span className="text-emerald-300 font-semibold">Java 25 LTS</span>, Spring Boot 3 microservices, React 19 frontends, and cloud-native architectures with real-time interactive concept engines.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 font-mono text-xs mb-6">

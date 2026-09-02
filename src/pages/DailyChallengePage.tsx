@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flame, Zap, CheckCircle, Brain, Code2, MessageSquare, Award, ArrowRight } from 'lucide-react';
+import { Flame, Zap, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLearning } from '@/context/LearningContext';
 import Card from '@/components/ui/Card';

@@ -55,9 +55,12 @@ self.addEventListener('fetch', (event) => {
   if (isStatic) {
     event.respondWith(
       caches.match(event.request).then((cached) => {
-        return cached || fetch(event.request).then((res) => {
-          const clone = res.clone();
-          caches.open(STATIC_CACHE).then((c) => c.put(event.request, clone));
+        if (cached) return cached;
+        return fetch(event.request).then((res) => {
+          if (res && res.ok) {
+            const clone = res.clone();
+            caches.open(STATIC_CACHE).then((c) => c.put(event.request, clone));
+          }
           return res;
         });
       })
@@ -67,6 +70,14 @@ self.addEventListener('fetch', (event) => {
 
   // Everything else: network with cache fallback
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
+    fetch(event.request).catch(async () => {
+      const cached = await caches.match(event.request);
+      if (cached) return cached;
+      return new Response('Network unavailable', {
+        status: 503,
+        statusText: 'Service Unavailable',
+        headers: { 'Content-Type': 'text/plain' },
+      });
+    })
   );
 });

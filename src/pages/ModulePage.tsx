@@ -8,12 +8,6 @@ import type { ModuleKey } from '@/types';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { clsx } from 'clsx';
 
-const DIFFICULTY_COLORS: Record<string, string> = {
-  beginner:     'pill-emerald',
-  intermediate: 'pill-amber',
-  advanced:     'pill-red',
-};
-
 interface ModulePageProps {
   moduleKey: ModuleKey;
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Atom, Play, RotateCcw, CheckCircle2, ArrowRight, Layers, Sparkles, RefreshCw } from 'lucide-react';
+import { Atom, Play, RotateCcw, CheckCircle2, Layers, Sparkles, RefreshCw } from 'lucide-react';
 
 interface ComponentState {
   count: number;

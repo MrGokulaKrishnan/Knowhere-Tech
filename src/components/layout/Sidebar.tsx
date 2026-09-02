@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, Map, Coffee, Database, Atom, Leaf,
-  Server, Terminal, Package, Workflow, Cloud, Layers, FolderOpen, MessageSquare,
-  TrendingUp, Settings, Flame, X, Code2, BookOpen, Award, AppWindow, Download
+  Server, Terminal, Package, Workflow, Cloud, Layers,
+  Settings, Flame, X, Code2, Award, AppWindow, Download,
+  CheckCircle2, LogIn, LogOut, TestTube
 } from 'lucide-react';
 import { useLearning } from '@/context/LearningContext';
+import { useAuth } from '@/context/AuthContext';
 import { getLevelFromXP } from '@/services/progressEngine';
 import { ALL_MODULES_META } from '@/data/modules/meta';
 import KnowhereLogo from '@/components/ui/KnowhereLogo';
 import OpenInAppModal from '@/components/ui/OpenInAppModal';
+import AuthModal from '@/components/auth/AuthModal';
 import { clsx } from 'clsx';
 
 interface NavSection {
@@ -49,19 +52,12 @@ const NAV_SECTIONS: NavSection[] = [
       { label: 'DevOps & CI/CD', path: '/devops', icon: Workflow, moduleKey: 'devops' },
       { label: 'AWS Cloud Architecture', path: '/aws', icon: Cloud, moduleKey: 'aws' },
       { label: 'Linux Bash Terminal', path: '/linux', icon: Terminal, moduleKey: 'linux' },
+      { label: 'Automated Testing', path: '/testing', icon: TestTube, moduleKey: 'testing' },
+      { label: 'System Design Patterns', path: '/system-design', icon: Server, moduleKey: 'system-design' },
     ],
   },
   {
-    title: 'PRACTICE & READINESS',
-    items: [
-      { label: '8 Project Blueprints', path: '/projects', icon: FolderOpen, badge: '8', moduleKey: 'projects' },
-      { label: '500+ Interview Bank', path: '/interview', icon: MessageSquare, badge: '500+', moduleKey: 'interview' },
-      { label: 'Job Readiness Matrix', path: '/job-readiness', icon: TrendingUp },
-      { label: 'Saved Bookmarks', path: '/bookmarks', icon: BookOpen },
-    ],
-  },
-  {
-    title: 'SYSTEM',
+    title: 'Settings & Data',
     items: [
       { label: 'Storage & Preferences', path: '/settings', icon: Settings },
     ],
@@ -71,19 +67,25 @@ const NAV_SECTIONS: NavSection[] = [
 interface SidebarProps {
   mobile?: boolean;
   onClose?: () => void;
+  onOpenAppModal?: () => void;
 }
 
-export default function Sidebar({ mobile, onClose }: SidebarProps) {
+export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: SidebarProps) {
   const { progress } = useLearning();
+  const { user, logOut } = useAuth();
   const level = getLevelFromXP(progress?.xp || 0);
   const location = useLocation();
   const [appModalOpen, setAppModalOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
 
   return (
     <>
-      <aside className="flex flex-col bg-[#020403] border-r border-[#142a20] h-full selection:bg-emerald-500/30 select-none z-20 w-full">
+      <aside className="flex flex-col bg-[#030604] border-r border-emerald-500/20 h-full selection:bg-emerald-500/30 select-none z-20 w-full relative">
+        {/* Specular Ambient Glow Line */}
+        <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-emerald-500/25 to-transparent pointer-events-none" />
+
         {/* Brand Header with Close Button */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#142a20] bg-[#050806]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[#142a20] bg-gradient-to-b from-[#061208] to-[#030604]">
           <NavLink to="/dashboard" onClick={onClose} className="flex items-center">
             <KnowhereLogo size="md" subtext="Java Full Stack Platform" />
           </NavLink>
@@ -95,6 +97,49 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
               title="Close navigation menu"
             >
               <X size={20} />
+            </button>
+          )}
+        </div>
+
+        {/* User Account / Auth Card */}
+        <div className="px-6 py-3.5 border-b border-[#142a20] bg-[#040805]">
+          {user ? (
+            <div className="flex items-center justify-between gap-3 p-2.5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+              <div className="flex items-center gap-2.5 min-w-0">
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt={user.displayName || 'User'} className="w-8 h-8 rounded-full border border-emerald-400/50 object-cover shrink-0" />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-emerald-900 border border-emerald-400 flex items-center justify-center font-mono font-bold text-xs text-emerald-200 shrink-0">
+                    {(user.displayName || user.email || 'U').charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-white truncate">{user.displayName || user.email?.split('@')[0]}</p>
+                  <p className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                    <CheckCircle2 size={10} /> Cloud Synced
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => logOut()}
+                className="p-1.5 text-zinc-400 hover:text-rose-300 rounded-lg hover:bg-rose-950/40 transition-colors"
+                title="Sign Out"
+              >
+                <LogOut size={14} />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setAuthModalOpen(true)}
+              className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 text-xs font-mono font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)] group cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <LogIn size={15} className="text-emerald-400 group-hover:scale-110 transition-transform" />
+                <span>Sign In / Sync Data</span>
+              </div>
+              <span className="text-[10px] bg-emerald-950 px-2 py-0.5 rounded-full border border-emerald-500/50 text-emerald-300">
+                Free
+              </span>
             </button>
           )}
         </div>
@@ -197,8 +242,12 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
           <div className="pt-2 px-1">
             <button
               onClick={() => {
-                if (onClose) onClose();
-                setAppModalOpen(true);
+                if (onOpenAppModal) {
+                  onOpenAppModal();
+                } else {
+                  if (onClose) onClose();
+                  setAppModalOpen(true);
+                }
               }}
               className="w-full flex items-center justify-between px-3.5 py-3 rounded-2xl bg-[#04130a] border border-emerald-500/40 text-emerald-300 hover:bg-[#092213] hover:border-emerald-400 transition-all group shadow-[0_0_15px_rgba(16,185,129,0.15)] text-xs font-mono font-semibold cursor-pointer"
             >
@@ -223,6 +272,7 @@ export default function Sidebar({ mobile, onClose }: SidebarProps) {
       </aside>
 
       <OpenInAppModal open={appModalOpen} onClose={() => setAppModalOpen(false)} />
+      <AuthModal open={authModalOpen} onClose={() => setAuthModalOpen(false)} />
     </>
   );
 }

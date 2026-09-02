@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Smartphone, Monitor, Download, CheckCircle2, X, Sparkles, Share2, PlusSquare, ArrowRight, AppWindow } from 'lucide-react';
+import { Monitor, Download, CheckCircle2, X, Sparkles, Share2, PlusSquare } from 'lucide-react';
 import KnowhereLogo from './KnowhereLogo';
 
 interface OpenInAppModalProps {

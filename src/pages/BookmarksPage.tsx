@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Bookmark, Trash2, BookOpen, ExternalLink, ArrowRight } from 'lucide-react';
+import { Bookmark, Trash2, BookOpen, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getAllBookmarks, deleteBookmark } from '@/services/db';
+import { ALL_MODULES_META } from '@/data/modules/meta';
 import type { Bookmark as BookmarkType } from '@/types';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -17,6 +18,22 @@ export default function BookmarksPage() {
   const handleDelete = async (id: string) => {
     await deleteBookmark(id);
     setBookmarks(prev => prev.filter(b => b.id !== id));
+  };
+
+  const handleOpenBookmark = (bm: BookmarkType) => {
+    if (!bm.moduleKey) {
+      navigate('/dashboard');
+      return;
+    }
+    if (bm.type === 'lesson') {
+      const mod = ALL_MODULES_META.find(m => m.key === bm.moduleKey);
+      const lesson = mod?.lessons.find(l => l.id === bm.referenceId);
+      if (lesson) {
+        navigate(`/${bm.moduleKey}/${lesson.slug}`);
+        return;
+      }
+    }
+    navigate(`/${bm.moduleKey}`);
   };
 
   return (
@@ -66,7 +83,7 @@ export default function BookmarksPage() {
                     variant="ghost"
                     size="sm"
                     icon={<ExternalLink size={14} />}
-                    onClick={() => navigate(`/${bm.moduleKey}`)}
+                    onClick={() => handleOpenBookmark(bm)}
                   >
                     Open
                   </Button>

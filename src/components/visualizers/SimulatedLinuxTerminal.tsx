@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Send, RotateCcw } from 'lucide-react';
+import { Send, RotateCcw } from 'lucide-react';
 
 const QUICK_COMMANDS = [
   'ls -la', 'pwd', 'whoami', 'java -version', 'docker ps', 
@@ -34,7 +34,6 @@ const COMMANDS: Record<string, string | React.ReactNode> = {
   'curl /api/health': '{"status":"UP","components":{"db":{"status":"UP"},"redis":{"status":"UP"}}}',
   'df -h': 'Filesystem      Size  Used Avail Use% Mounted on\n/dev/root        50G   32G   16G  67% /\ntmpfs           7.8G     0  7.8G   0% /dev/shm\ntmpfs           3.2G  1.5M  3.2G   1% /run\n/dev/sda1       256M  120M  136M  47% /boot/efi',
   top: 'top - 18:58:24 up 14 days,  2:30,  1 user,  load average: 0.45, 0.52, 0.58\nTasks: 124 total,   1 running, 123 sleeping,   0 stopped,   0 zombie\n%Cpu(s):  4.2 us,  1.8 sy,  0.0 ni, 93.8 id,  0.2 wa,  0.0 hi,  0.0 si,  0.0 st\nMiB Mem :  15948.5 total,   2456.2 free,   8102.4 used,   5389.9 buff/cache\n\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n   1245 dev       20   0 4895120 842100  32100 S  12.5   5.2  45:12.30 java\n    842 dev       20   0  412100  54200  28100 S   4.2   0.3   8:45.10 node\n   2311 root      20   0   14500   4100   3200 R   0.5   0.0   0:00.15 top',
-  date: new Date().toString(),
   env: 'USER=developer\nHOME=/home/developer\nSHELL=/bin/bash\nTERM=xterm-256color\nPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\nLANG=en_US.UTF-8\nJAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64',
 };
 
@@ -66,6 +65,8 @@ export default function SimulatedLinuxTerminal() {
     
     if (cleanCmd.toLowerCase().startsWith('echo ')) {
       output = cleanCmd.substring(5);
+    } else if (cleanCmd.toLowerCase() === 'date') {
+      output = new Date().toString();
     } else {
       output = COMMANDS[cleanCmd.toLowerCase()] || `bash: ${cleanCmd}: command not found. Type 'help' for available commands.`;
     }
