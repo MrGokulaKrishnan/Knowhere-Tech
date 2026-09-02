@@ -13,6 +13,7 @@ import { useAuth } from '@/context/AuthContext';
 import { getLevelFromXP, getLevelProgress, LEVELS } from '@/services/progressEngine';
 import { ALL_MODULES_META } from '@/data/modules/meta';
 import ProgressBar from '@/components/ui/ProgressBar';
+import { LiquidStatPill, LiquidStatCard } from '@/components/ui/LiquidGlassStats';
 
 const MODULE_ICONS: Record<string, React.ReactNode> = {
   java: <Coffee size={22} />,
@@ -99,20 +100,28 @@ function GreetingHero() {
               Master <span className="text-emerald-300 font-semibold">Java 25 LTS</span>, Spring Boot 3 microservices, React 19 frontends, and cloud-native architectures with real-time interactive concept engines.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs mb-6">
-              <span className="pill pill-emerald">
-                <Trophy size={11} className="text-amber-400" />
-                {level.title}
-              </span>
-              <span className="pill pill-emerald">
-                <Zap size={11} /> {(progress?.xp || 0).toLocaleString()} XP
-              </span>
-              <span className="pill pill-amber">
-                <Flame size={11} /> {progress?.streak || 1} Day Streak
-              </span>
-              <span className="pill pill-zinc">
-                <CheckCircle2 size={11} /> {progress?.totalLessonsCompleted || 0} Lessons Done
-              </span>
+            {/* Liquid Glass Metric Badges: Novice Engineer, 0 XP, 1 Day Streak, 0 Lessons Done */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 mb-7">
+              <LiquidStatPill
+                type="rank"
+                value={level.title}
+                onClick={() => navigate('/progress')}
+              />
+              <LiquidStatPill
+                type="xp"
+                value={`${(progress?.xp || 0).toLocaleString()} XP`}
+                onClick={() => navigate('/progress')}
+              />
+              <LiquidStatPill
+                type="streak"
+                value={`${progress?.streak || 1} Day Streak`}
+                onClick={() => navigate('/daily')}
+              />
+              <LiquidStatPill
+                type="lessons"
+                value={`${progress?.totalLessonsCompleted || 0} Lessons Done`}
+                onClick={() => navigate('/roadmap')}
+              />
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -166,13 +175,6 @@ function OverallProgress() {
   const levelPct = getLevelProgress(progress?.xp || 0);
   const nextLevel = LEVELS[level.level] ?? level;
 
-  const stats = [
-    { label: 'Lessons Mastered', value: `${completed}/${total}`, icon: BookOpen, color: 'text-emerald-400' },
-    { label: 'Total Experience', value: `${(progress?.xp || 0).toLocaleString()} XP`, icon: Zap, color: 'text-teal-400' },
-    { label: 'Study Streak', value: `${progress?.streak || 1} Days`, icon: Flame, color: 'text-amber-400' },
-    { label: 'Badges Earned', value: `${(progress?.badges || []).length}`, icon: Trophy, color: 'text-yellow-300' },
-  ];
-
   return (
     <div className="panel p-7 lg:p-8 border-[#142a20] rounded-3xl h-full flex flex-col justify-between">
       <div>
@@ -181,16 +183,32 @@ function OverallProgress() {
           Overall Progression & Live Metrics
         </h2>
 
+        {/* Liquid Glass Metric Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mb-7">
-          {stats.map(item => (
-            <div key={item.label} className="glass-card p-5 rounded-2xl flex flex-col gap-2 hover:border-emerald-500/40 transition-colors">
-              <div className="flex items-center gap-2">
-                <item.icon size={15} className={item.color} />
-                <span className="text-zinc-500 text-xs font-medium">{item.label}</span>
-              </div>
-              <span className={`text-2xl font-extrabold font-mono ${item.color} leading-none mt-1`}>{item.value}</span>
-            </div>
-          ))}
+          <LiquidStatCard
+            type="lessons"
+            title="Lessons Mastered"
+            value={`${completed}/${total}`}
+            subtitle={`${pct}% Mastered`}
+          />
+          <LiquidStatCard
+            type="xp"
+            title="Total Experience"
+            value={`${(progress?.xp || 0).toLocaleString()} XP`}
+            subtitle="Cloud Synced"
+          />
+          <LiquidStatCard
+            type="streak"
+            title="Study Streak"
+            value={`${progress?.streak || 1} Days`}
+            subtitle="Streak Active"
+          />
+          <LiquidStatCard
+            type="rank"
+            title="Current Rank"
+            value={level.title}
+            subtitle={`Next: ${nextLevel?.title || 'Max'}`}
+          />
         </div>
       </div>
 

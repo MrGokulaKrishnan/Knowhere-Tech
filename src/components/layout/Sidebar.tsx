@@ -13,6 +13,7 @@ import { ALL_MODULES_META } from '@/data/modules/meta';
 import KnowhereLogo from '@/components/ui/KnowhereLogo';
 import OpenInAppModal from '@/components/ui/OpenInAppModal';
 import AuthModal from '@/components/auth/AuthModal';
+import { LiquidGlassIcon } from '@/components/ui/LiquidGlassStats';
 import { clsx } from 'clsx';
 
 interface NavSection {
@@ -144,20 +145,24 @@ export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: Si
           )}
         </div>
 
-        {/* User Level Card */}
-        <div className="px-6 py-4 border-b border-[#142a20] bg-[#040705]">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5">
-              <Award size={15} className="text-emerald-400" /> {level.title}
-            </span>
-            <span className="text-xs font-mono text-emerald-400 font-bold">
+        {/* User Level Card - Liquid Glass */}
+        <div className="px-5 py-4 border-b border-[#142a20] bg-gradient-to-b from-[#05120a] to-[#020604] relative overflow-hidden">
+          {/* Ambient subtle liquid highlight */}
+          <div className="absolute top-0 left-3 right-3 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent pointer-events-none" />
+
+          <div className="flex items-center justify-between gap-2 mb-2.5">
+            <div className="flex items-center gap-2 min-w-0">
+              <LiquidGlassIcon type="rank" size="sm" />
+              <span className="text-xs font-bold text-white truncate font-mono">{level.title}</span>
+            </div>
+            <span className="text-xs font-mono text-emerald-300 font-extrabold shrink-0">
               {(progress?.xp || 0).toLocaleString()} XP
             </span>
           </div>
 
-          <div className="h-2 bg-[#020503] rounded-full overflow-hidden border border-[#142a20] mb-2">
+          <div className="h-2 bg-[#020503] rounded-full overflow-hidden border border-emerald-950/80 mb-2.5 p-[1px]">
             <div
-              className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-700 shadow-[0_0_15px_rgba(16,185,129,0.4)]"
+              className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 rounded-full transition-all duration-700 shadow-[0_0_12px_rgba(52,211,153,0.6)]"
               style={{
                 width: `${Math.min(
                   100,
@@ -172,10 +177,10 @@ export default function Sidebar({ mobile: _mobile, onClose, onOpenAppModal }: Si
             />
           </div>
 
-          <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
+          <div className="flex items-center justify-between text-[11px] text-zinc-400 font-mono">
             <span>Tier {level.level} of 7</span>
-            <span className="text-amber-400 flex items-center gap-1 font-semibold">
-              <Flame size={12} /> {progress?.streak || 1}d Streak
+            <span className="text-amber-300 flex items-center gap-1.5 font-bold">
+              <LiquidGlassIcon type="streak" size="sm" /> {progress?.streak || 1}d Streak
             </span>
           </div>
         </div>
