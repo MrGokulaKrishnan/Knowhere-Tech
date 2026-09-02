@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .firebase/
+.env
+.env.local
+.env.*.local
 debug.cjs
 test_dist.cjs

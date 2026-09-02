@@ -31,6 +31,37 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 const EMAIL_FOR_SIGN_IN_KEY = 'knowhere_email_for_signin';
 
+function formatAuthError(err: any): string {
+  const code = err?.code || '';
+  const msg = err?.message || '';
+
+  if (code.includes('api-key-not-valid') || msg.includes('api-key-not-valid') || code === 'auth/invalid-api-key') {
+    return 'Firebase API Key is missing or invalid. Please copy your actual Firebase API Key from Firebase Console into .env as VITE_FIREBASE_API_KEY.';
+  }
+  if (code === 'auth/unauthorized-domain' || msg.includes('unauthorized-domain')) {
+    return 'Domain is not authorized. Add it in Firebase Console > Authentication > Settings > Authorized Domains.';
+  }
+  if (code === 'auth/popup-closed-by-user') {
+    return 'Sign-in popup was closed before completing.';
+  }
+  if (code === 'auth/operation-not-allowed') {
+    return 'This sign-in method is disabled in Firebase Console > Authentication > Sign-in method.';
+  }
+  if (code === 'auth/user-not-found' || code === 'auth/wrong-password' || code === 'auth/invalid-credential') {
+    return 'Invalid email or password.';
+  }
+  if (code === 'auth/email-already-in-use') {
+    return 'An account with this email already exists. Try signing in.';
+  }
+  if (code === 'auth/weak-password') {
+    return 'Password should be at least 6 characters.';
+  }
+  if (code === 'auth/invalid-email') {
+    return 'Please enter a valid email address.';
+  }
+  return msg || 'Authentication failed. Please try again.';
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -53,7 +84,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             window.history.replaceState({}, document.title, window.location.pathname);
           })
           .catch((err: any) => {
-            setAuthError(err.message || 'Failed to complete passwordless sign-in.');
+            setAuthError(formatAuthError(err));
           });
       }
     }
@@ -80,7 +111,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         await signInWithRedirect(auth, googleProvider);
         return null;
       }
-      setAuthError(err.message || 'Google sign-in failed.');
+      setAuthError(formatAuthError(err));
       throw err;
     }
   };
@@ -92,7 +123,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await sendSignInLinkToEmail(auth, email, actionCodeSettings);
       window.localStorage.setItem(EMAIL_FOR_SIGN_IN_KEY, email);
     } catch (err: any) {
-      setAuthError(err.message || 'Failed to send magic sign-in link.');
+      setAuthError(formatAuthError(err));
       throw err;
     }
   };
@@ -107,7 +138,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       window.history.replaceState({}, document.title, window.location.pathname);
       return result.user;
     } catch (err: any) {
-      setAuthError(err.message || 'Failed to verify email link.');
+      setAuthError(formatAuthError(err));
       throw err;
     }
   };
@@ -118,7 +149,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const cred = await signInWithEmailAndPassword(auth, email, pass);
       return cred.user;
     } catch (err: any) {
-      setAuthError(err.message || 'Sign in failed.');
+      setAuthError(formatAuthError(err));
       throw err;
     }
   };
@@ -129,7 +160,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const cred = await createUserWithEmailAndPassword(auth, email, pass);
       return cred.user;
     } catch (err: any) {
-      setAuthError(err.message || 'Registration failed.');
+      setAuthError(formatAuthError(err));
       throw err;
     }
   };
@@ -139,7 +170,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await firebaseSignOut(auth);
     } catch (err: any) {
-      setAuthError(err.message || 'Failed to sign out.');
+      setAuthError(formatAuthError(err));
       throw err;
     }
   };
